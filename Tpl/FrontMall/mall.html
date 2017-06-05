@@ -1,0 +1,119 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/swiper.3.1.2.min.css?version={$version}" />
+	<style>
+		body{
+			padding-top: 0px;
+		}
+	</style>
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--商城公告-->
+		<div class="bulletin_box" id="scroll_box">
+            <p id="scroll_begin">{$content}</p>
+            <p id="scroll_end"></p>
+		</div>
+	<!--轮播图-->
+		<div class="swiper-container home_banner">
+    		<div class="swiper-wrapper">
+                {foreach from=$cust_flash_list item=item}
+                <div class="swiper-slide"><a href="http://{$item.link}"><img src="{$item.pic}" class="swiper-lazy" /></a></div>
+                {/foreach}
+    		</div>
+    		<div class="swiper-pagination"></div>
+		</div>
+	<!--土豪专区-->
+		<div class="mall_tab clearfix">
+            {foreach from=$class_list item=item}
+            <a href="{$class_mall_link}{$item.class_id}">
+				<span class="icon tuhao_big3x"></span>
+                <p>{$item.class_name}</p>
+			</a>
+            {/foreach}
+		</div>
+	<!--更多-->
+    {foreach from=$class_item_list item=item}
+    <a href="{$class_mall_link}{$item.class_id}" class="mall_more clearfix">
+			<i class="icon tuhao_gold3x fl"></i>
+            <p class="fl">{$item.class_name}</p>
+			<i class="right_gold3x fr"></i>
+			<span class="fr">更多</span>
+		</a>
+	<!--内容-->
+		<ul class="mall_main clearfix">
+            {foreach from=$item.item_list item=list}
+			<li class="clearfix">
+                <a href="{$item_detail_link}{$list.item_id}">
+                    <img data-original="{$list.base_pic}" class="lazy" />
+                    <h1>{$list.item_name}</h1>
+                    <p class="fl">{$list.mall_price|default:10000|intval}{$system_config.SYSTEM_MONEY_NAME}</p>
+					<span class="fr">
+                        已兑换<i>{$list.exchange_num|default:0}</i>件
+					</span>
+				</a>
+			</li>
+            {/foreach}
+		</ul>
+        {/foreach}
+	<!--兑换规则-->
+    	<a href="{$exchange_rule_link}" class="exchange_box clearfix">
+			<span class="icon duihuanguize3x fl"></span>
+			<h1 class="fl">兑换规则</h1>
+			<i class="fr icon right_gold3x"></i>
+		</a>
+		<div style="width: 100%;height: 3rem;"></div>
+		
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/swiper.3.1.2.jquery.min.js" ></script>
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+		<script>
+			var mySwiper = new Swiper('.swiper-container',{
+					pagination : '.swiper-pagination',
+					lazyLoading : true,
+				})
+			$(function()
+			{
+			/*轮播图*/
+				var clientWidth = $(window).width();
+				var imgh=clientWidth*(53/100);
+				$(".swiper-slide img").height(imgh);
+			/*对齐方式*/
+				$(".mall_main>li:even").css("float","left");
+				$(".mall_main>li:odd").css("float","right");
+			});
+		/*商城公告滚动*/
+			function scroll()
+			{
+			  	var begin = null;
+			  	
+			 	var scroll_begin = document.getElementById("scroll_begin"); 
+			 	var scroll_end = document.getElementById("scroll_end"); 
+			 	var scroll_div = document.getElementById("scroll_box");
+			 	
+			 	if(scroll_begin.offsetWidth>scroll_div.offsetWidth)
+			 	{
+			 		scroll_end.innerHTML=scroll_begin.innerHTML;
+			 	}
+			 	
+			 	begin = setInterval(function()
+			 	{
+			  		if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+			  		{
+			  			scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+			  		}
+			  		else
+			  		{
+			  			scroll_div.scrollLeft++; 
+			  		}
+			  	},15); 
+			}
+			scroll();
+		</script>
+{/block}

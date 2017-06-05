@@ -1,0 +1,421 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+		    background-color:#202020;
+		}
+        .guess_info_head{
+            background-color:#D6AA69;
+        }
+        .guess_info_head h1{
+            font-size:.8rem;
+            width:100%;
+            text-align:center;
+            line-height:normal;
+        }
+        .short_money{
+        	width:10.5rem;
+			height:2.2rem;
+			background-color: #fff;
+			position:absolute;
+			top:20rem;
+			left:0;
+			right:0;
+			margin:auto;
+			z-index: 9999;
+			opacity: 0.9;
+			border-radius: .4rem;
+			display:none;
+        }
+        .short_money i{
+			margin-top: .6rem;
+			margin-left:.5rem;
+			margin-right: .5rem;
+		}
+		.short_money p{
+			font-size: .8rem;
+			color:#000;
+			height:2.2rem;
+			line-height:2.2rem;
+		}
+		.guess_shade{
+			opacity:0.5;
+		}
+		.take_del{
+			height:7.4rem;
+		}
+		.take_del h1{
+			font-size: .6rem;
+			color:#909090;
+			margin-top: .1rem;
+		}
+		.cont_share{
+			position:absolute;
+			width:100%;
+			height:auto;
+			background-color:rgba(0, 0, 0, 0.15);
+			bottom:0;
+			z-index: -1;
+		}
+</style>
+{/block}
+{block name="content"}
+		<div class="guess_info_head clearfix">
+            <h1 class="txt_limit">已有{$guess_user_info.people_num|default:0}人参与竞猜，共投注{$guess_user_info.total_money|default:0|intval}{$system_config.SYSTEM_MONEY_NAME}</h1>
+		</div>
+		<div class="guess_doing_cont ">
+			<img src="/Public/Images/front/front_img/bg (1).jpg" class="bg_img"/>
+			<div class="cont_share"></div>
+			<!-- bg_img 背景图 -->
+            <div class="info_time">{if $guess_field_over}已截止{else if $guess_field_info.is_start == 0 && $left_time}{$left_time}截止{/if}</div>
+			<h1 class="guess_doing_tit">
+                {$guess_info.alert_message}
+			</h1>
+			<!-- 补充文字 删除不改变布局-->
+			<div class="team_box clearfix">
+				<div class="fl team_img_box">
+                    {if $guess_field_info.field_type == 2}
+
+                    <img data-original="/Public/Images/front/front_img/icon_dy.png" class="team_img lazy"/>
+                    <h1 class="team_name"></h1>
+                    {else}
+
+                    <img data-original="{$host_team_info.team_logo}" class="team_img lazy"/>
+                    <h1 class="team_name">{$host_team_info.team_name}</h1>
+                    {if $guess_field_info.field_type == 0 && $guess_info.is_over && $guess_info.host_score > $guess_info.guest_score}<span class="victory"></span>{/if}
+
+                    {/if}
+
+				</div>
+				<div class="fr team_img_box">
+                    {if $guess_field_info.field_type == 2}
+
+                    <img data-original="/Public/Images/front/front_img/icon_xy.png" class="team_img lazy"/>
+                    <h1 class="team_name"></h1>
+
+                    {else}
+
+                    <img data-original="{$guest_team_info.team_logo}" class="team_img lazy"/>
+                    <h1 class="team_name">{$guest_team_info.team_name}</h1>
+                    {if $guess_field_info.field_type == 0 && $guess_info.is_over && $guess_info.host_score < $guess_info.guest_score}<span class="victory"></span>{/if}
+
+                    {/if}
+					<!--  span victory 是胜利方出现的标志 -->
+				</div>
+				<div class="clearfix">
+					<div class="score_box clearfix">
+                        <p class="fl score_p">{$guess_info.host_score|default:0}</p>
+						<i class="icon2 VS fl"></i>
+                        <p class="fl score_p">{$guess_info.guest_score|default:0}</p>
+					</div>
+					<div class="ronda_box">
+						<div class="ronda_bg clearfix"><div class="ronda_bg_left fl"></div><div class="ronda_bg_right fr"></div></div>
+                        <h1 class="ronda_num">BO {if $guess_info.bo}{$guess_info.bo}{else}{$guess_field_num}{/if}</h1>
+					</div>
+                    {if $guess_field_num}
+                    {/if}
+				</div>
+			</div>
+			<div class="num_box">
+				<div class="num_box1 clearfix">
+                    {foreach from=$guess_field_list item=item key=key}
+                    <a href="/FrontGuess/guess_info/guess_id/{$item.guess_id}/guess_field_id/{$item.guess_field_id}"
+                     {if $item.over == 'no_over'}
+                          {if $item.guess_field_id == $guess_field_id}
+                             class="fl color_D6AA69"
+                          {else}
+                             class="fl color_B8B8B8"
+                          {/if}
+                       {else}
+                             class="fl"
+                       {/if}
+                        >{$item.guess_field_name}</a>
+                    {/foreach}
+				</div>
+			</div>
+		</div>
+		<div class="guess_doing_main">
+            {if $guess_champion_info}
+			<div class="doing_main_box">
+				<div class="doing_tit_box clearfix">
+                    <h1 class="fl">{$guess_champion_info.title}</h1>
+                    <h2 class="fr">{$guess_champion_info.people_num|default:0}人竞猜</h2>
+				</div>
+                <a class="doing_top_box clearfix" href="{$guess_champion_info_link}{$guess_champion_info.guess_champion_id}">
+					<div class="clearfix fl">
+                        {foreach from=$guess_champion_team_list item=item}
+						<div class="fl win_team">
+                            <img data-original="{$item.team_logo}" class="lazy"/>
+                            <h1>{$item.team_name}</h1>
+						</div>
+                        {/foreach}
+					</div>
+					<i class="icon2 fl gjjiantouright" href="{$guess_champion_info_link}{$guess_champion_info.guess_champion_id}"></i>
+				</a>
+			</div>
+            {/if}
+            {foreach from=$guess_field_question_list item=item} 
+            <div class="doing_main_box {if $guess_field_over}over{else}doing{/if}">
+				<!-- 盒子添加类名doning为可下注的   over为不可下注的 -->
+				<div class="doing_tit_box clearfix">
+                    <h1 class="fl">{$item.question}</h1>
+                    {if 0}
+                    <h2 class="fr">{$item.join_people|default:0}人竞猜</h2>
+                    {/if}
+				</div>
+				<div class="true_team clearfix">
+                    <input type="hidden" id="guess_field_question_id" value="{$item.guess_field_question_id}"/>
+                    <div class="fl ">
+                        <a href="javascript:;" id="1" class="dw_a {if $item.host_bat_money}active{/if} {if $item.result == 1}victory{/if}">{if $item.defind_team_name}{$item.defind_host_name}{else}{if $guess_field_info.field_type == 2}大于{else}{$host_team_info.team_name}{/if}{if $guess_field_info.field_type == 1 && $item.lose_type == 1}<span class="rf">-{$item.lose_score}</span>{/if}{/if}(<span id="odds">{$item.host_odds}</span>)<i></i></a>
+                       {if $item.host_bat_money} <div class="tz_money">(投注：{$item.host_bat_money}鱼翅)</div>{/if}
+                	</div>
+                	<div class="fl">
+                        <a href="javascript:;" id="2" class="dw_a {if $item.guest_bat_money}active{/if} {if $item.result == 2}victory{/if}">{if $item.defind_team_name}{$item.defind_guest_name}{else}{if $guess_field_info.field_type == 2}小于{else}{$guest_team_info.team_name}{/if}{if $guess_field_info.field_type == 1 && $item.lose_type == 2}<span class="rf">-{$item.lose_score}</span>{/if}{/if}(<span id="odds">{$item.guest_odds}</span>)<i></i></a>
+                        {if $item.guest_bat_money}<div class="tz_money">(投注：{$item.guest_bat_money}鱼翅)</div>{/if}
+                	</div>
+                    {if !$guess_field_over && !$item.is_cancel_bat}
+                    <a href="javascript:;" class="qx fr">取消下注</a>
+                    {/if}
+                    {if $item.host_bat_money || $item.guest_bat_money}
+                    <input type="hidden" id="is_bat_money" value="1"/>
+                    {/if}
+				</div>
+				
+				<!-- active 高亮 -->
+				<!-- victory为胜利队伍 -->
+			</div>
+            {/foreach} 
+		</div>
+		<!-- 投注弹窗 -->
+		<form id="form1"  method="POST">
+			<div class="guess_shade"></div>
+			<div class="guess_doing_layer">
+				<div class="doing_layer_top clearfix">
+					<h1 class="doing_layer_h1 fl">第二局比赛的胜者是？</h1><span class="doing_layer_span fl">Escape(1.83)</span>
+				</div>
+				<div class="doing_layer_cont clearfix">
+					<label class="fl" for="bet">投注鱼翅</label>
+					<input class="bet" id="bet" type="number" placeholder="最低投注100鱼翅"/>
+				</div>
+				<div class="doing_layer_bet">
+					<h1>(投注金额：<span>0</span>元)</h1>
+					<h2>可赢鱼翅：<span></span></h2>
+                    <h3>当前余额：<span>{$left_money}</span></h3>
+				</div>
+				<div class="doing_layer_footer clearfix">
+					<a href="javascript:;" class="out">取消</a>
+					<a href="javascript:;" class="yes">确认投注</a>
+				</div>
+			</div>
+			<div class="guess_doing_layer2">
+				<div class="doing_laye2_top clearfix" style="display: table;margin: 0 auto;"><i class="icon2 jcsuccess fl"></i><p class="fl">竞猜成功</p></div>
+				<div class="doing_layer_top clearfix">
+					<h1 class="doing_layer_h1 fl">第二局比赛的胜者是？</h1><span class="doing_layer_span fl">Escape(1.83)</span>
+					<div class="doing_layer_bet">
+						<h5>投注鱼翅：<span></span></h5>
+						<h2>可赢鱼翅：<span></span></h2>
+					</div>
+				</div>
+				<input type="button" value="继续其他投注" class="doing_layer_bt"/>
+			</div>
+			<div class="reg_hint clearfix">
+				<i class="icon2 fl szzhuyi"></i>
+				<p>请填写大于100的整数</p>
+			</div>
+			<div class="short_money clearfix">
+				<i class="icon2 fl szzhuyi"></i>
+				<p>当前余额不足</p>
+			</div>
+			<div class="guess_shade"></div>
+			<div class="take_del">
+				<i class="icon2 sctishi"></i>
+				<p>确定取消此次投注吗?</p>
+				<h1>（一个盘口只允许退1次）</h1>
+				<div class="take_del_box clearfix">
+					<h1 class="fl yes">确定</h1>
+					<h1 class="fl no">取消</h1>
+				</div>
+			</div>
+		</form>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+		<script>
+var left_money = parseFloat('{$left_money}');
+var team_type = 0;
+var guess_field_question_id = 0;
+var bat_opt = 0;
+var guess_field_over = parseInt({$guess_field_over});
+{literal}
+			$(function(){
+				var bet_cont_odds
+				var reg100=/^[1-9]{1}\d{2,}$/
+				var reg=/^(-)?\d+$/
+				$(".true_team .dw_a").on("click",function(){
+                    //判断是否已开盘或已结束的盘下问题
+                    if (guess_field_over) {
+                        alert_message('此局投注已结束');
+                        return;
+                    }
+
+					var bet_cont =$(this).parent().parent().siblings(".doing_tit_box").find("h1").html();
+					var bet_cont_span =$(this).text();
+					$(".doing_layer_h1").html(bet_cont);
+					$(".doing_layer_span").html(bet_cont_span);
+					bet_cont_odds =$(this).find("#odds").html();
+					$(".guess_shade").show();
+					$(".guess_doing_layer").show();
+					$("body").css("overflow","hidden");
+
+                    team_type = $(this).attr("id");
+                    guess_field_question_id = $(this).parent().siblings('#guess_field_question_id').val();
+				})
+				// 弹窗赋值
+				$("#bet").keyup(function(){
+					var this_val=$(this).val()
+					// 输入验证
+					if(reg.test(this_val)){
+						
+					}else{
+						$(".reg_hint").show();
+						    setTimeout(function () {
+					        $(".reg_hint").hide();
+					    }, 2000);
+					}
+					var bet_num =Number(this_val/100)
+					var bet_num2 =Math.round(Number(bet_cont_odds)*Number(this_val))
+					$(".doing_layer_bet h1").find("span").html(bet_num)//投注金额
+					$(".doing_layer_bet h2").find("span").html(bet_num2)//可赢鱼翅
+					$(".doing_layer_bet h5").find("span").html(this_val)//余额
+				})
+				// 提交验证
+				$(".doing_layer_footer .yes").on("click",function(){
+					var bet_val=$("#bet").val();
+					if(!reg.test(bet_val) || !reg100.test(bet_val)){
+						$(".reg_hint").show();
+						    setTimeout(function () {
+					        $(".reg_hint").hide();
+					    }, 2000);
+						return;
+					}
+                    var add_money = $('#bet').val();
+                    if (left_money < add_money){
+						//$(".short_money").show();
+						//    setTimeout(function () {
+					    //    $(".short_money").hide();
+					    //}, 2000);
+                        alert_message("余额不足");
+						return;
+                    }
+
+                    if (bat_opt == 1)  return;
+                    bat_opt = 1;
+                     $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontGuess/bat_guess",
+                          data: {"team_type":team_type, "guess_field_question_id":guess_field_question_id, "add_money":add_money},
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { bat_opt = 0;},
+                          success: function (msg){
+                              bat_opt = 0;
+                              console.log(msg);
+                              if(msg == 'success') 
+                              {
+                                  $(".guess_doing_layer").hide();
+                                  $(".guess_doing_layer2").show();
+                                  return;
+                              }
+                              else if (msg == 'over')
+                              {
+                                  alert_message('此问题已结算，不能投注');
+                              }
+                              else 
+                              {
+                                  alert_message('出错了，请稍后再试', 1);
+                              }
+                          }
+                      });
+				})
+				$(".doing_layer_footer .out").on("click",function(){
+                    guess_field_question_id = 0;
+                    team_type = 0;
+					$(".guess_shade").hide();
+					$(".guess_doing_layer").hide();
+					$("body").css("overflow","auto");
+				})
+
+
+				// 取消下注
+				$(".true_team .qx").on("click",function(){
+                    var is_bat_money = $(this).siblings("#is_bat_money").val();
+                    if (is_bat_money == 1) {
+                        guess_field_question_id = $(this).siblings("#guess_field_question_id").val();
+
+                        $(".guess_shade").show();
+                        $(".take_del").show();
+                        $(".footer").css("z-index","99")
+                    } else {
+                        alert_message("请先下注吧");
+                    }
+				})
+
+				$(".take_del .yes").on("click",function(){
+                    //处理取消
+                    if (!guess_field_question_id) {
+                        alert_message('网络故障，请稍后再试', 1);
+                        return;
+                    }
+
+                     $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontGuess/ajax_cancel_bat",
+                          data: {"guess_field_question_id":guess_field_question_id},
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                          success: function (msg){
+                              console.log(msg);
+                              if(msg == 'success') 
+                              {
+                                  alert_message('已成功取消下注', 1);
+                                  return;
+                              }
+                              else if (msg == 'no_have')
+                              {
+                                  alert_message('请先下注吧');
+                                  return;
+                              }
+                              else 
+                              {
+                                  alert_message('出错了，请稍后再试', 1);
+                              }
+                          }
+                      });
+                    
+				    $(".take_del").hide();
+				    $(".guess_shade").hide();
+				    $(".footer").css("z-index","1000")
+				})
+				$(".take_del .no").on("click",function(){
+                    guess_field_question_id = 0;
+				    $(".take_del").hide();
+				    $(".guess_shade").hide();
+				    $(".footer").css("z-index","1000")
+				})
+
+				//最后的结果与提交
+				$(".doing_layer_bt").on("click",function(){
+					//$("#form1").submit()
+					//$(".guess_shade").hide();
+					//$(".guess_doing_layer2").hide();
+					//$("body").css("overflow","auto");
+                    window.location.reload();
+				})
+				var s_h=parseInt($(".num_box").css("height"));
+				var s_p=parseInt($(".guess_doing_cont ").css("padding-bottom"));
+				var s_H=s_h+s_p
+				$(".cont_share").height(s_H);
+
+			})
+		</script>
+{/literal}
+{/block}

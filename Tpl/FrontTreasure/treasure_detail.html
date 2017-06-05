@@ -1,0 +1,493 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/layer.css?version={$version}" />
+	<style>
+		body{
+			padding-top: 0px;
+		}
+	</style>
+{/block}
+{block name="content"}
+  	<!--福利专区夺宝详情提示  周流水要求可以在添加时有个输入框设置-->
+    {if $treasure_info.is_fuli}
+    <p class="account-require">参与此项本周流水须达到<span>{$treasure_info.limit_fuli_money}</span>鱼翅</p>
+    {/if}
+	<!--大图-->
+    <img src="{$treasure_info.img_path}" class="indiana_img" />
+    
+    <!--福利专区夺宝详情弹窗提示                                若用户没有达到周流水要求，则该弹框显示-->
+    <div class="welfare-popup-wrap">
+    	<div class="welfare-popup-bg"></div>
+    	<div class="welfare-popup-cont">
+    		<h3>提示</h3>
+    		<p>您未满足本次参与条件，福利不停，您可以下次参与</p>
+    		<span class="welfare-popup-know">我知道了</span>
+    		<div class="welfare-popup-fork"></div>
+    	</div>
+    </div>
+	<!--夺宝进度-->
+		<div class="indiana_main">
+            <h1>{$treasure_info.prize_name}</h1>
+			<div class="indiana_props clearfix">
+                <p class="fl">期数：第<span>{$treasure_info.periods|default:1}</span>期</p>
+                <p class="fr">夺宝进度：<span class="home_span_txt">{$treasure_info.prop_deg|default:0}%</span></p>
+			</div>
+			<div class="indiana_color" data-perc="{$treasure_info.prop_deg|default:0}">
+				<div class="indiana_color_cont"></div>
+			</div>
+			<div class="indiana_number clearfix">
+                <p class="fl">已参与：<span>{$treasure_info.people_num|default:0}</span>人次</p>
+                <p class="fr">限购<span>{$treasure_info.each_person_times|default:1}</span>人次/天</p>
+			</div>
+			<div class="indiana_remaining clearfix">
+				<p class="fl indiana_remaining_right">剩余</p>
+                {foreach from=$left_arr item=item}
+                <span class="fl">{$item}</span>
+                {/foreach}
+				<p class="fl indiana_remaining_left">人次</p>
+			</div>
+			<div class="indiana_time">
+                {if $my_treasure_list}
+                {foreach from=$my_treasure_list item=item}
+                <p>我已参与：<i>1</i>人次&nbsp;夺宝号码：<span>{$item.id}</span>&nbsp;&nbsp;{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</p>
+                {/foreach}
+                {else}
+				<p>您还没有参与此次夺宝哦！</p>
+                {/if}
+			</div>
+		</div>
+	<!--选项菜单-->
+		<div class="indiana_menu">
+			<ul>
+				<li class="clearfix">
+					<h1 class="fl">夺宝规则</h1>
+					<span class="icon down3x fr"></span>
+					<p>
+                    {$rule_contents}
+                    </p>
+				</li>
+				<li class="clearfix">
+					<h1 class="fl">开奖规则</h1>
+					<span class="icon down3x fr"></span>
+					<p>
+                    {$open_contents}
+                    </p>
+				</li>
+			</ul>
+		</div>
+	<!--开奖记录-->
+        {if !$treasure_user_list}
+		<div class="lottery_box">
+            <div class="lottery_title clearfix" style="margin-bottom: 0;border-bottom: none;" onclick="redirect('{$award_record_by_prize_link}{$treasure_info.prize_id}')">
+				<p class="fl">往期开奖记录</p>
+				<span class="fr icon right3x"></span>
+			</div>
+			<div class="lottery_line"></div>
+        {else}
+        <div class="lottery_box">
+			<a href="{$award_record_by_prize_link}{$treasure_info.prize_id}" class="lottery_title clearfix">
+				<p class="fl">往期开奖记录</p>
+				<span class="fr icon right3x"></span>
+			</a>
+			<div class="lottery_title_this clearfix">
+				<h4 class="fl">本期夺宝参与记录</h4>
+                <p class="fr">自{$treasure_info.start_time|date_format:"%Y-%m-%d %H:%M:%S"}开始</p>
+			</div>
+            {foreach from=$treasure_user_list item=item}
+			<div class="lottery_user clearfix">
+                <img data-original="{$item.headimgurl}" class="fl lazy" />
+				<ul class="fl">
+					<li class="lottery_user_name">
+                        <p>{$item.nickname}</p>
+					</li>
+                    <li class="lottery_user_time">参与了<span>{$item.add_num|default:1}</span>人次&nbsp;{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</li>
+				</ul>
+			</div>
+            {/foreach}
+        {/if}
+			<div class="lottery_btn">
+            {if $treasure_info.people_num < $treasure_info.total_person_times}
+				<input type="button" value="参与本次夺宝" class="js_lottery_btn" />
+            {else}
+				<input type="button" value="夺宝已结束" />
+            {/if}
+			</div>
+		</div>
+		
+	<!--参与人次弹框-->
+		<div class="gouyu_layer js_add_times" style="display: none;">
+			<div class="number_layer">
+				<span class="icon CancelCopy3x"></span>
+				<h1>参与人次</h1>
+				<div class="number_box1 clearfix">
+					<span class="fl number_box_left">－</span>
+					<input type="number" class="fl js_number_box" value="10" />
+					<span class="fl number_box_right">＋</span>
+				</div>
+				<div class="number_specific clearfix">
+					<input type="button" value="20" class="fl number_specific_20" />
+					<input type="button" value="50" class="fl number_specific_50" />
+					<input type="button" value="100" class="fl number_specific_100" />
+				</div>
+				<div class="number_warn">
+					<span>*</span>
+                    <p>限购{$treasure_info.each_person_times|default:1}人次/天</p>
+				</div>
+				<div class="number_balance">
+					<p>每人次需要100鱼翅，共计<i id="sum_money">1000</i>鱼翅</p>
+                    <span>当前鱼翅余额:{$left_money}</span>
+				</div>
+				<div class="lottery_btn">
+					<input type="button" value="确认夺宝" class="js_number_btn" />
+				</div>
+			</div>
+		</div>
+
+        <!--选择游戏账号弹层-->
+		<div class="gouyu_layer js_choose_account" style="display: none;">
+			<div style="width: 100%;height: 100%;display: table;">
+				<div style="width: 100%;display: table-cell;vertical-align:middle;">
+					<div class="game_account">
+						<span class="icon CancelCopy3x"></span>
+						<h1>请选择游戏账号</h1>
+						<ul class="id_account">
+		                    {foreach from=$user_game_list item=item}
+							<li class="clearfix">
+								<div class="fl id_account_cont">
+		                            <p>{$item.game_name}</p>
+		                            <span>{$item.game_account}</span>
+								</div>
+		                        <input type="hidden" id="user_game_id" value="{$item.user_game_id}"/>
+								<i class="icon moren3x fr choose3x"></i>
+							</li>
+		                    {/foreach}
+						</ul>
+						<div class="game_box clearfix" style="display: none;">
+							<select name="sele3">
+								<option value="">选择游戏名称</option>
+		                        {foreach from=$game_list item=item}
+		                        <option value="{$item.game_id}">{$item.game_name}</option>
+		                        {/foreach}
+							</select>
+							<input type="text" placeholder="输入数字ID+游戏昵称" id="game_id" />
+							<input type="text" placeholder="输入Steam URL(必填)" id="game_url" />
+							<h5 class="url_hint">注意：请正确填写Steam URL，自动发货即将上线<br>(可百度"Steam URL")查找教程</h5>
+							<i class="icon choose_s3x fl"></i>
+							<p class="fl">保存到游戏信息</p>
+							<input type="radio" id="rad1" style="display: none;"/>
+						</div>
+						<div class="add_account clearfix">
+							<p class="fl">添加其他账号</p>
+							<span class="icon add3x fr"></span>
+						</div>
+						<div class="game_btn">
+							<input type="button" value="确定" class="js_game_btn" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+		<script>
+var LIMIT_MONEY = 100;
+var left_money = parseFloat("{$left_money}");
+var each_person_times = parseInt('{$treasure_info.each_person_times}');
+var treasure_id = parseInt("{$treasure_info.treasure_id}");
+var can_fuli = parseInt("{$can_fuli}");
+var user_game_id = 0;
+var save_game = 0;
+var opt= 0;
+{literal}
+			$(function()
+			{
+				$(".home_main>li:even").css("float","left");
+				$(".home_main>li:odd").css("float","right");
+
+				$(".js_number_box").keyup(function(){
+                    var num = $(this).val();
+                    if (num <= 0) {
+                        //alert_message('次数不得小于0');
+                        $(this).val();
+                        $("#sum_money").html(0);
+                    } else {
+                        $("#sum_money").html(num * 100);
+                    }
+                });
+
+				$(".indiana_color").each(function(){
+					var t = $(this),
+					dataperc = t.attr("data-perc");
+					t.find(".indiana_color_cont").animate({width:dataperc+"%"});
+				});
+			/*夺宝规则*/
+				$(".indiana_menu li").on("click",function()
+				{
+					$(this).find("p").toggle();
+					$(this).find("span").toggleClass("up3x");
+				});
+			/*参与夺宝*/
+				$(".js_lottery_btn").on("click",function()
+				{
+                    console.log(can_fuli);
+                    if (!can_fuli) {
+						$(".welfare-popup-wrap").css("display","block");
+                        return;
+                    } 
+					$(".js_add_times").show();
+					$("html,body").addClass("body_scroll");
+				});
+				/*关闭*/
+				$(".number_layer>span").on("click",function()
+				{
+					$(".js_add_times").hide();
+					$("html,body").removeClass("body_scroll");
+				});
+                //提交数据
+				$(".js_number_btn").on("click",function()
+				{ 
+                    var add_times = $(".js_number_box").val();
+                    if (add_times <= 0) {
+                        alert_message('人次不能为空');
+                        return;
+                    }
+                    //验证钱是否足够
+                    var add_money = add_times * LIMIT_MONEY;
+                    if (add_money > left_money) {
+                        alert_message('余额不足');
+                        return;
+                    }
+                    //次数限制
+                    if (add_times > each_person_times) {
+                        alert_message('超过了每人次数限制');
+                        return;
+                    }
+
+					$(".gouyu_layer").hide();
+                    $(".js_choose_account").show();
+                });
+
+			/*点击增加*/
+				$(".number_box_right").on("click",function()
+				{
+					var num = $(".js_number_box").val();
+					num ++;
+					$(".js_number_box").val(num);
+					
+					var sum = num*LIMIT_MONEY;
+					$(".number_balance>p>i").html(sum);
+				});
+			/*点击减少*/
+				$(".number_box_left").on("click",function()
+				{
+					var num = $(".js_number_box").val();
+					if($(".js_number_box").val()>1)
+					{
+						num --;
+						$(".js_number_box").val(num);
+						
+						var sum = num*LIMIT_MONEY;
+						$(".number_balance>p>i").html(sum);
+					}
+				});
+			/*具体数字*/
+				$(".number_specific>input").on("click",function()
+				{
+					var specific = $(this).val();
+					$(".js_number_box").val(specific);
+					
+					
+					var sum = specific*LIMIT_MONEY;
+					$(".number_balance>p>i").html(sum);
+				});
+
+                /*选择游戏账号弹层*/
+				$(".id_account>li").on("click",function()
+				{
+                    user_game_id = $(this).children("#user_game_id").val();
+					$(this).addClass("id_account_li").siblings().removeClass("id_account_li");
+					$(".game_box").hide();
+					$(".add_account").show();
+				});
+				$(".game_account>span").on("click",function()
+				{
+					$(".js_choose_account").hide();
+					$("body").removeClass("body_scroll");
+					$(".game_box").hide();
+					$(".add_account").show();
+				});
+			/*添加游戏账号弹层*/
+				$(".add_account").on("click",function()
+				{
+                    user_game_id = 0;
+					$(".game_box").show();
+					$("body").removeClass("body_scroll");
+					$(this).hide();
+					$(".game_box>i").removeClass("icon").addClass("wei");
+					$(".id_account>li").removeClass("id_account_li");
+				});
+				$(".game_box>i,.game_box>p").on("click",function()
+				{
+					$(".game_box>i").toggleClass("wei").toggleClass("icon");
+					if($(".game_box>i").hasClass("wei"))
+					{
+                        save_game = 0;
+						$("#rad1").attr("checked",false);
+					}
+					else
+					{
+                        save_game = 1;
+						$("#rad1").attr("checked",true);
+					}
+				});
+				
+				$(".js_game_btn").on("click",function()
+				{
+					if($(".game_box").is(":visible"))
+					{
+						var sele = $('select[name="sele3"]').val();
+						if(sele == ""){
+						layer.open({
+							 	content: '请选择游戏',
+							 	title: false,
+							   	btn: ['确定'],
+							});
+							return;
+						}
+                        var game_account = $("#game_id").val();
+						if(game_account ==""){
+						layer.open({
+							 	content: '请输入游戏ID',
+							 	title: false,
+							   	btn: ['确定'],
+							});
+							return;
+						}
+						var game_url = $("#game_url").val();
+						if(game_url ==""){
+						layer.open({
+							 	content: '请输入Steam URL',
+							 	title: false,
+							   	btn: ['确定'],
+							});
+							return;
+						}
+                        var url="https://steamcommunity.com/tradeoffer";
+                        if(!$("#game_url").val().indexOf(url)=="0"){
+							layer.open({
+							content: '您填写的steam URL格式不正确',
+							btn: ['确定'],
+							});
+						$("#game_url").focus();
+						return;
+						}
+                        var datas = {'treasure_id':treasure_id,
+                                     'type':2, 
+                                     'game_id':sele, 
+                                     'game_account':game_account, 
+                                     'save_game':save_game, 
+                                     'steam_url':game_url};
+                    } else {
+                        console.log(user_game_id);
+                        if (!user_game_id) {
+						layer.open({
+							 	content: '请选择游戏账号',
+							 	title: false,
+							   	btn: ['确定'],
+							});
+							return;
+                        } 
+                        var datas = {'treasure_id':treasure_id,
+                                     'type':1,
+                                     'user_game_id':user_game_id}
+                    }
+
+                    var add_times = $(".js_number_box").val();
+                    if (add_times <= 0) {
+                        alert_message('人次不能为空');
+                        return;
+                    }
+                    //验证钱是否足够
+                    var add_money = add_times * LIMIT_MONEY;
+                    if (add_money > left_money) {
+                        alert_message('余额不足');
+                        return;
+                    }
+                    //次数限制
+                    if (add_times > each_person_times) {
+                        alert_message('超过了每人次数限制');
+                        return;
+                    }
+
+                    datas['add_times'] = add_times;
+
+                    if (opt == 1) return;
+                    opt = 1;
+                    //提交数据
+                     $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontTreasure/submit_treasure",
+                          data:datas, 
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                          success: function (msg){
+                              console.log(msg);
+                              if(msg == 'failure') 
+                              {
+                                  opt = 0;
+                                  alert_message('网络故障', 1);
+                                  return false;
+                              }
+                              else if (msg == 'url_error')
+                              {
+                                  opt = 0;
+                                  alert_message('您填写的steam URL格式不正确');
+                                  return false;
+                              }
+                              else if (msg == 'success') 
+                              {
+                               // $("html,body").removeClass("body_scroll");
+                                //$(".js_choose_account").hide();
+                                  alert_message('夺宝成功', 1);
+                              } else {
+                              opt = 0;
+                                alert_message(msg, 1);
+                              }
+                          }
+                      });
+				});
+
+			});
+			//夺宝福利详情弹窗
+            if (can_fuli) {
+			$(".welfare-popup-wrap").css({
+				"height":$(window).height(),
+                "display":"none"
+			});
+            } else {
+			$(".welfare-popup-wrap").css({
+				"height":$(window).height(),
+			});
+            }
+			var welPopKnow = document.getElementsByClassName("welfare-popup-know")[0];
+			var welPopFork = document.getElementsByClassName("welfare-popup-fork")[0];
+			var welPopBg = document.getElementsByClassName("welfare-popup-bg")[0];
+			function welfarePopShow(obj){
+				obj.addEventListener("touchstart",function(e){
+					$(".welfare-popup-cont").css("display","none");
+					$(".welfare-popup-bg").css("display","none");
+					setTimeout(function(){
+						$(".welfare-popup-wrap").css("display","none");
+                        window.location.href="/FrontTreasure/treasure_index.html";
+					},300);
+				});
+			}
+			welfarePopShow(welPopKnow);
+			welfarePopShow(welPopFork);
+			welfarePopShow(welPopBg);
+{/literal}
+		</script>
+{/block}

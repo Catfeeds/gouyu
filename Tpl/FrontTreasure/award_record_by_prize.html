@@ -1,0 +1,66 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--主要内容-->
+		<div id="load_wrapper">
+			<div id="scroller">
+				<div class="lottery_main" id="new_list">
+                {foreach from=$draw_prize_list item=item}
+                <div class="lottery_box_cont clearfix {if $user_id == $item.user_id}{if $item.is_deliver}lottery_get{else}lottery_win{/if}{/if}" onclick="redirect('{$draw_prize_detail_link}{$item.draw_prize_id}')">
+                    	<!-- lottery_get是已领取 lottery_win是中奖 -->
+						<div class="lottery_left_box fl">
+                            <img src="{$item.headimgurl}" />
+                            <p>{$item.nickname}</p>
+						</div>
+						<div class="lottery_cont_box lottery_cont_box1 fl">
+							<div class="lottery_round_outer">
+								<div class="lottery_round_inside"></div>
+							</div>
+						</div>
+						<div class="lottery_right_box lottery_right_box1 fr">
+							<div class="lottery_right_top">
+                                第{$item.periods|default:1}期(开奖时间{$item.ajax_addtime})
+							</div>
+							<div class="lottery_right_bottom clearfix">
+								<ul class="fl">
+                                    <li>夺宝号码:<p>{$item.lottery|default:0}</p></li>
+                                    <li>本期参与:<p>{$item.people_use_times|default:1}</p>人次</li>
+                                    <li>夺宝成功率:<p>{$item.award_rate|default:10}%</p></li>
+                                    <li>参与总人次:<p>{$item.total_person_times|default:100}</p>人次</li>
+								</ul>
+								<i class="icon right3x fr"></i>
+							</div>
+						</div>
+					</div>
+                {/foreach}
+				</div>
+				<div id="pullUp">
+					<span class="pullUpIcon item jiazaizhong3x"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+var prize_id = parseInt('{$prize_id}');
+var user_id  = parseInt('{$user_id}');
+			$(function()
+			{
+				$(document).on("click",".lottery_box_cont",function()
+				{
+					$(this).addClass("lottery_box_active").siblings().removeClass("lottery_box_active");
+				});
+			});
+		</script>
+		<script type="text/javascript" src="__JS__/front/front_js/prize_record.js" ></script>
+{/block}

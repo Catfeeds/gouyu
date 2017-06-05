@@ -1,0 +1,74 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			background:#202020;
+		}
+</style>
+{/block}
+{block name="content"}		
+		<form action="" method="POST" id="form1">
+			<div class="game_name_box clearfix">
+				<label for="game_name" class="fl">游戏名称</label>
+				<select id="game_name" name="game_id" class="fl">
+					<option value ="0">选择游戏名称</option>
+                    {foreach from=$game_list item=item}
+                    <option value ="{$item.game_id}">{$item.game_name}</option>
+                    {/foreach}
+				</select>
+			</div>
+			<div class="game_id_box clearfix">
+				<label for="game_id" class="fl">游戏ID号</label>
+				<input type="text" id="game_id" placeholder="数字ID号＋游戏昵称" name="game_account" class="fl"/>
+			</div>
+			<div class="game_id_box clearfix">
+				<label for="game_url" class="fl" style="width:27%">Steam URL</label>
+				<input type="text" id="game_url" placeholder="输入Steam URL(必填)" name="steam_url" class="fl" style="width:73%"/>
+			</div>
+			<h1 class="url_hint">注意：请正确填写Steam URL，自动发货即将上线<br>(可百度"Steam URL")查找教程</h1>
+            <input type="hidden" name="act" value="add">
+			<input class="global_bt" id="game_bt" type="button" value="提交" style="margin-top: 1rem;"/>
+		</form>
+{/block}
+{block name="js"}		
+		<script>
+		   // var url="/^https:\/\/steamcommunity\.com\/tradeoffer/"
+
+			$("#game_bt").on("click",function(){
+				var url="https://steamcommunity.com/tradeoffer";
+				if($("#game_name").val()=="0"){
+					layer.open({
+					content: '请选择游戏名称',
+					btn: ['确定'],
+					});
+				return;
+				}
+				if($("#game_id").val().length<1){
+					layer.open({
+					content: '请输入游戏ID号',
+					btn: ['确定'],
+					});
+				$("#game_id").focus();
+				return;
+				}
+				if($("#game_url").val().length<1){
+					layer.open({
+					content: '请输入Steam URL',
+					btn: ['确定'],
+					});
+				$("#game_url").focus();
+				return;
+				}
+				if(!$("#game_url").val().indexOf(url)=="0"){
+					layer.open({
+					content: '您填写的steam URL格式不正确',
+					btn: ['确定'],
+					});
+				$("#game_url").focus();
+				return;
+				}
+                ajax_submit('/FrontUser/add_user_game', $("#form1").serialize(), '/FrontUser/user_game_list.html', '添加成功');
+			})
+		</script>
+{/block}

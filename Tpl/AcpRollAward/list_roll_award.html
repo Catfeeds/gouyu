@@ -1,0 +1,244 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<div class="tablesWrap">  
+<!-- end tables-searchbox -->  
+    <!--<div class="tables-searchbox">
+        <form method="post" action="">
+            <span class="tbs-txt">名称：</span>
+            <input type="text" name="roll_award_name" value="{$roll_award_name}">
+
+            <span class="tbs-txt">主队：</span>
+            <input type="text" name="host_team_name" value="{$host_team_name}">
+
+            <span class="tbs-txt">客队：</span>
+            <input type="text" name="guest_team_name" value="{$guest_team_name}">
+
+            <select name="item_status">
+                <option value="0" selected="">-{$ITEM_NAME}状态-</option>
+                {foreach from=$arr_item_status item=row key=key}
+                <option value="{$key}" {if $key EQ $item_status}selected{/if}>{$row}</option>
+                {/foreach}
+            </select>
+
+            <div class="mgt10">
+                <span class="tbs-txt">开始时间：</span>
+                <input type="text" autocomplete="off" class="Wdate" name="start_date" value="{$start_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <span class="tbs-txt">至</span>
+                <input type="text" autocomplete="off" class="Wdate" name="end_date" value="{$end_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <button type="submit" class="btn"><i class="gicon-search"></i>搜索</button>
+            </div>
+
+        </form>
+    </div>
+        -->
+<table class="wxtables">  
+    <colgroup>  
+    <col width="2%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="8%">
+    <col width="8%">
+    <col width="8%">
+    </colgroup>
+    <thead>
+        <tr>  
+            <td>选择</td>  
+            <td>用户昵称</td>
+            <td>Roll名称</td>
+            <td>中奖随机号</td>
+            <td>游戏名称</td>
+            <td>游戏账号</td>
+            <td>Steam Url</td>
+            <td>操作</td>
+        </tr>  
+    </thead>  
+	{foreach from=$roll_award_list item=question_class}
+    <tbody class="combo-tbody">  
+        <tr>
+			<td><input type="checkbox" class="checkbox" name="a[]" value="{$question_class.roll_award_id}"></td>
+			<td>{$question_class.nickname}</td>  
+			<td>{$question_class.roll_name}</td>  
+			<td>{$question_class.id}</td>  
+			<td>{$question_class.game_name}</td>  
+			<td style="word-break:break-all;">{$question_class.game_account}</td>  
+			<td style="word-break:break-all;">{$question_class.steam_url|default:'--'}</td>  
+            <td>  
+				<a href="/AcpUser/user_detail/user_id/{$question_class.user_id}.html" class="btn" title="用户详情">用户详情</a>  
+				<a href="/AcpRollAward/roll_award_detail/roll_award_id/{$question_class.roll_award_id}.html" class="btn" title="Roll详情">Roll详情</a>  
+                {if !$question_class.is_deliver}
+                <a href="javascript:;" class="btn" title="发货" onclick="deliver_roll({$question_class.roll_award_id})">发货</a>  
+                {/if}
+            </td>  
+        </tr>
+    </tbody>
+	{foreachelse}   
+    <tbody>    
+		<tr>
+			<td colspan="7">
+				没有符合条件的记录
+			</td>
+		<tr>
+    </tbody>  
+	{/foreach}
+</table>  
+<!-- end wxtables -->  
+<div class="tables-btmctrl clearfix">  
+    <!--<div class="fl">  
+        <a href="javascript:;" class="btn btn-blue" onclick="Select()">全选</a>  
+        <a href="javascript:;" class="btn btn-blue" onclick="Cancel()">取消</a>  
+        <a href="javascript:;" onclick="batch_delete()" class="btn btn-blue">删除</a>
+    </div>  
+    -->
+    <div class="fr">  
+        <div class="paginate">
+			{$page_str} 
+        </div>  
+        <!-- end paginate -->  
+    </div>  
+</div>  
+<!-- end tables-btmctrl -->  
+</div>  
+<!-- end tablesWrap -->   
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+{literal}
+<script>
+	//全选
+	function Select(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=true;
+		}
+	}
+	//取消全选
+	function Cancel(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=false;
+		}
+	}
+
+function delete_question_class(question_roll_award_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这条数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpRollAward/del_roll_award', {"roll_award_id":question_roll_award_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+function batch_delete()
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这些数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 var question_roll_award_ids = '';
+				 var count = 0;
+				 $('input[name="a[]"]:checked').each(function(){
+					 count ++;
+					 question_roll_award_ids += $(this).val() + ',';
+				 });
+
+				 if (!count)
+				 {
+					 alert('对不起，请选择至少一项进行删除！');
+					 return;
+				 }
+
+				 question_roll_award_ids = question_roll_award_ids.substr(0, question_roll_award_ids.length - 1);
+                 console.log(question_roll_award_ids);
+
+				 $.post('/AcpRollAward/batch_del_roll_award', {"question_roll_award_ids":question_roll_award_ids}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });
+}
+
+//发货
+function deliver_roll(id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要设置发货吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpRollAward/deliver_roll', {"roll_award_id":id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，设置成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，设置失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+</script>
+{/literal}
+{/block} 
+
+{block name="css"}
+<link type="text/css" rel="stylesheet" href="__ACPCSS__/tip.css" />
+{literal}
+<style>
+.PageNext{page-break-after: always; height:1px;}
+</style>
+{/literal}
+{/block} 

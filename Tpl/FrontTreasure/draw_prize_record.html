@@ -1,0 +1,71 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+{/block}
+{block name="content"}
+<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--主要内容-->
+		<div id="load_wrapper">
+			<div id="scroller">
+                <div class="lottery_main" id="new_list" >
+                    {foreach from=$draw_prize_list item=item}
+                    <div class="lottery_box_cont clearfix" onclick="redirect('{$award_record_by_prize_link}{$item.prize_id}')">
+						<div class="lottery_left_box fl ">
+                            <img data-original="{$item.headimgurl}" class="lazy" />
+                            <p>{$item.nickname}</p>
+							<span>获得</span>
+                            <p>{$item.prize_name}</p>
+						</div>
+						<div class="lottery_cont_box fl">
+							<div class="lottery_round_outer">
+								<div class="lottery_round_inside"></div>
+							</div>
+						</div>
+						<div class="lottery_right_box fr">
+							<div class="lottery_right_top">
+                                开奖时间{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}
+							</div>
+							<div class="lottery_right_bottom clearfix">
+                                <img data-original="{$item.prize_logo}" class="fl lazy" />
+								<ul class="fl">
+                                    <li>期数:第<p>{$item.periods|default:1}</p>期</li>
+                                    <li>夺宝号码:<p>{$item.lottery|default:"未知"}</p></li>
+                                    <li>本期参与:<p>{$item.people_use_times|default:1}</p>人次</li>
+                                    <li>夺宝成功率:<p>{$item.award_rate|default:20}%</p></li>
+                                    <li>参与总人次:<p>{$item.total_person_times|default:100}</p>人次</li>
+								</ul>
+								<i class="icon right3x fr"></i>
+							</div>
+						</div>
+					</div>
+
+                    {/foreach}
+				</div>
+				<div id="pullUp">
+					<span class="pullUpIcon item jiazaizhong3x"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js" ></script>
+		<script type="text/javascript" src="__JS__/front/front_js/item_list.js" ></script>
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+			$(function()
+			{
+				$(document).on("click",".lottery_box_cont",function()
+				{
+					$(this).addClass("lottery_box_active").siblings().removeClass("lottery_box_active");
+				});
+			});
+		</script>
+{/block}

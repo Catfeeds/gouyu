@@ -1,0 +1,70 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id="J_FormArticle" action="" method="post">
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>图文标题：</label>  
+    <div class="form-controls">  
+        <input type="text" placeholder="" class="xlarge" name="subscribe_title" id="subscribe_title" value="{$config.SUBSCRIBE_TITLE}">  
+		<span class="fi-help-text hide"></span>
+	</div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>图文链接：</label>  
+    <div class="form-controls">  
+        <input type="text" placeholder="" class="xlarge" name="subscribe_link" id="subscribe_link" value="{$config.SUBSCRIBE_LINK}">  
+		<span class="fi-help-text hide"></span>
+	</div>  
+</div> 
+
+<div class="formitems inline">
+	<label class="fi-name">缩略图：</label>
+	<div class="form-controls">
+		<ul class="fi-imgslist">
+			<li class="fi-imgslist-item pic{if !$config.SUBSCRIBE_PIC} hide{/if}">
+				<div class="pic-wrap">
+					<img id="J_Preview" class="pic-preview" />
+				</div>
+				<input type="hidden" name="img_url" id="J_ImgUrl" data-id="{if $config.SUBSCRIBE_PIC}{$article_data.article_id}{/if}" value="{$config.SUBSCRIBE_PIC}" />
+				<a href="javascript:;" class="del" id="J_Del" title="删除这张图"><i class="gicon-remove"></i></a>
+				<img src="__IMAGES__/popup-loading.gif" id="J_AjaxLoading" class="pic-loading" style="width: 32px; height: 32px;" />
+				<div class="pic-mask" id="J_Mask"></div>
+			</li>
+			<li class="fi-imgslist-item{if $config.SUBSCRIBE_PIC} hide{/if}">
+				<a href="javascript:;" class="add" title="上传一张新的图片" id="J_Uploader">+</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name">图文简述：</label>  
+    <div class="form-controls">  
+        <textarea name="subscribe_content" id="subscribe_content">{$config.SUBSCRIBE_CONTENT}</textarea>   
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">  
+		<input type="hidden" name="act" value="set" />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>保存</button>  
+    </div>  
+</div> 
+</form>
+{/block} 
+
+{block name="js"}
+<!-- 编辑器 -->
+<link rel="stylesheet" href="__KD__/themes/default/default.css" />
+<script charset="utf-8" src="__KD__/kindeditor.js?version={$version}" > </script>
+<script charset="utf-8" src="__KD__/lang/zh_CN.js?version={$version}" > </script>
+<script type="text/javascript" src="__JS__/jquery/ajaxupload.3.5.js?version={$version}"></script>
+<script type="text/javascript" src="__ACPJS__/AcpArticle/article_save.js?version={$version}"></script>
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpArticle/add_article.css"  type="text/css"/>
+{/block}

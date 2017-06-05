@@ -1,0 +1,34 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id='base_config' action='' method='POST'>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>暂时关闭夺宝：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="is_treasure_close" value="1" {if $system_config.IS_TREASURE_CLOSE == 1}checked="checked"{/if} />是</label>  
+            <label><input type="radio" name="is_treasure_close" value="0" {if $system_config.IS_TREASURE_CLOSE == 0}checked="checked"{/if}/>否</label>   
+        </div>  
+    </div>  
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">
+    	<input type='hidden' name='act' value='save' />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>确定</button>
+        <button type="reset" class="btn"><i class="gicon-repeat"></i>重置</button>
+    </div>  
+</div>
+</form> 
+{/block}
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script src='__ACPJS__/AcpConfig/edit_config.js?version={$version}'></script>
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpConfig/base_config.css" type="text/css" />
+{/block}

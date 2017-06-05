@@ -1,0 +1,93 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background:#202020;
+		}
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:0rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+			background:#202020;
+		}
+		</style>
+{/block}
+{block name="content"}
+<!-- 		<div class="record_head clearfix">
+            <a class="fl " href="{$my_guess_link}">比赛竞猜</a>
+            <a class="fl " href="{$my_guess_champion_link}">冠军猜</a>
+            <a class="fl active" href="{$my_treasure_link}">夺宝记录</a>
+			<!-- 高亮active -->
+		</div> -->
+		<div class="snatch_list" id="load_wrapper">
+			<div id="scroller">
+				<ul id="new_list">
+                    {foreach from=$treasure_user_list item=item}
+					<li class="snatch_li">
+                        <a class="clearfix" {if $item.is_open && $item.lottery}href="/FrontTreasure/draw_prize_detail/draw_prize_id/{$item.draw_prize_id}.html"{else if !$item.is_open}href="/FrontTreasure/treasure_detail/treasure_id/{$item.treasure_id}.html"{/if}>
+							<div class="cont1 clearfix">
+                                <img data-original="{$item.img_path}" class="fl lazy"/>
+								<div class="txt_box fl">
+                                    <h1>{$item.prize_name|default:"--"}</h1>
+                                    <h2>参与期号：第{$item.periods|default:0}期</h2>
+                                    <h3>我已参与：<span>{$item.times|default:1}</span>人次</h3>
+								</div>
+                                {if $item.is_open && $item.lottery}
+                                <h2 class="hint fr">开奖详情</h2>
+                                {/if}
+							</div>
+							<div class="cont2 clearfix">
+                                {if $item.is_open}
+                                    {if $item.lottery}
+                                <h1 class="fl">获得者：{$item.award_user_name|default:'--'}</h1>
+                                {if $item.award_user_id == $item.user_id}
+								<h2 class="already fr">已中奖</h2>
+                                    {if $item.is_deliver}<h2 class="already fr">已领取</h2>{/if}
+                                {else}
+								<h2 class="already fr">已开奖</h2>
+                                {/if}
+                                    {else}
+								<h2 class="already fr">已退款</h2>
+                                    {/if}
+                                {else}
+								<h1 class="fl">获得者：？</h1>
+								<h2 class="not fr">等待开奖</h2>
+                                {/if}
+								<!-- not 未开奖 already 已经开奖 -->
+							</div>
+						</a>
+					</li>
+                    {/foreach}
+				</ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/my_treasure.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+var system_money_name = '{$system_config.SYSTEM_MONEY_NAME}';
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

@@ -1,0 +1,81 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			background:#202020;
+		}
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:2.8rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+			background:#202020;
+		}
+		.guess_shade{
+			opacity:0.5;
+		}
+</style>
+{/block}
+{block name="content"}
+    <a class="add_game_top clearfix" href="{$add_user_game_link}">
+			<h1 class="fl">添加游戏</h1>
+			<i class="fr icon2 gjjiantouright"></i>
+		</a>
+		<ul id="new_list" class="game_list">
+            {foreach from=$user_game_list item=item}
+			<li class="game_li">
+				<!-- <a href="javascript:;" > -->
+					<div class="game_box clearfix">
+                        <h1 class="fl">{$item.game_name}</h1>
+                        <input type="hidden" id="user_game_id" value="{$item.user_game_id}"/>
+                        <i class="fr icon2 lbdelete"></i>
+					</div>
+                    <h2 class="game_h2">ID：{$item.game_account}</h2>
+                    <h2 class="game_h2">Steam URL：{$item.steam_url}</h2>
+				<!-- </a> -->
+			</li>
+            {foreachelse}
+            	<p style="color: #FFF;text-align: center;">您还没有添加游戏呢</p>
+            {/foreach}
+		</ul>
+		<!-- 删除确认 -->
+		<div class="guess_shade"></div>
+		<div class="take_del">
+			<i class="icon2 sctishi"></i>
+			<p>确定删除这个游戏账号吗?</p>
+			<div class="take_del_box clearfix">
+				<h1 class="fl yes">确定</h1>
+				<h1 class="fl no">取消</h1>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script>
+var user_game_id,
+    this_del;
+
+$(".game_li .lbdelete").on("click",function(){
+    $(".take_del").show();
+    $(".guess_shade").show();
+    user_game_id = $(this).siblings('#user_game_id').val();
+    if (!user_game_id) return;
+    this_del =$(this).parent().parent(".game_li")
+})
+$(".take_del .yes").on("click",function(){
+    $(".take_del").hide();
+    $(".guess_shade").hide();
+    ajax_submit('/FrontUser/delete_user_game', 'user_game_id='+user_game_id, '', '删除成功');
+    this_del.remove();
+})
+$(".take_del .no").on("click",function(){
+    $(".take_del").hide();
+    $(".guess_shade").hide();
+})
+		</script>
+{/block}

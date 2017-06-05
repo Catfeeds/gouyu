@@ -1,0 +1,261 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id="J_FormArticle" action="" method="post">
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>竞猜类型：</label>  
+    <div class="form-controls">  
+        <select name="guess_type_id" onchange="get_team_by_type(this)" id="guess_type_id">
+            <option value="">--请选择--</option>
+            {foreach from=$guess_type_list item=item}
+            <option value="{$item.guess_type_id}">{$item.guess_type_name}</option>
+            {/foreach}
+        </select>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>竞猜名称：</label>  
+    <div class="form-controls">  
+		<input type="text" placeholder="" class="xlarge" name="guess_name" id="guess_name" value="{$guess_info.guess_name}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>主队：</label>  
+    <div class="form-controls">  
+        <select name="host_team" id="host_team_list">
+            <option value="">--请选择--</option>
+        </select>
+		<input type="text" placeholder="可以在这搜索队伍" class="" name="search_host"  value="" oninput="search_team(this, 1)">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>客队：</label>  
+    <div class="form-controls">  
+        <select name="guest_team" id="guest_team_list">
+            <option value="">--请选择--</option>
+        </select>
+		<input type="text" placeholder="可以在这搜索队伍" class="" name="search_guest"  value="" oninput="search_team(this, 2)">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div>  
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>BO：</label>  
+    <div class="form-controls">  
+		<input type="number" placeholder="" class="mini" name="bo"  value="{$guess_info.bo}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>开始时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="start_time" value="{$guess_info.start_date|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd H:mm:ss'})">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>排序号：</label>  
+    <div class="form-controls">  
+		<input type="text" placeholder="" class="mini" name="serial" id="serial" value="{$guess_info.serial}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name">显示：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="isuse" value="1" checked="checked" />是</label>  
+            <label><input type="radio" name="isuse" value="0" />否</label>   
+        </div>  
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">  
+		<input type="hidden" name="act" value="add" />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>添加</button>  
+    </div>  
+</div> 
+</form>
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script type="text/javascript" src="__JS__/jquery/ajaxupload.3.5.js?version={$version}"></script>
+<script>
+{literal}
+    function upload_file(div_id)
+    {
+        // ajax上传图片
+        new AjaxUpload("#" + div_id + "_uploader", {
+            action: "/AcpArticleAjax/uploadHandler",
+            name: "imgFile",
+            responseType: "json",
+            onSubmit: function(){
+                //alert('正在上传');
+                //preview处的图片改为loading图片
+                $('#' + div_id).find('.preview').removeClass('hide');
+            },
+            onChange: function(file, extension){
+                if (extension && /^(jpg|png|jpeg|gif)$/.test(extension)) {
+                    return true;
+                }
+                else {
+                    alert('暂不支持该图片格式！');
+                    return false;
+                }
+            },
+            onComplete: function(file, response){
+                console.log(response);
+                if (response.status === 0) {
+                    alert(response.msg);
+                }
+                else if (response.status === 1) {
+                    $('#' + div_id).find('#J_Preview').attr('src', response.img_url);
+                    $('#' + div_id).find('.preview').show();
+                    $('#' + div_id).find('#J_ImgUrl').val(response.img_url);
+                    $('#' + div_id).find('#add_li').hide();
+                }
+            }
+        });
+    }
+
+    function delImage(div_id)
+    {
+        var ajaxLoading = $('#' + div_id).find('#J_AjaxLoading');
+        var preview = $('#' + div_id).find('#J_Preview');
+        var param = {};
+        var _id = $('#' + div_id).find('#J_ImgUrl').data('id');
+        var imgUrl = $('#' + div_id).find('#J_ImgUrl').val();
+        
+        if (_id != '') {
+            param.id = _id;
+        }
+        if (imgUrl != '') {
+            param.img_url = imgUrl;
+        }
+        $.ajax({
+            url: '/AcpArticleAjax/delImage',
+            type: 'post',
+            data: param,
+            dataType: 'json',
+            beforeSend: function(){
+                ajaxLoading.show();
+            },
+            success: function(data){
+            //  console.log(data);
+                if (data.status === 1) {
+                    $('#' + div_id).find('#J_ImgUrl').attr('data-id', '').val(null);
+                    $('#' + div_id).find('#J_Del').off('click', delImage);
+                    preview.removeAttr('src').parent().parent().addClass('hide');
+                    $('#' + div_id).find('#' + div_id + '_uploader').parent().removeClass('hide');
+                    $('#' + div_id).find('#add_li').show();
+                }
+                ajaxLoading.fadeOut();
+            }
+        });
+    }
+{/literal}
+
+function get_team_by_type(obj)
+{
+    var guess_type_id = $(obj).val();
+    if (!guess_type_id) {
+        return;
+    }
+
+    $.ajax({
+        type: "POST", //用POST方式传输
+        url: "/AcpGuess/ajax_get_team_by_type",
+        data: "guess_type_id=" +guess_type_id,
+        dataType:"json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) { },
+        success: function (d){
+            //console.log(d);
+            var html = '<option value="">--请选择--</option>';
+            if(d.code != 400) 
+            {
+                var len = d.length;
+                console.log(len);
+                var i=0;
+                for(i=0; i< len; i++){
+                    html+= '<option value="'+d[i].team_id+'">'+d[i].team_name+'</option>';
+                }
+                $("#host_team_list").empty();
+                $("#host_team_list").append(html);
+                $("#guest_team_list").empty();
+                $("#guest_team_list").append(html);
+            }
+            else
+            {
+                $("#host_team_list").empty();
+                $("#host_team_list").append(html);
+                $("#guest_team_list").empty();
+                $("#guest_team_list").append(html);
+            }
+        }
+    });
+}
+
+
+function search_team(obj, type)
+{
+    var team_name = $(obj).val();
+    if (!team_name) {
+        //return;
+    }
+    var guess_type_id = $("#guess_type_id").val();
+
+    $.ajax({
+        type: "POST", //用POST方式传输
+        url: "/AcpGuess/ajax_search_team",
+        data: "guess_type_id=" +guess_type_id+"&team_name="+team_name,
+        dataType:"json",
+        error: function (XMLHttpRequest, textStatus, errorThrown) { },
+        success: function (d){
+            //console.log(d);
+            var html = '<option value="">--请选择--</option>';
+            if(d.code != 400) 
+            {
+                var len = d.length;
+                console.log(len);
+                var i=0;
+                for(i=0; i< len; i++){
+                    html+= '<option value="'+d[i].team_id+'">'+d[i].team_name+'</option>';
+                }
+                if (type == 1) {
+                    $("#host_team_list").empty();
+                    $("#host_team_list").append(html);
+                } else {
+                    $("#guest_team_list").empty();
+                    $("#guest_team_list").append(html);
+                }
+            }
+            else
+            {
+                if (type == 1) {
+                    $("#host_team_list").empty();
+                    $("#host_team_list").append(html);
+                } else {
+                    $("#guest_team_list").empty();
+                    $("#guest_team_list").append(html);
+                }
+            }
+        }
+    });
+}
+</script>
+{/block} 
+
+{block name="css"}
+{/block}

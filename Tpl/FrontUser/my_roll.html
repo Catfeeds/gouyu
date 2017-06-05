@@ -1,0 +1,72 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+<style>
+	body{
+		padding-top: 0;
+	}
+</style>
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--内容-->
+	<div id="load_wrapper">
+		<div id="scroller">
+			<div class="my_roll" id="new_list">
+                {foreach from=$roll_user_list item=item}
+                <a href="{$roll_detail_link}{$item.roll_id}" class="my_roll_box clearfix" >
+                    <img data-original="{$item.img_path}" class="fl lazy" />
+					<div class="my_roll_cont fl clearfix">
+                        <div class="my_roll_top">
+                        	<h1>{$item.roll_name}</h1>
+	                        <p>奖品:{$item.prize_name}</p>
+	                        <span>报名时间:{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</span>
+                        </div>
+                        {if !$item.is_open}
+							<div class="my_roll_bottom">
+								<i class="icon time3x fl"></i>
+								<h3 class="fl">即将揭晓</h3>
+		                        <h2>{$item.left_time}</h2>
+							</div>
+                        {else}
+                            {if $item.award_user_id == $item.user_id}
+                            <div class="my_roll_bottom">
+                            	<i class="icon time3x fl"></i>
+	                            <h3 class="fl">已开奖</h3>
+	                            <h3 class="my_h3_color">已获奖</h3>
+	                            <h4>开奖时间:{$item.open_time|date_format:"%Y-%m-%d %H:%M:%S"}</h4>
+                            </div>
+                            {else}
+                            <div class="my_roll_bottom">
+                            	<i class="icon time_gray3x fl"></i>
+	                            <h3 class="fl my_h3_grey">已开奖</h3>
+	                            <h2 class="my_h2_grey">获得者:{$item.award_user_name}</h2>
+	                            <h4>开奖时间:{$item.open_time|date_format:"%Y-%m-%d %H:%M:%S"}</h4>
+                            </div>
+                            {/if}
+                        {/if}
+					</div>
+				</a>
+                {/foreach}
+			</div>
+			<div id="pullUp">
+					<span class="pullUpIcon item jiazaizhong3x"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+		
+{/block}
+{block name="js"}
+    <script type="text/javascript" src="__JS__/front/front_js/iscroll.js?version={$version}"></script>
+    <script type="text/javascript" src="__JS__/front/front_js/my_roll.js?version={$version}"></script>
+    <script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+</script>
+{/block}

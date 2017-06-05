@@ -1,0 +1,57 @@
+[ 2016-12-05T13:54:22+08:00 ] 127.0.0.1 /admin
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.017880s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001223s ]
+
+[ 2016-12-05T13:54:22+08:00 ] 127.0.0.1 /acp.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004399s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000414s ]
+
+[ 2016-12-05T13:54:22+08:00 ] 127.0.0.1 /login/index/redirect/US4CZgYyXX4DK1w+XWJVMQYwB3sNLgQ5VSMBbQc;xx;.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006191s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000400s ]
+
+[ 2016-12-05T13:54:26+08:00 ] 127.0.0.1 /login/index/redirect/US4CZgYyXX4DK1w+XWJVMQYwB3sNLgQ5VSMBbQc;xx;.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006220s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008363s ]
+SQL: SELECT `user_id`,`username`,`role_type`,`password`,`is_enable`,`login_try_times`,`block_time`,`group_id` FROM `tp_users` WHERE ( username = 'admin@admin.com' ) LIMIT 1   [ RunTime:0.002911s ]
+SQL: UPDATE `tp_users` SET `login_try_times`=0,`block_time`=0 WHERE ( user_id = 1 ) [ RunTime:0.003752s ]
+
+[ 2016-12-05T13:54:27+08:00 ] 127.0.0.1 /acp/index.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002160s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.002637s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009151s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.002274s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004065s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 AND reg_time > 1480867200 ) LIMIT 1   [ RunTime:0.003548s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 4 ) LIMIT 1   [ RunTime:0.018648s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( addtime> 1480867200 ) LIMIT 1   [ RunTime:0.004304s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` LIMIT 1   [ RunTime:0.000207s ]
+SQL: SELECT `username`,`realname`,`nickname` FROM `tp_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.000284s ]
+
+[ 2016-12-05T13:54:30+08:00 ] 127.0.0.1 /AcpFinance/edit_account/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002708s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000319s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007176s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000529s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.009626s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 0, 10   [ RunTime:0.009271s ]
+
+[ 2016-12-05T13:54:31+08:00 ] 127.0.0.1 /AcpFinance/recharge/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002759s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000418s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006120s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000585s ]
+
+[ 2016-12-05T13:54:33+08:00 ] 127.0.0.1 /AcpFinance/recharge/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003270s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000376s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006849s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000362s ]
+
+[ 2016-12-05T13:54:33+08:00 ] 127.0.0.1 /AcpFinance/recharge/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002953s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002709s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000356s ]
+

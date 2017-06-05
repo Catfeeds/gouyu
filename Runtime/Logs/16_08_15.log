@@ -1,0 +1,687 @@
+[ 2016-08-15T17:23:52+08:00 ] 127.0.0.1 /FrontMall/mall_home
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006725s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000495s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000264s ]
+SQL: SELECT `subscribe`,`openid` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `tp_member` [ RunTime:0.006285s ]
+SQL: SELECT `default_user_address_id` FROM `tp_member` WHERE ( member_id = 39454 ) LIMIT 1   [ RunTime:0.000269s ]
+SQL: SHOW COLUMNS FROM `tp_user_address` [ RunTime:0.006290s ]
+SQL: SELECT `user_address_id` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1   [ RunTime:0.000135s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.006426s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 0 ) LIMIT 1   [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.005758s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 0 ) LIMIT 1   [ RunTime:0.000199s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006320s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT `headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006191s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse = 1 ) ORDER BY serial  [ RunTime:0.000230s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006332s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY serial ASC, addtime DESC LIMIT 0, 10   [ RunTime:0.000275s ]
+SQL: SELECT `user_rank_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006223s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( isuse = 1 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006987s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 AND is_recommend = 1 ) ORDER BY serial LIMIT 0, 10   [ RunTime:0.000287s ]
+ERR: Unknown column 'is_recommend' in 'where clause'
+ [ SQL语句 ] : SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 AND is_recommend = 1 ) ORDER BY serial LIMIT 0, 10  
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.009203s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( -86400 < addtime ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006430s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY sales_num DESC, is_recommend DESC, addtime DESC LIMIT 0, 10   [ RunTime:0.000269s ]
+ERR: Unknown column 'is_recommend' in 'order clause'
+ [ SQL语句 ] : SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY sales_num DESC, is_recommend DESC, addtime DESC LIMIT 0, 10  
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006305s ]
+SQL: SHOW COLUMNS FROM `tp_notice` [ RunTime:0.006558s ]
+SQL: SELECT * FROM `tp_notice` LIMIT 0, 15   [ RunTime:0.000602s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007032s ]
+SQL: SELECT `link`,`pic` FROM `tp_cust_flash` WHERE ( isuse = 1 )  [ RunTime:0.000234s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` LIMIT 1   [ RunTime:0.000160s ]
+SQL: SHOW COLUMNS FROM `tp_index_ads` [ RunTime:0.002861s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_index_ads`
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 0 AND isuse = 1 )  [ RunTime:0.000211s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 0 AND isuse = 1 ) 
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 1 AND isuse = 1 )  [ RunTime:0.000123s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 1 AND isuse = 1 ) 
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 2 AND isuse = 1 )  [ RunTime:0.000259s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 2 AND isuse = 1 ) 
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_index_ads` LIMIT 1   [ RunTime:0.000153s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `tp_index_ads` LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006582s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse = 1 ) ORDER BY serial  [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `tp_index_nav` [ RunTime:0.003262s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_index_nav`
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_index_nav` WHERE ( isuse = 1 ) LIMIT 1   [ RunTime:0.000258s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `tp_index_nav` WHERE ( isuse = 1 ) LIMIT 1  
+SQL: SELECT * FROM `tp_index_nav` WHERE ( isuse = 1 ) ORDER BY serial ASC  [ RunTime:0.000218s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `tp_index_nav` WHERE ( isuse = 1 ) ORDER BY serial ASC 
+
+[ 2016-08-15T17:23:52+08:00 ] 127.0.0.1 /css/header_footer.css?version=201612002
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003202s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000406s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000253s ]
+SQL: SELECT `subscribe`,`openid` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SHOW COLUMNS FROM `tp_member` [ RunTime:0.004249s ]
+SQL: SELECT `default_user_address_id` FROM `tp_member` WHERE ( member_id = 39454 ) LIMIT 1   [ RunTime:0.000184s ]
+SQL: SHOW COLUMNS FROM `tp_user_address` [ RunTime:0.003191s ]
+SQL: SELECT `user_address_id` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000342s ]
+SQL: SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1   [ RunTime:0.000151s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.002960s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 0 ) LIMIT 1   [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.003277s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 0 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003003s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000149s ]
+SQL: SELECT `headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000157s ]
+
+[ 2016-08-15T17:23:52+08:00 ] 127.0.0.1 /
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003401s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000380s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000251s ]
+SQL: SELECT `subscribe`,`openid` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SHOW COLUMNS FROM `tp_member` [ RunTime:0.005996s ]
+SQL: SELECT `default_user_address_id` FROM `tp_member` WHERE ( member_id = 39454 ) LIMIT 1   [ RunTime:0.000175s ]
+SQL: SHOW COLUMNS FROM `tp_user_address` [ RunTime:0.003675s ]
+SQL: SELECT `user_address_id` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000243s ]
+SQL: SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1   [ RunTime:0.000100s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.006171s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 0 ) LIMIT 1   [ RunTime:0.000224s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.006676s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 0 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002803s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000166s ]
+SQL: SELECT `headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000155s ]
+
+[ 2016-08-15T17:23:53+08:00 ] 127.0.0.1 /FrontMall/mall_home
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006394s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000427s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SELECT `subscribe`,`openid` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `tp_member` [ RunTime:0.003029s ]
+SQL: SELECT `default_user_address_id` FROM `tp_member` WHERE ( member_id = 39454 ) LIMIT 1   [ RunTime:0.000170s ]
+SQL: SHOW COLUMNS FROM `tp_user_address` [ RunTime:0.006645s ]
+SQL: SELECT `user_address_id` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000504s ]
+SQL: SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1   [ RunTime:0.000179s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT * FROM `tp_user_address` WHERE ( user_address_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.006455s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 0 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.006593s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 0 ) LIMIT 1   [ RunTime:0.000329s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006510s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000614s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000410s ]
+SQL: SELECT `headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000454s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39454 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006336s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse = 1 ) ORDER BY serial  [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006558s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY serial ASC, addtime DESC LIMIT 0, 10   [ RunTime:0.000343s ]
+SQL: SELECT `user_rank_id` FROM `tp_users` WHERE ( user_id = 39454 ) LIMIT 1   [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006636s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( isuse = 1 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006623s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 AND is_recommend = 1 ) ORDER BY serial LIMIT 0, 10   [ RunTime:0.000240s ]
+ERR: Unknown column 'is_recommend' in 'where clause'
+ [ SQL语句 ] : SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 AND is_recommend = 1 ) ORDER BY serial LIMIT 0, 10  
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006470s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( -86400 < addtime ) LIMIT 1   [ RunTime:0.000386s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006730s ]
+SQL: SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY sales_num DESC, is_recommend DESC, addtime DESC LIMIT 0, 10   [ RunTime:0.000259s ]
+ERR: Unknown column 'is_recommend' in 'order clause'
+ [ SQL语句 ] : SELECT `item_id`,`item_name`,`mall_price`,`market_price`,`base_pic`,`sales_num` FROM `tp_item` WHERE ( isuse = 1 AND stock > 1 ) ORDER BY sales_num DESC, is_recommend DESC, addtime DESC LIMIT 0, 10  
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006646s ]
+SQL: SHOW COLUMNS FROM `tp_notice` [ RunTime:0.006537s ]
+SQL: SELECT * FROM `tp_notice` LIMIT 0, 15   [ RunTime:0.000285s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006281s ]
+SQL: SELECT `link`,`pic` FROM `tp_cust_flash` WHERE ( isuse = 1 )  [ RunTime:0.000273s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` LIMIT 1   [ RunTime:0.000174s ]
+SQL: SHOW COLUMNS FROM `tp_index_ads` [ RunTime:0.003102s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_index_ads`
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 0 AND isuse = 1 )  [ RunTime:0.000361s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 0 AND isuse = 1 ) 
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 1 AND isuse = 1 )  [ RunTime:0.000202s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 1 AND isuse = 1 ) 
+SQL: SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 2 AND isuse = 1 )  [ RunTime:0.000158s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT `link`,`pic`,`size_style` FROM `tp_index_ads` WHERE ( size_style = 2 AND isuse = 1 ) 
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_index_ads` LIMIT 1   [ RunTime:0.000152s ]
+ERR: Table 'dota.tp_index_ads' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `tp_index_ads` LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004253s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse = 1 ) ORDER BY serial  [ RunTime:0.000390s ]
+SQL: SHOW COLUMNS FROM `tp_index_nav` [ RunTime:0.003538s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_index_nav`
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_index_nav` WHERE ( isuse = 1 ) LIMIT 1   [ RunTime:0.000242s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SELECT COUNT(*) AS tp_count FROM `tp_index_nav` WHERE ( isuse = 1 ) LIMIT 1  
+SQL: SELECT * FROM `tp_index_nav` WHERE ( isuse = 1 ) ORDER BY serial ASC  [ RunTime:0.000154s ]
+ERR: Table 'dota.tp_index_nav' doesn't exist
+ [ SQL语句 ] : SELECT * FROM `tp_index_nav` WHERE ( isuse = 1 ) ORDER BY serial ASC 
+
+[ 2016-08-15T17:24:00+08:00 ] 127.0.0.1 /login
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006450s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000457s ]
+
+[ 2016-08-15T17:24:09+08:00 ] 127.0.0.1 /login
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004165s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000443s ]
+
+[ 2016-08-15T17:24:18+08:00 ] 127.0.0.1 /login
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002985s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000478s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006808s ]
+SQL: SELECT `user_id`,`username`,`role_type`,`password`,`is_enable`,`login_try_times`,`block_time`,`group_id` FROM `tp_users` WHERE ( username = 'admin@admin.com' ) LIMIT 1   [ RunTime:0.002999s ]
+SQL: UPDATE `tp_users` SET `login_try_times`=0,`block_time`=0 WHERE ( user_id = 1 ) [ RunTime:0.000213s ]
+
+[ 2016-08-15T17:24:18+08:00 ] 127.0.0.1 /acp.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006237s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000727s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006617s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.010746s ]
+
+[ 2016-08-15T17:24:18+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006411s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000353s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006926s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000724s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.003291s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.012481s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.002892s ]
+
+[ 2016-08-15T17:35:30+08:00 ] 127.0.0.1 /AcpPage/get_selected_page_list/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004226s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000562s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006667s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `tp_page` [ RunTime:0.004672s ]
+ERR: Table 'dota.tp_page' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_page`
+SQL: SELECT * FROM `tp_page` WHERE ( page_id IN () ) LIMIT 0, 15   [ RunTime:0.001478s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') ) LIMIT 0, 15' at line 1
+ [ SQL语句 ] : SELECT * FROM `tp_page` WHERE ( page_id IN () ) LIMIT 0, 15  
+
+[ 2016-08-15T17:35:50+08:00 ] 127.0.0.1 /AcpPage/edit_package/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006137s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000557s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006965s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000401s ]
+SQL: SHOW COLUMNS FROM `tp_page` [ RunTime:0.002865s ]
+ERR: Table 'dota.tp_page' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_page`
+SQL: SHOW COLUMNS FROM `tp_api` [ RunTime:0.003583s ]
+ERR: Table 'dota.tp_api' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_api`
+
+[ 2016-08-15T17:35:58+08:00 ] 127.0.0.1 /AcpPage/edit_package
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002941s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000252s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005980s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000374s ]
+SQL: SHOW COLUMNS FROM `tp_page` [ RunTime:0.002668s ]
+ERR: Table 'dota.tp_page' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_page`
+SQL: SHOW COLUMNS FROM `tp_api` [ RunTime:0.002786s ]
+ERR: Table 'dota.tp_api' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_api`
+
+[ 2016-08-15T17:36:20+08:00 ] 127.0.0.1 /AcpPage/edit_package
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002917s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000246s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007569s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000388s ]
+SQL: SHOW COLUMNS FROM `tp_page` [ RunTime:0.005175s ]
+ERR: Table 'dota.tp_page' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_page`
+SQL: SHOW COLUMNS FROM `tp_api` [ RunTime:0.002937s ]
+ERR: Table 'dota.tp_api' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_api`
+
+[ 2016-08-15T17:37:28+08:00 ] 127.0.0.1 /AcpPage/edit_package
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003067s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006343s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000562s ]
+SQL: SHOW COLUMNS FROM `tp_page` [ RunTime:0.002679s ]
+ERR: Table 'dota.tp_page' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_page`
+SQL: SHOW COLUMNS FROM `tp_api` [ RunTime:0.002791s ]
+ERR: Table 'dota.tp_api' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_api`
+
+[ 2016-08-15T17:38:22+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004921s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000423s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000169s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.004028s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000252s ]
+
+[ 2016-08-15T17:38:23+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006221s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000454s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006240s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000442s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000244s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000192s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.005975s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000316s ]
+
+[ 2016-08-15T17:38:24+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006228s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000440s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006568s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000404s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000186s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.003019s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000277s ]
+
+[ 2016-08-15T17:38:25+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002917s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001506s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000365s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000214s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.006207s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000313s ]
+
+[ 2016-08-15T17:38:26+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003783s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005893s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000511s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000355s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.004384s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000438s ]
+
+[ 2016-08-15T17:46:28+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007266s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000448s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006903s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000347s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000342s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.005996s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000278s ]
+
+[ 2016-08-15T17:46:31+08:00 ] 127.0.0.1 /AcpPayment/list_payment/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002876s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004765s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000408s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( isuse = 1 AND pay_tag <> 'cardpay' )  [ RunTime:0.003963s ]
+SQL: SHOW COLUMNS FROM `tp_member_card` [ RunTime:0.011734s ]
+SQL: SELECT * FROM `tp_member_card` WHERE ( is_deposited = 1 AND user_id = 1 AND isuse = 1 )  [ RunTime:0.000242s ]
+
+[ 2016-08-15T17:46:33+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004067s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008378s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000696s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.005171s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000349s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.002500s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000725s ]
+
+[ 2016-08-15T17:46:34+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003088s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000420s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007402s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000397s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000180s ]
+
+[ 2016-08-15T17:46:35+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006269s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000473s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006418s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000413s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007268s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000241s ]
+
+[ 2016-08-15T17:46:36+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003088s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007750s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000596s ]
+
+[ 2016-08-15T17:46:37+08:00 ] 127.0.0.1 /Acp/index/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002979s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000273s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004703s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000382s ]
+
+[ 2016-08-15T17:46:37+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006144s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006693s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000584s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000204s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.008790s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000299s ]
+
+[ 2016-08-15T17:46:40+08:00 ] 127.0.0.1 /Acp/index/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003072s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004778s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000683s ]
+
+[ 2016-08-15T17:46:40+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008875s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006702s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000617s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000651s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.006703s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000425s ]
+
+[ 2016-08-15T17:48:34+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003192s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007020s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000391s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000265s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000186s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.006521s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000550s ]
+
+[ 2016-08-15T17:48:37+08:00 ] 127.0.0.1 /AcpPayment/set_wxpay/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006158s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007464s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000648s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000317s ]
+
+[ 2016-08-15T17:48:42+08:00 ] 127.0.0.1 /AcpPayment/list_payment/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006288s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000608s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006961s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000399s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( isuse = 1 AND pay_tag <> 'cardpay' )  [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `tp_member_card` [ RunTime:0.002841s ]
+SQL: SELECT * FROM `tp_member_card` WHERE ( is_deposited = 1 AND user_id = 1 AND isuse = 1 )  [ RunTime:0.000172s ]
+
+[ 2016-08-15T17:48:48+08:00 ] 127.0.0.1 /AcpPayment/set_wxpay/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002818s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000268s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004410s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000515s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000238s ]
+
+[ 2016-08-15T17:49:07+08:00 ] 127.0.0.1 /AcpPayment/set_wxpay/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002827s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006609s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000379s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000258s ]
+
+[ 2016-08-15T17:49:08+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003709s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000242s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002647s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.004021s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000276s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000439s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000443s ]
+
+[ 2016-08-15T17:49:09+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002965s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004875s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000384s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000174s ]
+
+[ 2016-08-15T17:49:10+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006216s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000615s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006329s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000486s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006090s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000129s ]
+
+[ 2016-08-15T17:49:10+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.005920s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000322s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007496s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000596s ]
+
+[ 2016-08-15T17:49:11+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006468s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007542s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006459s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000263s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000193s ]
+
+[ 2016-08-15T17:49:12+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006233s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000598s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006413s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000842s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000260s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000280s ]
+
+[ 2016-08-15T18:07:45+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.005040s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007409s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000581s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000263s ]
+
+[ 2016-08-15T18:07:47+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003194s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000365s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004753s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000419s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000257s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000189s ]
+
+[ 2016-08-15T18:07:47+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006332s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000430s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006361s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000533s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000183s ]
+
+[ 2016-08-15T18:07:49+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006508s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006831s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000430s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.000248s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003754s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000162s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.005295s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000235s ]
+
+[ 2016-08-15T18:07:50+08:00 ] 127.0.0.1 /AcpItem/get_onsale_item_list/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002904s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002528s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000580s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.007518s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006894s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( isuse = 1 AND stock > 0 ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT * FROM `tp_item` WHERE ( isuse = 1 AND stock > 0 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000213s ]
+SQL: SELECT `user_rank_id` FROM `tp_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000263s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006031s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004097s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.011853s ]
+SQL: SHOW COLUMNS FROM `tp_genre` [ RunTime:0.003855s ]
+ERR: Table 'dota.tp_genre' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_genre`
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.007163s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000286s ]
+
+[ 2016-08-15T18:07:51+08:00 ] 127.0.0.1 /AcpOrder/get_pre_deliver_order_list/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006774s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007632s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000362s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 AND order_status = 1 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000168s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.006840s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000292s ]
+
+[ 2016-08-15T18:07:53+08:00 ] 127.0.0.1 /AcpFinance/edit_account/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006415s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006946s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000594s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.000435s ]
+SQL: SELECT `nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY user_id desc LIMIT 0, 15   [ RunTime:0.000379s ]
+
+[ 2016-08-15T18:07:54+08:00 ] 127.0.0.1 /AcpArticle/list_article/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006466s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000586s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.010091s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000856s ]
+SQL: SHOW COLUMNS FROM `tp_article` [ RunTime:0.008092s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_article` WHERE ( article_tag="" ) LIMIT 1   [ RunTime:0.003586s ]
+SQL: SELECT tp_article.article_id,tp_article.title,tp_article.clickdot,tp_article.addtime,tp_article.serial,tp_article.isuse,a_s.article_sort_name FROM `tp_article` LEFT JOIN tp_article_sort AS a_s ON a_s.article_sort_id=tp_article.article_sort_id WHERE ( article_tag="" ) ORDER BY tp_article.serial,tp_article.addtime DESC LIMIT 0,15   [ RunTime:0.009612s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.004424s ]
+SQL: SELECT `article_sort_id`,`article_sort_name` FROM `tp_article_sort`  [ RunTime:0.000280s ]
+
+[ 2016-08-15T18:07:56+08:00 ] 127.0.0.1 /AcpArticle/list_sort/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006439s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000440s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006558s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000483s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.004116s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_article_sort` LIMIT 1   [ RunTime:0.000247s ]
+SQL: SELECT * FROM `tp_article_sort` ORDER BY serial LIMIT 0,15   [ RunTime:0.000307s ]
+
+[ 2016-08-15T18:08:26+08:00 ] 127.0.0.1 /AcpFinance/get_account_log/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003097s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006833s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000518s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_account` LIMIT 1   [ RunTime:0.003640s ]
+SQL: SELECT `user_id`,`proof`,`addtime`,`change_type`,`amount_in`,`amount_out`,`amount_after_pay`,`remark` FROM `tp_account` ORDER BY addtime desc LIMIT 0, 10   [ RunTime:0.000159s ]
+
+[ 2016-08-15T18:08:27+08:00 ] 127.0.0.1 /AcpOrder/get_pre_pay_order_list/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002833s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000248s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002596s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000387s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( isuse = 1 and order_status = 0 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT * FROM `tp_order` WHERE ( isuse = 1 and order_status = 0 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000185s ]
+SQL: SHOW COLUMNS FROM `tp_shipping_company` [ RunTime:0.004034s ]
+SQL: SELECT * FROM `tp_shipping_company` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000408s ]
+
+[ 2016-08-15T18:08:28+08:00 ] 127.0.0.1 /AcpItem/get_alarm_item_list/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004295s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000562s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004616s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.004027s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.004302s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( stock <= stock_alarm AND stock > 0 ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SELECT * FROM `tp_item` WHERE ( stock <= stock_alarm AND stock > 0 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000186s ]
+SQL: SELECT `user_rank_id` FROM `tp_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003928s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004349s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.006816s ]
+SQL: SHOW COLUMNS FROM `tp_genre` [ RunTime:0.002871s ]
+ERR: Table 'dota.tp_genre' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_genre`
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.007048s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000236s ]
+
+[ 2016-08-15T18:08:31+08:00 ] 127.0.0.1 /AcpArticle/list_sort/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002965s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007130s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000644s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.003385s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_article_sort` LIMIT 1   [ RunTime:0.000167s ]
+SQL: SELECT * FROM `tp_article_sort` ORDER BY serial LIMIT 0,15   [ RunTime:0.000205s ]
+
+[ 2016-08-15T18:08:33+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006297s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000458s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005942s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000855s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.000310s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006256s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000199s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.003319s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000277s ]
+
+[ 2016-08-15T20:47:38+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007190s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000717s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007177s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001019s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.000406s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.007231s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000316s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.003132s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000151s ]
+
+[ 2016-08-15T20:47:41+08:00 ] 127.0.0.1 /AcpItem/get_store_item_list/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003811s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007184s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000627s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006820s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.007196s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_item` WHERE ( isuse = 0 ) LIMIT 1   [ RunTime:0.000353s ]
+SQL: SELECT * FROM `tp_item` WHERE ( isuse = 0 ) ORDER BY  addtime DESC LIMIT 0, 10   [ RunTime:0.000291s ]
+SQL: SELECT `user_rank_id` FROM `tp_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000730s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006567s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007480s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003917s ]
+SQL: SHOW COLUMNS FROM `tp_genre` [ RunTime:0.003992s ]
+ERR: Table 'dota.tp_genre' doesn't exist
+ [ SQL语句 ] : SHOW COLUMNS FROM `tp_genre`
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.003492s ]
+SQL: SELECT * FROM `tp_class` WHERE ( isuse=1 ) ORDER BY serial  [ RunTime:0.000204s ]
+
+[ 2016-08-15T20:47:43+08:00 ] 127.0.0.1 /AcpConfig/base_config/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002869s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000239s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004682s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000383s ]
+

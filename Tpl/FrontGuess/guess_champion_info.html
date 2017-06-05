@@ -1,0 +1,196 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background-color:#202020;
+		}
+		.guess_info_head{
+			background-color:#D6AA69;
+		}
+		.guess_info_head h1{
+			font-size:.8rem;
+			width:100%;
+			text-align:center;
+			line-height:normal;
+		}
+		.guess_champion_cont{
+			background:initial;
+		}
+		</style>
+{/block}
+{block name="content"}
+		<div class="guess_info_head clearfix">
+            <h1 class="txt_limit">已有{$guess_champion_info.people_num|default:0}人参与竞猜，共投注{$guess_champion_info.total_money|default:0|intval}鱼翅</h1>
+		</div>
+		<div class="guess_champion_cont ">
+            <div class="info_time">{if $guess_champion_status}{if $guess_champion_info.is_start == 0}{$left_time}截止{/if}{else}已截止{/if}</div>
+			<img src="{$guess_champion_info.img_path}" class="bg_img"/>
+			<!-- bg_img 背景图 -->
+			<p class="guess_champion_p"></p>
+		</div>
+        <h1 class="guess_champion_tit">{$guess_champion_info.title|default:'--'}</h1>
+		<div class="guess_champion_main clearfix">
+            {foreach from=$guess_champion_team_list item=item}
+			<a class="troop_box fl" href="javascript:;">
+                <input type="hidden" id="guess_champion_team_id" value="{$item.guess_champion_team_id}"/>
+                <img data-original="{$item.team_logo}" class="lazy"/>
+                <h1 class="txt_limit">{$item.team_name}</h1>
+                <h2>（<span>{$item.odds}</span>）</h2>
+			</a>
+            {/foreach}
+		</div>
+		<div class="guess_champion_hint rel">
+			<h1 class="abs">友情提示：</h1>
+            <div class="clearfix box1"><span class="fl"><i></i></span><h2 class="fl">时间地点：{$guess_champion_info.start_time|date_format:"%Y.%m.%d"}-{$guess_champion_info.end_time|date_format:"%Y.%m.%d"}-{$guess_champion_info.address}</h2></div>
+            <div class="clearfix box2"><span class="fl"><i></i></span><p class="fl">参赛队伍：
+                {foreach from=$guess_champion_team_list item=item key=key}
+                {$item.team_name}
+                {if $key+1 != $guess_champion_team_num} 、{/if}
+                {/foreach}
+                </p></div>
+		</div>
+		<div class="bottom_3rem"></div>
+		<!-- 投注弹窗 -->
+		<form id="form1" action="" method="POST">
+			<div class="guess_shade"></div>
+			<div class="guess_doing_layer">
+				<div class="doing_layer_top clearfix">
+					<h1 class="doing_layer_h1 fl">冠军获得者是？</h1><span class="doing_layer_span fl">Escape(1.83)</span>
+				</div>
+				<div class="doing_layer_cont clearfix">
+					<label class="fl" for="bet">投注鱼翅</label>
+					<input class="bet" id="bet" type="number" placeholder="最低投注100鱼翅"/>
+				</div>
+				<div class="doing_layer_bet">
+					<h1>(投注金额：<span>0</span>元)</h1>
+					<h2>可赢鱼翅：<span></span></h2>
+                    <h3>当前余额：<span>{$left_money}</span></h3>
+				</div>
+				<div class="doing_layer_footer clearfix">
+					<a href="javascript:;" class="out">取消</a>
+					<a href="javascript:;" class="yes">确认投注</a>
+				</div>
+			</div>
+			<div class="guess_doing_layer2">
+				<div class="doing_laye2_top clearfix"><i class="icon2 jcsuccess fl"></i><p class="fl">竞猜成功</p></div>
+				<br/>
+				<div class="doing_layer_top clearfix">
+					<h1 class="doing_layer_h1 fl">冠军获得者是？</h1><span class="doing_layer_span fl">Escape(1.83)</span>
+					<div class="doing_layer_bet">
+						<h5>投注鱼翅：<span></span></h5>
+						<h2>可赢鱼翅：<span></span></h2>
+					</div>
+				</div>
+				<input type="button" value="继续其他投注" class="doing_layer_bt"/>
+			</div>
+			<div class="reg_hint clearfix">
+				<i class="icon2 fl szzhuyi"></i>
+				<p>请填写大于100的整数</p>
+			</div>
+		</form>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+    	<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+		<script>
+var left_money = parseInt('{$left_money}');
+var guess_champion_id = parseInt("{$guess_champion_info.guess_champion_id}");
+var guess_champion_team_id = 0;
+var guess_champion_status = parseInt({$guess_champion_status});
+var max_bat = '{$system_config.MAX_CHAMPION_BAT}';
+{literal}
+			$(function(){
+				var bet_cont_odds
+				var reg100=/^[1-9]{1}\d{2,}$/
+				var reg=/^(-)?\d+$/
+				$(".troop_box").on("click",function(){
+                    //是否可以投
+                    if (!guess_champion_status) {
+                        alert_message('此冠军猜不能投注');
+                        return;
+                    }
+					$(".guess_shade").show();
+					$(".guess_doing_layer").show();
+					$("body").css("overflow","hidden");
+					var bet_cont_span =$(this).find("h1").text();
+					var bet_cont_span2 =$(this).find("h2").text();
+					$(".doing_layer_span").html(bet_cont_span+bet_cont_span2);
+					bet_cont_odds =$(this).find("h2").find("span").html();
+
+                    guess_champion_team_id = $(this).children("#guess_champion_team_id").val();
+				})
+				// 弹窗赋值
+				$("#bet").keyup(function(){
+					var this_val=$(this).val()
+					// 输入验证
+					if(reg.test(this_val)){
+						
+					}else{
+						$(".reg_hint").show();
+						    setTimeout(function () {
+					        $(".reg_hint").hide();
+					    }, 2000);
+					}
+					var bet_num =Number(this_val/100)
+					var bet_num2 =Math.round(Number(bet_cont_odds)*Number(this_val))
+					$(".doing_layer_bet h1").find("span").html(bet_num)
+					$(".doing_layer_bet h2").find("span").html(bet_num2)
+					$(".doing_layer_bet h5").find("span").html(this_val)
+				})
+				// 提交验证
+				$(".doing_layer_footer .yes").on("click",function(){
+					var bet_val=$("#bet").val();
+					if(reg.test(bet_val) && reg100.test(bet_val)){
+					}else{
+						$(".reg_hint").show();
+						    setTimeout(function () {
+					        $(".reg_hint").hide();
+					    }, 2000);
+						return;
+					}
+                    if (bet_val > left_money) {
+                        alert_message('余额不足, 请先去充值吧');
+                        return;
+                    }
+                     $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontGuess/bat_guess_champion",
+                          data: {"guess_champion_team_id":guess_champion_team_id, "guess_champion_id":guess_champion_id, "add_money":bet_val},
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                          success: function (msg){
+                              console.log(msg);
+                              if(msg == 'success') 
+                              {
+                                  $(".guess_doing_layer").hide();
+                                  $(".guess_doing_layer2").show();
+                                  return;
+                              }
+                              else if (msg == 'max') 
+                              {
+                                  alert_message('已到达投注上限（单个队伍投注上限'+max_bat+'鱼翅）');
+                              }
+                              else 
+                              {
+                                  alert_message('出错了，请稍后再试');
+                              }
+                          }
+                      });
+				})
+				$(".doing_layer_footer .out").on("click",function(){
+					$(".guess_shade").hide();
+					$(".guess_doing_layer").hide();
+					$("body").css("overflow","auto");
+                    guess_champion_team_id = 0;
+				})
+				//最后的结果与提交
+				$(".doing_layer_bt").on("click",function(){
+					$(".guess_shade").hide();
+					$(".guess_doing_layer2").hide();
+					$("body").css("overflow","auto");
+                    location.reload();
+				})
+			})
+{/literal}
+		</script>
+{/block}

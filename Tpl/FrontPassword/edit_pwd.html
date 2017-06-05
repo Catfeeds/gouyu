@@ -1,0 +1,161 @@
+﻿{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" style="text/css" href="__PUBLIC__/Css/front/user_glb.css?version={$version}">
+{/block}
+{block name="content"}
+	<!--主内容-->
+	<div class="pwd_wrap">
+		{if $pay_password}
+	  <form id="form_1" action="javascript:;" method="post">
+			<table class="pwd_has_cont">
+				<tbody>
+					<tr>
+						<td class="pwd_tit">原密码</td>
+						<td class="pwd_input"><input name="oldpassword" type="password" placeholder="请输入六位数字旧密码" maxlength="6" autofocus="true"></td>
+					</tr> 
+					<tr>
+						<td class="pwd_tit">新密码</td>
+						<td class="pwd_input"><input name="password" type="password" placeholder="请输入六位数字新密码" maxlength="6"></td>
+					</tr>
+					<tr>
+						<td class="pwd_tit">重复密码</td>
+						<td class="pwd_input"><input name="rePassword" type="password" placeholder="请输入确认密码" maxlength="6"></td>
+					</tr>
+					<tr>
+						<td class="pwd_tit" align="right">提示：</td>
+						<td class="pwd_input">默认的支付密码为“123456”</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="submit_btn">
+				<a href="javascript:submit();" class="submit">保&nbsp;&nbsp;存</a>
+			</div>
+		</form>
+		{else}
+		<form id="form_2" action="javascript:;" method="post">
+			<table class="pwd_has_cont">
+				<tbody>
+					<tr>
+						<td class="pwd_tit">输入密码</td>
+						<td class="pwd_input"><input name="password" type="password" placeholder="请输入六位数字密码" maxlength="6" autofocus="true"></td>
+					</tr>
+					<tr>
+						<td class="pwd_tit">重复密码</td>
+						<td class="pwd_input"><input name="rePassword" type="password" placeholder="请再次输入密码" maxlength="6"></td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="submit_btn">
+				<a href="javascript:submit_new();" class="submit">保&nbsp;&nbsp;存</a>
+			</div>
+		</form>
+		{/if}
+	</div>
+{/block}
+{block name="js"}
+{literal}
+<script>
+var pwd_reg = /^\d{6}$/g;
+function submit(){
+	var form = $("#form_1")[0];
+	var req = {
+		pcard_password:$.trim(form.oldpassword.value),
+		pass1: $.trim(form.password.value),
+		pass2: $.trim(form.rePassword.value),
+	}
+	if(req.pcard_password.length<1){
+		$("#tan").html('请输入原密码');
+		tishi();
+		return false;
+	}
+	if(req.pass1.length<1){
+		$("#tan").html('请输入新密码');
+		tishi();
+		return false;
+	}
+	if(req.pass2.length<1){
+		$("#tan").html('请输入重复密码');
+		tishi();
+		return false;
+	}
+	if(!pwd_reg.test(req.pass1)){
+		$("#tan").html('密码格式不正确，应为六位数字');
+		tishi();
+		return false;
+	}
+	if(req.pass1==req.pcard_password){
+		$("#tan").html('新旧密码不能一致');
+		tishi();
+		return false;
+	}
+	if(req.pass1!=req.pass2){
+		$("#tan").html('两次输入的密码不一致');
+		tishi();
+		return false;
+	}
+	/* if(!/^\d{6}$/g.test(req.validCode)){
+		alert("请输入正确的验证码", 1000);return false;
+	} */
+	
+	//
+$.ajax({
+	url: "/FrontPassword/change_password",
+	type:"post",
+	data:req,
+	dataType:"JSON",
+	success: function(res){
+		if(res.error == undefined || res.success == '修改成功'){
+			$("#tan").html('修改成功');
+			tishi();
+			location.href = '/FrontUser/personal_center';
+		}else if(res.error == '密码不正确'){
+			$("#tan").html('原始密码不正确');
+			tishi();
+		}
+	}
+});
+}
+function submit_new(){
+	var form = $("#form_2")[0];
+	var req_new = {
+		pass1: $.trim(form.password.value),
+		pass2: $.trim(form.rePassword.value),
+	}
+	if(req_new.pass1.length<1 || req_new.pass2.length<1){
+		$("#tan").html('请输入密码');
+		tishi();
+		return false;
+	}
+	if(!pwd_reg.test(req_new.pass1)){
+		$("#tan").html('密码格式不正确，应为六位数字');
+		tishi();
+		return false;
+	}
+	if(req_new.pass1!=req_new.pass2){
+		$("#tan").html('两次输入的密码不一致');
+		tishi();
+		return false;
+	}
+
+$.ajax({
+	url: "/FrontPassword/set_password",
+	type:"post",
+	data:req_new,
+	dataType:"JSON",
+	success: function(res){
+		if(res.error == undefined || res.success == '设置成功'){
+			$("#tan").html('设置成功');
+			tishi();
+			location.href = '/FrontUser/personal_center';
+		}else{
+			$("#tan").html('设置失败');
+			tishi();
+		}
+	}
+});
+}
+
+</script>
+{/literal}
+{/block}

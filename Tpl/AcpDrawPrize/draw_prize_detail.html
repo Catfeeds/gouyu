@@ -1,0 +1,70 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<div class="t-detail-top">
+	<div class="top-tit">
+		用户昵称：{$user_info.nickname}
+	</div>
+</div>
+<div class="t-detail-goods">
+
+	<div class="t-detail-goods-tit mag">夺宝信息：</div>
+    <div class="t-detail-goods-con t-buser">
+    	<table class="wxtables tables-form">  
+            <colgroup>  
+                <col width="10%">  
+                <col width="90%">   
+            </colgroup>  
+            <tbody>  
+                <tr>  
+                    <td class="tables-form-title">奖品图片：</td>  
+					<td><img src="{$treasure_info.img_path}" style="width:50px;"></td> 
+                </tr> 
+                <tr>
+                    <td class="tables-form-title">奖品名称：</td>  
+					<td>{if $treasure_info.prize_name}{$treasure_info.prize_name}{else}--{/if}</td>
+                </tr>
+                <tr>  
+					<td class="tables-form-title">期数：</td>  
+					<td>{$treasure_info.periods}</td>
+                </tr>  
+                <tr>  
+                    <td class="tables-form-title">开奖时间：</td>  
+					<td>{$treasure_info.open_time|date_format:"%Y-%m-%d %H:%M:%S"}</td> 
+                </tr> 
+                <tr>  
+                    <td class="tables-form-title">时时彩中奖号码：</td>  
+                    <td>{$treasure_info.draw_lottery}</td> 
+                </tr>
+                <tr>  
+                    <td class="tables-form-title">夺宝中奖号码：</td>  
+                    <td>{$treasure_info.lottery}</td> 
+                </tr>
+                <tr>  
+                    <td class="tables-form-title">游戏名称：</td>  
+                    <td>{$treasure_user_info.game_name}</td> 
+                </tr>
+                <tr>  
+                    <td class="tables-form-title">游戏账号：</td>  
+                    <td>{$treasure_user_info.game_account}</td> 
+                </tr>
+            </tbody>  
+        </table>   
+    </div>
+
+</div>
+{/block} 
+
+{block name="js"}
+{literal}
+<style>
+#jpops .fi-name{width:100px;}
+#jpops .form-controls{margin-left:100px;}
+</style>
+{/literal} 
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpOrder/order_detail.css" type="text/css" />
+{/block} 

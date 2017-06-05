@@ -1,0 +1,201 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+{if $guess_field_id}
+ <div class="tables-searchbox"> 
+     <a href="/AcpGuessQuestion/add_guess_question/guess_field_id/{$guess_field_id}" class="btn btn-blue"><i class="gicon-plus white"></i>添加题目</a>  
+</div>
+{/if}
+<div class="tablesWrap">  
+    <div class="tables-searchbox">
+        <!---<form method="post" action="">
+            <span class="tbs-txt">局名称：</span>
+            <input type="text" name="guess_question_name" value="{$guess_question_name}">
+
+            <span class="tbs-txt">所属竞猜：</span>
+            <input type="text" name="guess_name" value="{$guess_name}">
+            <select name="item_status">
+                <option value="0" selected="">-{$ITEM_NAME}状态-</option>
+                {foreach from=$arr_item_status item=row key=key}
+                <option value="{$key}" {if $key EQ $item_status}selected{/if}>{$row}</option>
+                {/foreach}
+            </select>
+
+            <div class="mgt10">
+                <span class="tbs-txt">开始时间：</span>
+                <input type="text" autocomplete="off" class="Wdate" name="start_date" value="{$start_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <span class="tbs-txt">至</span>
+                <input type="text" autocomplete="off" class="Wdate" name="end_date" value="{$end_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <button type="submit" class="btn"><i class="gicon-search"></i>搜索</button>
+            </div>
+
+        </form>
+        -->
+    </div>
+<!-- end tables-searchbox -->  
+<table class="wxtables">  
+    <colgroup>  
+    <col width="5%">
+    <col width="10%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    </colgroup>
+    <thead>
+        <tr>  
+            <td>选择</td>  
+            <td>题目标题</td>
+            <td>排序号</td>
+            <td>是否有效</td>
+            <td>操作</td>
+        </tr>  
+    </thead>  
+	{foreach from=$guess_question_list item=question_class}
+    <tbody class="combo-tbody">  
+        <tr>
+			<td><input type="checkbox" class="checkbox" name="a[]" value="{$question_class.guess_question_id}"></td>
+			<td>{$question_class.desc}</td>  
+			<td>{$question_class.serial}</td>  
+			<td>{if $question_class.isuse == 1}是{else}否{/if}</td>  
+            <td>  
+				<a href="/AcpGuessQuestion/edit_guess_question/guess_question_id/{$question_class.guess_question_id}.html" class="btn" title="修改">修改</a>  
+                <a href="javascript:;" class="btn" title="删除" onclick="delete_question_class({$question_class.guess_question_id})">删除</a>  
+            </td>  
+        </tr>
+    </tbody>
+	{foreachelse}   
+    <tbody>    
+		<tr>
+			<td colspan="7">
+				没有符合条件的记录
+			</td>
+		<tr>
+    </tbody>  
+	{/foreach}
+</table>  
+<!-- end wxtables -->  
+<div class="tables-btmctrl clearfix">  
+    <div class="fl">  
+        <a href="javascript:;" class="btn btn-blue" onclick="Select()">全选</a>  
+        <a href="javascript:;" class="btn btn-blue" onclick="Cancel()">取消</a>  
+        <a href="javascript:;" onclick="batch_delete()" class="btn btn-blue">删除</a>
+    </div>  
+    <div class="fr">  
+        <div class="paginate">
+			{$page_str} 
+        </div>  
+        <!-- end paginate -->  
+    </div>  
+</div>  
+<!-- end tables-btmctrl -->  
+</div>  
+<!-- end tablesWrap -->   
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+{literal}
+<script>
+	//全选
+	function Select(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=true;
+		}
+	}
+	//取消全选
+	function Cancel(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=false;
+		}
+	}
+
+function delete_question_class(question_guess_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这条数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessQuestion/del_guess_question', {"guess_question_id":question_guess_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+function batch_delete()
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这些数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 var question_guess_ids = '';
+				 var count = 0;
+				 $('input[name="a[]"]:checked').each(function(){
+					 count ++;
+					 question_guess_ids += $(this).val() + ',';
+				 });
+
+				 if (!count)
+				 {
+					 alert('对不起，请选择至少一项进行删除！');
+					 return;
+				 }
+
+				 question_guess_ids = question_guess_ids.substr(0, question_guess_ids.length - 1);
+                 console.log(question_guess_ids);
+
+				 $.post('/AcpGuessQuestion/batch_del_guess_question', {"question_guess_question_ids":question_guess_ids}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });
+}
+</script>
+{/literal}
+{/block} 
+
+{block name="css"}
+<link type="text/css" rel="stylesheet" href="__ACPCSS__/tip.css" />
+{literal}
+<style>
+.PageNext{page-break-after: always; height:1px;}
+</style>
+{/literal}
+{/block} 

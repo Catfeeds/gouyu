@@ -1,0 +1,56 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id='base_config' action='' method='POST'>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>提醒开关：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="is_push" value="1" {if $system_config.IS_PUSH == 1}checked="checked"{/if} />开</label>  
+            <label><input type="radio" name="is_push" value="0" {if $system_config.IS_PUSH == 0}checked="checked"{/if}/>关</label>   
+        </div>  
+    </div>  
+</div>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>推送时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="push_time" value="{$system_config.PUSH_TIME|date_format:'%H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'H:mm:ss'})">
+        <span class="fi-help-text">可能的时间误差2分钟内</span>  
+    </div>  
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>信息标题：</label>   
+    <div class="form-controls">  
+        <input type="text" class="xxlarge" name="push_title" value="{$system_config.PUSH_TITLE}">  
+        <span class="fi-help-text">一般在30字以内</span>  
+    </div>    
+</div>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>信息摘要：</label>   
+    <div class="form-controls">  
+        <textarea  name="push_content" >{$system_config.PUSH_CONTENT}</textarea>  
+        <span class="fi-help-text">换行请用\n , 一般在80字以内</span>  
+    </div>    
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">
+    	<input type='hidden' name='act' value='save' />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>确定</button>
+        <button type="reset" class="btn"><i class="gicon-repeat"></i>重置</button>
+    </div>  
+</div>
+</form> 
+{/block}
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script src='__ACPJS__/AcpConfig/edit_config.js?version={$version}'></script>
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpConfig/base_config.css" type="text/css" />
+{/block}

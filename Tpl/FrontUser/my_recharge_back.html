@@ -1,0 +1,44 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<link rel="stylesheet" href="__CSS__/front/front_css/mall_style.css" />
+		<link rel="stylesheet" href="__CSS__/front/front_css/loading.css" />
+		<style>
+			#pullUp{
+				padding-bottom: 0;
+				width: 100%;
+				background-color: #202020;
+			}
+		</style>
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--详细内容-->
+		<div id="load_wrapper">
+			<div id="scroller">
+				<ul class="popu_main" id="new_list">
+                    {foreach from=$recharge_back_list item=item}
+					<li class="clearfix">
+                        <p class="fl">{$item.ajax_addtime}</p>
+                        <span class="fr">{$system_config.SYSTEM_MONEY_NAME}</span>
+                        <i class="fr">{$item.gain_money}</i>
+					</li>
+                    {/foreach}
+				</ul>
+				<div id="pullUp" style="padding-bottom: 3rem;">
+					<span class="pullUpIcon item jiazaizhong3x"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+<script type="text/javascript" src="__JS__/front/front_js/my_recharge_back.js"></script>
+<script>
+var total = parseInt('{$total_num}');
+var page_num = parseInt('{$page_num}');
+var system_money_name = '{$system_config.SYSTEM_MONEY_NAME}';
+</script>
+{/block}

@@ -1,0 +1,69 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background:#202020;
+		}
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:2.35rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+			background:#E8E8E8;
+		}
+		</style>
+{/block}
+{block name="content"}
+<h1 class="money_change_top">鱼翅余额：<span>{$left_money|default:0}</span></h1>
+		<div class="money_list" id="load_wrapper">
+			<div id="scroller">
+				<ul id="new_list">
+                    {foreach from=$account_list item=item}
+					<li class="money_list_li clearfix">
+						<a href="javascript:;" class="clearfix">
+						<div class="left_box fl">
+                            <h1>{$item.change_type_name}{if $item.remark}<span>{$item.remark|truncate:23:"...":true}</span>{/if}</h1>
+                            <h2>{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</h2>
+						</div>
+						<div class="right_box">
+                            {if $item.amount_money < 0}
+                            <p class="lessen">{$system_config.SYSTEM_MONEY_NAME}{$item.amount_money|default:0}<br></p>
+                            {else}
+                            <p class="add">{$system_config.SYSTEM_MONEY_NAME}{$item.amount_money|default:0}<br>{if $item.change_type == AccountModel::GUESS_GAIN || $item.change_type == AccountModel::GUESS_CHAMPION_GAIN}<span></span>{/if}</p>
+                            {/if}
+							<!-- 鱼翅为负的 p类名lessen  鱼翅为正的p类名add -->
+						</div>
+						</a>
+					</li>
+                    {/foreach}
+				</ul>
+				<div id="pullUp" style="padding-bottom: 0;">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+				<div style="width:100%;height:3rem;background:#202020"></div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/account_list.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+var system_money_name = '{$system_config.SYSTEM_MONEY_NAME}';
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

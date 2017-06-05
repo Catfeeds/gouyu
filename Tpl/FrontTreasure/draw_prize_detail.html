@@ -1,0 +1,71 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+	<style>
+		body{
+			padding-top: 0px;
+		}
+	</style>
+{/block}
+{block name="content"}
+		<div class="lottery_cont_main">
+			<div class="lottery_cont_line"></div>
+		<!--计算公式-->
+			<div class="count_box">
+				<p>计算公式:</p>
+				<span>夺宝号码=(数值A÷数值B)&nbsp;取余数+1</span>
+			</div>
+		<!--数值-->
+			<div class="numerical_box">
+				<div class="numerical_a clearfix">
+					<h1>数值A</h1>
+                    <p>=随机选取最近30期中国福利彩票“老时时彩”的开奖结<br>&nbsp;&nbsp;果之一</p>
+					<span class="fl">
+						=
+                        <i>{$treasure_info.draw_lottery|default:838383}</i>
+                        ({$treasure_info.lottery_periods|default:"未知"})
+					</span>
+					<a href="http://caipiao.163.com/award/cqssc/" class="fr">老时时彩开奖查询</a>
+				</div>
+				<div class="numerical_b">
+					<h1>数值B</h1>
+					<p>=商品夺宝所需总人数</p>
+					<span>
+						=
+                        <i>{$treasure_info.total_person_times|default:100}</i>
+					</span>
+				</div>
+				<div style="width: 100%;height: 4rem;"></div>
+			</div>
+		<!--计算结果-->
+			<div class="results_box clearfix">
+				<h1 class="fl">计算结果</h1>
+				<p class="fl">=({$treasure_info.draw_lottery|default:838383}÷{$treasure_info.total_person_times|default:100})取余数+1</p>
+                <span>夺宝号码<i>{$treasure_info.lottery|default:84}</i></span>
+			</div>
+			<!-- <div style="width:100%;height:3rem;"></div> -->
+			<div class="recoed_div" style="background-color:#e8e8e8;padding-top:10px;">
+			<div class="lottery_title_this clearfix">
+				<h4 class="fl">本期夺宝参与记录</h4>
+                <p class="fr">自{$treasure_info.start_time|date_format:"%Y-%m-%d %H:%M:%S"}开始</p>
+			</div>
+            {foreach from=$treasure_user_list item=item}
+			<div class="lottery_user clearfix">
+                <img data-original="{$item.headimgurl}" class="fl lazy" />
+				<ul class="fl">
+					<li class="lottery_user_name">
+                        <p>{$item.nickname}</p>
+					</li>
+                    <li class="lottery_user_time">参与了<span>{$item.add_num|default:1}</span>人次&nbsp;</li>
+				</ul>
+			</div>
+            {/foreach}
+            </div>
+		</div>
+
+{/block}
+{block name="js"}
+<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+{/block}

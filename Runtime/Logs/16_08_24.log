@@ -1,0 +1,1100 @@
+[ 2016-08-24T09:14:14+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008273s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000477s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008163s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.007113s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.004233s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.001502s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.003227s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.007191s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.003649s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000639s ]
+
+[ 2016-08-24T09:14:18+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008859s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000285s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005011s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000482s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.003618s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000172s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000210s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006426s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000319s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000234s ]
+
+[ 2016-08-24T09:14:36+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007145s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000383s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007109s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000620s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007049s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000135s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000297s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.007092s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000457s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000327s ]
+
+[ 2016-08-24T09:17:50+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011000s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000525s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007046s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000942s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006876s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000439s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006421s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000425s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000256s ]
+
+[ 2016-08-24T09:17:59+08:00 ] 127.0.0.1 /AcpGuess/set_result
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.012545s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000483s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007037s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003631s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007479s ]
+SQL: SELECT `start_time` FROM `tp_guess` WHERE ( guess_id = 5 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: UPDATE `tp_guess` SET `is_over`=1,`host_score`=2,`guest_score`=3,`over_time`=1472001479 WHERE ( guess_id = 5 ) [ RunTime:0.007305s ]
+
+[ 2016-08-24T09:18:02+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006715s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000493s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004318s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000549s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.004121s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000184s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.008951s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000202s ]
+
+[ 2016-08-24T09:19:17+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004013s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007415s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007698s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000180s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000210s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.003734s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000172s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000265s ]
+
+[ 2016-08-24T09:20:35+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011449s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000386s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007193s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000987s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007076s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006716s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000258s ]
+
+[ 2016-08-24T09:20:46+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003305s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005015s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000479s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.004764s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.003322s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.005354s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000472s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000298s ]
+
+[ 2016-08-24T09:21:24+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007140s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000348s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007430s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000504s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007046s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006109s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000100s ]
+
+[ 2016-08-24T09:22:06+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.019814s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005123s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000638s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.012655s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000254s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006704s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000441s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000542s ]
+
+[ 2016-08-24T09:22:41+08:00 ] 127.0.0.1 /AcpGuess/add_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010176s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007256s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000833s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.003056s ]
+SQL: SELECT * FROM `tp_team` WHERE ( isuse = 1 )  [ RunTime:0.003410s ]
+
+[ 2016-08-24T09:23:03+08:00 ] 127.0.0.1 /AcpGuess/add_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006472s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000307s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007960s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000772s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007245s ]
+SQL: INSERT INTO `tp_guess` (`guess_name`,`host_team`,`guest_team`,`start_time`,`serial`,`isuse`) VALUES ('guess22',5,8,1472001778,1,1) [ RunTime:0.001582s ]
+
+[ 2016-08-24T09:23:05+08:00 ] 127.0.0.1 /AcpGuess/list_guess
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006428s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000312s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003936s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.003841s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000198s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000376s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.004445s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000359s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 5 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 8 ) LIMIT 1   [ RunTime:0.000191s ]
+
+[ 2016-08-24T09:23:34+08:00 ] 127.0.0.1 /AcpGuess/list_guess
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006463s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005170s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000875s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.004942s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) LIMIT 0, 10   [ RunTime:0.000250s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.004331s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000408s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 5 ) LIMIT 1   [ RunTime:0.000172s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 8 ) LIMIT 1   [ RunTime:0.000128s ]
+
+[ 2016-08-24T09:25:22+08:00 ] 127.0.0.1 /AcpGuessField/list_guess_field/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008090s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000431s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007124s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001061s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.007099s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( true ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( true ) ORDER BY start_time ASC LIMIT 0, 10   [ RunTime:0.004783s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007689s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 5 ) LIMIT 1   [ RunTime:0.000372s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 5 ) LIMIT 1   [ RunTime:0.000242s ]
+
+[ 2016-08-24T09:25:40+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/list_guess_field_question/guess_field_id/6.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006570s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000545s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007452s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000574s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.008173s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field_question` WHERE ( true AND guess_field_id = 6 ) LIMIT 1   [ RunTime:0.002651s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( true AND guess_field_id = 6 ) ORDER BY addtime ASC LIMIT 0, 10   [ RunTime:0.004408s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.006559s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 6 ) LIMIT 1   [ RunTime:0.003305s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.008276s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 5 ) LIMIT 1   [ RunTime:0.000381s ]
+SQL: SHOW COLUMNS FROM `tp_guess_question` [ RunTime:0.006076s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 23 ) LIMIT 1   [ RunTime:0.003776s ]
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.007157s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 5 ) LIMIT 1   [ RunTime:0.003237s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 6 ) LIMIT 1   [ RunTime:0.000269s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 5 ) LIMIT 1   [ RunTime:0.002238s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 24 ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 6 ) LIMIT 1   [ RunTime:0.000241s ]
+
+[ 2016-08-24T09:25:44+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/look_odds_detail/guess_field_question_id/5.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006311s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000581s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007551s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000538s ]
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.006308s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money,`odds` FROM `tp_guess_user` WHERE ( guess_field_question_id = 5 AND team_type = 1 ) LIMIT 1   [ RunTime:0.003560s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money,`odds` FROM `tp_guess_user` WHERE ( guess_field_question_id = 5 AND team_type = 2 ) LIMIT 1   [ RunTime:0.000160s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.006777s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( guess_field_question_id = 5 ) LIMIT 1   [ RunTime:0.000604s ]
+SQL: SHOW COLUMNS FROM `tp_guess_question` [ RunTime:0.006477s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 23 ) LIMIT 1   [ RunTime:0.000294s ]
+
+[ 2016-08-24T09:27:06+08:00 ] 127.0.0.1 /AcpGuessChampion/list_guess_champion/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010680s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000449s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007704s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000613s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.004871s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion` WHERE ( true ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: SELECT * FROM `tp_guess_champion` WHERE ( true ) ORDER BY start_time ASC LIMIT 0, 10   [ RunTime:0.002885s ]
+
+[ 2016-08-24T09:27:12+08:00 ] 127.0.0.1 /AcpGuessChampion/look_odds_detail/guess_champion_id/1.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003323s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000468s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006363s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000583s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_user` [ RunTime:0.007226s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money,`odds`,`team_id` FROM `tp_guess_champion_user` WHERE ( guess_champion_id = 1 ) GROUP BY team_id  [ RunTime:0.003213s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.007354s ]
+SQL: SELECT * FROM `tp_guess_champion` WHERE ( guess_champion_id = 1 ) LIMIT 1   [ RunTime:0.000321s ]
+
+[ 2016-08-24T09:29:15+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/list_guess_champion_team/guess_champion_id/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010345s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007368s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000648s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_team` [ RunTime:0.007712s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 2 ) LIMIT 1   [ RunTime:0.002551s ]
+SQL: SELECT * FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000391s ]
+
+[ 2016-08-24T09:29:20+08:00 ] 127.0.0.1 /AcpGuessChampion/list_guess_champion/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003790s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000336s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006616s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.004809s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion` WHERE ( true ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT * FROM `tp_guess_champion` WHERE ( true ) ORDER BY start_time ASC LIMIT 0, 10   [ RunTime:0.000264s ]
+
+[ 2016-08-24T09:29:32+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/list_guess_champion_team/guess_champion_id/1.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006460s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000474s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007310s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000669s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_team` [ RunTime:0.006947s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 1 ) LIMIT 1   [ RunTime:0.000350s ]
+SQL: SELECT * FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 1 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000551s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006507s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000355s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.006592s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000371s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000223s ]
+
+[ 2016-08-24T09:29:33+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/list_guess_champion_team/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003981s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002822s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_team` [ RunTime:0.004167s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion_team` WHERE ( true ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SELECT * FROM `tp_guess_champion_team` WHERE ( true ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.005863s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.000301s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.007598s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000337s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000209s ]
+
+[ 2016-08-24T09:29:41+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/edit_guess_champion_team/guess_champion_team_id/5.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007317s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007170s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000469s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_team` [ RunTime:0.003163s ]
+SQL: SELECT * FROM `tp_guess_champion_team` WHERE ( guess_champion_team_id = 5 ) LIMIT 1   [ RunTime:0.003519s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.007264s ]
+SQL: SELECT * FROM `tp_team` WHERE ( isuse = 1 )  [ RunTime:0.000434s ]
+
+[ 2016-08-24T09:29:53+08:00 ] 127.0.0.1 /AcpTreasure/list_treasure/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.001104s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002365s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.007664s ]
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.002020s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.000694s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000400s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.004602s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.002352s ]
+SQL: SHOW COLUMNS FROM `tp_treasure_user` [ RunTime:0.003302s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 4 ) LIMIT 1   [ RunTime:0.000244s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 3 ) LIMIT 1   [ RunTime:0.000157s ]
+
+[ 2016-08-24T09:30:59+08:00 ] 127.0.0.1 /AcpDrawPrize/list_draw_prize/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007764s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000487s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007357s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001058s ]
+SQL: SHOW COLUMNS FROM `tp_draw_prize` [ RunTime:0.007821s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_draw_prize` LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT * FROM `tp_draw_prize` LIMIT 0, 10   [ RunTime:0.000339s ]
+
+[ 2016-08-24T09:32:09+08:00 ] 127.0.0.1 /AcpRoll/list_roll/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010429s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005252s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000513s ]
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004788s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_roll` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.001030s ]
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.004126s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000489s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000208s ]
+
+[ 2016-08-24T09:33:23+08:00 ] 127.0.0.1 /AcpRollAward/list_roll_award/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007650s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000541s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007747s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000974s ]
+SQL: SHOW COLUMNS FROM `tp_roll_award` [ RunTime:0.010962s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_roll_award` LIMIT 1   [ RunTime:0.000321s ]
+SQL: SELECT * FROM `tp_roll_award` LIMIT 0, 10   [ RunTime:0.000266s ]
+
+[ 2016-08-24T09:34:20+08:00 ] 127.0.0.1 /AcpRollAward/delivered_roll_award/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011786s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000409s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.010603s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000735s ]
+SQL: SHOW COLUMNS FROM `tp_roll_award` [ RunTime:0.003757s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_roll_award` LIMIT 1   [ RunTime:0.000164s ]
+SQL: SELECT * FROM `tp_roll_award` LIMIT 0, 10   [ RunTime:0.000250s ]
+
+[ 2016-08-24T09:34:21+08:00 ] 127.0.0.1 /AcpRoll/list_roll/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004005s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006608s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.005148s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_roll` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000314s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.005505s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000187s ]
+
+[ 2016-08-24T09:34:29+08:00 ] 127.0.0.1 /AcpRoll/open_roll
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004279s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001459s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007437s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000575s ]
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006655s ]
+SQL: SELECT * FROM `tp_roll` WHERE ( roll_id = 2 ) LIMIT 1   [ RunTime:0.000287s ]
+
+[ 2016-08-24T09:38:48+08:00 ] 127.0.0.1 /AcpArticle/list_sort/mod_id/8
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008002s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000472s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007605s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000720s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.007389s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_article_sort` LIMIT 1   [ RunTime:0.000364s ]
+SQL: SELECT * FROM `tp_article_sort` ORDER BY serial LIMIT 0,15   [ RunTime:0.003452s ]
+
+[ 2016-08-24T09:38:50+08:00 ] 127.0.0.1 /AcpArticle/list_article/mod_id/8
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003030s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004862s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `tp_article` [ RunTime:0.007050s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_article` WHERE ( article_tag="" ) LIMIT 1   [ RunTime:0.002947s ]
+SQL: SELECT tp_article.article_id,tp_article.rule_type,tp_article.title,tp_article.clickdot,tp_article.addtime,tp_article.serial,tp_article.isuse,a_s.article_sort_name FROM `tp_article` LEFT JOIN tp_article_sort AS a_s ON a_s.article_sort_id=tp_article.article_sort_id WHERE ( article_tag="" ) ORDER BY tp_article.serial,tp_article.addtime DESC LIMIT 0,15   [ RunTime:0.002951s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.006577s ]
+SQL: SELECT `article_sort_id`,`article_sort_name` FROM `tp_article_sort`  [ RunTime:0.000286s ]
+
+[ 2016-08-24T09:38:50+08:00 ] 127.0.0.1 /AcpArticle/add_article/mod_id/8
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006427s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000667s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006667s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `tp_article_sort` [ RunTime:0.006396s ]
+SQL: SELECT `article_sort_id`,`article_sort_name` FROM `tp_article_sort` WHERE ( isuse=1 )  [ RunTime:0.000259s ]
+
+[ 2016-08-24T09:39:35+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010488s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007160s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000494s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.017135s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000191s ]
+
+[ 2016-08-24T09:39:37+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003942s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000425s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.002620s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000489s ]
+
+[ 2016-08-24T09:39:39+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004076s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000655s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006840s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000435s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006543s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000317s ]
+
+[ 2016-08-24T09:39:40+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006205s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004910s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000485s ]
+
+[ 2016-08-24T09:39:42+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002892s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006954s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000380s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006211s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000198s ]
+
+[ 2016-08-24T09:40:27+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.009856s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009055s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.005395s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000204s ]
+
+[ 2016-08-24T09:40:30+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006306s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000732s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006947s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000522s ]
+
+[ 2016-08-24T09:40:32+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003788s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000548s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004398s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007071s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000168s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000126s ]
+
+[ 2016-08-24T09:40:32+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006294s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006958s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000467s ]
+
+[ 2016-08-24T09:40:48+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004111s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004993s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003136s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000128s ]
+
+[ 2016-08-24T09:40:50+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003862s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000514s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006559s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000481s ]
+
+[ 2016-08-24T09:40:51+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006404s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006887s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000659s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006780s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000192s ]
+
+[ 2016-08-24T09:40:53+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004357s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000350s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001408s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000358s ]
+
+[ 2016-08-24T09:44:08+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007282s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.006665s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007015s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000753s ]
+
+[ 2016-08-24T09:44:09+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006442s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000320s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006619s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000567s ]
+
+[ 2016-08-24T09:44:47+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003173s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007810s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000431s ]
+
+[ 2016-08-24T09:45:09+08:00 ] 127.0.0.1 /AcpArticleAjax/uploadHandler
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006855s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007153s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001224s ]
+
+[ 2016-08-24T09:45:11+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006505s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000508s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006610s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000671s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007333s ]
+SQL: INSERT INTO `tp_cust_flash` (`title`,`link`,`serial`,`pic`,`isuse`) VALUES ('轮1','www.baidu.com',1,'/Uploads/image/article/thumb/2016-08/20160824094509_25311.jpg',1) [ RunTime:0.003126s ]
+
+[ 2016-08-24T09:45:12+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003083s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000503s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007874s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000492s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003655s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000395s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.007493s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.002743s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+
+[ 2016-08-24T09:45:20+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002976s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000481s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006634s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000440s ]
+
+[ 2016-08-24T09:45:22+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.001210s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004855s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007017s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000359s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006711s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000299s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+
+[ 2016-08-24T09:45:24+08:00 ] 127.0.0.1 /AcpCustFlash/edit_cust_flash/cust_flash_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002954s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007018s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.002850s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( cust_flash_id = 1 ) LIMIT 1   [ RunTime:0.000253s ]
+
+[ 2016-08-24T09:45:56+08:00 ] 127.0.0.1 /AcpCustFlash/edit_cust_flash/cust_flash_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006460s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000423s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006986s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001898s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.007157s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( cust_flash_id = 1 ) LIMIT 1   [ RunTime:0.000345s ]
+
+[ 2016-08-24T09:46:08+08:00 ] 127.0.0.1 /AcpCustFlash/edit_cust_flash/cust_flash_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006534s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007597s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000559s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.004128s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( cust_flash_id = 1 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003497s ]
+SQL: UPDATE `tp_cust_flash` SET `title`='轮8',`link`='www.baidu.com',`serial`=1,`pic`='/Uploads/image/article/thumb/2016-08/20160824094509_25311.jpg',`isuse`=1 WHERE ( cust_flash_id = 1 ) [ RunTime:0.000403s ]
+
+[ 2016-08-24T09:46:09+08:00 ] 127.0.0.1 /AcpCustFlash/edit_cust_flash/cust_flash_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.005010s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001441s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003263s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( cust_flash_id = 1 ) LIMIT 1   [ RunTime:0.000235s ]
+
+[ 2016-08-24T09:46:11+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002844s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000256s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003514s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000370s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003112s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000172s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006539s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000295s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+
+[ 2016-08-24T09:46:13+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006382s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000599s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006816s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000485s ]
+
+[ 2016-08-24T09:46:35+08:00 ] 127.0.0.1 /AcpArticleAjax/uploadHandler
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003948s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000445s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007449s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000705s ]
+
+[ 2016-08-24T09:46:36+08:00 ] 127.0.0.1 /AcpCustFlash/add_cust_flash
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006374s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000402s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007329s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000450s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.003714s ]
+SQL: INSERT INTO `tp_cust_flash` (`title`,`link`,`serial`,`pic`,`isuse`) VALUES ('ldoo','www.baidu.comdd',1,'/Uploads/image/article/thumb/2016-08/20160824094635_79576.jpg',1) [ RunTime:0.000232s ]
+
+[ 2016-08-24T09:46:37+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006186s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000598s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006850s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000584s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.004100s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000252s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000341s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.004352s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000166s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.004467s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000126s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+
+[ 2016-08-24T09:46:38+08:00 ] 127.0.0.1 /AcpCustFlash/get_cust_flash_list/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003175s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006679s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000543s ]
+SQL: SHOW COLUMNS FROM `tp_cust_flash` [ RunTime:0.006171s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_cust_flash` WHERE ( 1 = 1 ) LIMIT 1   [ RunTime:0.000249s ]
+SQL: SELECT * FROM `tp_cust_flash` WHERE ( 1 = 1 ) ORDER BY  serial ASC  [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.006542s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000235s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+SQL: SHOW COLUMNS FROM `tp_item` [ RunTime:0.005169s ]
+SQL: SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1   [ RunTime:0.000121s ]
+ERR: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ') LIMIT 1' at line 1
+ [ SQL语句 ] : SELECT `item_name`,`isuse`,`stock`,`mall_price`,`base_pic` FROM `tp_item` WHERE ( item_id =  ) LIMIT 1  
+
+[ 2016-08-24T10:01:23+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007211s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007598s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000591s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.003897s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.006838s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004330s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.003390s ]
+
+[ 2016-08-24T10:01:41+08:00 ] 127.0.0.1 /AcpClass/add_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004228s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000356s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007280s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000834s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004119s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.004027s ]
+
+[ 2016-08-24T10:01:42+08:00 ] 127.0.0.1 /AcpClass/get_level_two/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006006s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000427s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.003879s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000387s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006142s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003912s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.004115s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.009344s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_sort` LIMIT 1   [ RunTime:0.000366s ]
+SQL: SELECT * FROM `tp_sort` ORDER BY serial LIMIT 0, 10   [ RunTime:0.002933s ]
+SQL: SELECT `class_name` FROM `tp_class` WHERE ( class_id = 2 ) LIMIT 1   [ RunTime:0.003335s ]
+
+[ 2016-08-24T10:01:43+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002838s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001837s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000438s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.013820s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.006674s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006646s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000346s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000421s ]
+
+[ 2016-08-24T10:01:45+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003557s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000396s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007074s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000810s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.002919s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.007078s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006645s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 2 ) LIMIT 1   [ RunTime:0.000212s ]
+
+[ 2016-08-24T10:01:49+08:00 ] 127.0.0.1 /AcpArticleAjax/uploadHandler
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006348s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000350s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007131s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000635s ]
+
+[ 2016-08-24T10:01:50+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.001492s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005419s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000358s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.003786s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.001929s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004143s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 2 ) LIMIT 1   [ RunTime:0.000186s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.005337s ]
+SQL: UPDATE `tp_class` SET `class_name`='电线电缆',`serial`=1,`isuse`=1,`class_icon`='/Uploads/image/article/thumb/2016-08/20160824100149_94540.jpg' WHERE ( class_id = 2 ) [ RunTime:0.003844s ]
+
+[ 2016-08-24T10:01:51+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003271s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000411s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006259s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000528s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006773s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003021s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007684s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 2 ) LIMIT 1   [ RunTime:0.000552s ]
+
+[ 2016-08-24T10:01:53+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002992s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000290s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001891s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000393s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.002235s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003969s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006842s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000252s ]
+
+[ 2016-08-24T10:01:54+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002992s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000360s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008213s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006499s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.005050s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.005346s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 2 ) LIMIT 1   [ RunTime:0.000215s ]
+
+[ 2016-08-24T10:01:59+08:00 ] 127.0.0.1 /AcpClass/add_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002743s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006156s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000486s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007330s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003450s ]
+
+[ 2016-08-24T10:02:20+08:00 ] 127.0.0.1 /AcpClass/add_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003439s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005424s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001388s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004973s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.004829s ]
+
+[ 2016-08-24T10:02:26+08:00 ] 127.0.0.1 /AcpArticleAjax/uploadHandler
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006918s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000394s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006347s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000469s ]
+
+[ 2016-08-24T10:02:27+08:00 ] 127.0.0.1 /AcpClass/add_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002851s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007593s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000470s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006629s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003521s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006658s ]
+SQL: INSERT INTO `tp_class` (`class_name`,`serial`,`isuse`,`class_icon`) VALUES ('建筑五金',1,1,'/Uploads/image/article/thumb/2016-08/20160824100226_50582.jpg') [ RunTime:0.000394s ]
+
+[ 2016-08-24T10:02:28+08:00 ] 127.0.0.1 /AcpClass/add_level_one
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003085s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004788s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.005497s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.006861s ]
+
+[ 2016-08-24T10:02:29+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006285s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000607s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005094s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000877s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.003206s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.004238s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.001463s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000180s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000339s ]
+
+[ 2016-08-24T10:02:30+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/3.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006004s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000561s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004747s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.005894s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003144s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007139s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 3 ) LIMIT 1   [ RunTime:0.000440s ]
+
+[ 2016-08-24T10:02:32+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002871s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000339s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004735s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000453s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006252s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.006693s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007077s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000218s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000454s ]
+
+[ 2016-08-24T10:02:33+08:00 ] 127.0.0.1 /AcpClass/edit_level_one/class_id/3.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004131s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008491s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000471s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.001399s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003267s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.004589s ]
+SQL: SELECT * FROM `tp_class` WHERE ( class_id = 3 ) LIMIT 1   [ RunTime:0.000213s ]
+
+[ 2016-08-24T10:02:35+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006119s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000558s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005014s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001116s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.006231s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003487s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007240s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000233s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000237s ]
+
+[ 2016-08-24T10:02:58+08:00 ] 127.0.0.1 /AcpClass/get_level_one/mod_id/5
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003118s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000454s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007235s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000534s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007105s ]
+SQL: SHOW COLUMNS FROM `tp_sort` [ RunTime:0.003702s ]
+SQL: SHOW COLUMNS FROM `tp_class` [ RunTime:0.007224s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_class` LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT * FROM `tp_class` ORDER BY serial  [ RunTime:0.000287s ]
+
+[ 2016-08-24T15:11:29+08:00 ] 127.0.0.1 /AcpGuessChampion/list_guess_champion/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010251s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001320s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009376s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003349s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.007361s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion` WHERE ( true ) LIMIT 1   [ RunTime:0.007315s ]
+SQL: SELECT * FROM `tp_guess_champion` WHERE ( true ) ORDER BY start_time ASC LIMIT 0, 10   [ RunTime:0.005550s ]
+
+[ 2016-08-24T15:21:22+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/list_guess_champion_team/guess_champion_id/1.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007145s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003265s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007325s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003182s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion_team` [ RunTime:0.004003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 1 ) LIMIT 1   [ RunTime:0.003751s ]
+SQL: SELECT * FROM `tp_guess_champion_team` WHERE ( true AND guess_champion_id = 1 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.003477s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.003957s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 3 ) LIMIT 1   [ RunTime:0.003375s ]
+SQL: SHOW COLUMNS FROM `tp_guess_champion` [ RunTime:0.007129s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000268s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 4 ) LIMIT 1   [ RunTime:0.000130s ]
+SQL: SELECT `title` FROM `tp_guess_champion` WHERE ( guess_champion_id  = 1 ) LIMIT 1   [ RunTime:0.000144s ]
+
+[ 2016-08-24T15:21:23+08:00 ] 127.0.0.1 /AcpGuessChampionTeam/add_guess_champion_team/guess_champion_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002974s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008658s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000579s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006649s ]
+SQL: SELECT * FROM `tp_team` WHERE ( isuse = 1 )  [ RunTime:0.000279s ]
+
+[ 2016-08-24T16:52:23+08:00 ] 127.0.0.1 /AcpTreasure/list_treasure/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.013289s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.002444s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.012060s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003514s ]
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.007860s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.015765s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.010404s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.006975s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.003327s ]
+SQL: SHOW COLUMNS FROM `tp_treasure_user` [ RunTime:0.007664s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 4 ) LIMIT 1   [ RunTime:0.000223s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000185s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 3 ) LIMIT 1   [ RunTime:0.000154s ]
+
+[ 2016-08-24T16:56:26+08:00 ] 127.0.0.1 /AcpTreasure/list_treasure/mod_id/3
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011808s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003214s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007690s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003856s ]
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.007784s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.000467s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.005083s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `tp_treasure_user` [ RunTime:0.003749s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 4 ) LIMIT 1   [ RunTime:0.000223s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_treasure_user` WHERE ( treasure_id = 3 ) LIMIT 1   [ RunTime:0.000207s ]
+
+[ 2016-08-24T17:58:24+08:00 ] 127.0.0.1 /AcpTreasure/set_result
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011914s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003063s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007229s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003599s ]
+
+[ 2016-08-24T17:59:36+08:00 ] 127.0.0.1 /AcpRoll/list_roll/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010188s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003323s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009211s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003259s ]
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.008010s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_roll` WHERE ( isuse != 2 ) LIMIT 1   [ RunTime:0.003509s ]
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse != 2 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.003853s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.003941s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.003503s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( prize_id = 1 ) LIMIT 1   [ RunTime:0.000236s ]
+
+[ 2016-08-24T17:59:37+08:00 ] 127.0.0.1 /AcpRoll/add_roll/mod_id/4
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.005374s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000318s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.001378s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000507s ]
+SQL: SHOW COLUMNS FROM `tp_prize` [ RunTime:0.003191s ]
+SQL: SELECT * FROM `tp_prize` WHERE ( isuse = 1 )  [ RunTime:0.000196s ]
+
+[ 2016-08-24T17:59:50+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003940s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000363s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005094s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000449s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.003338s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.004132s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.005838s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000164s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.016682s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000190s ]
+
+[ 2016-08-24T18:00:02+08:00 ] 127.0.0.1 /AcpConfig/set_email/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006560s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000559s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007462s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000535s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003918s ]
+
+[ 2016-08-24T18:00:04+08:00 ] 127.0.0.1 /AcpConfig/close_recharge/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003182s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006977s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000855s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006167s ]
+
+[ 2016-08-24T18:00:15+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003205s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006182s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000383s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.004068s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000206s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000396s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.003023s ]
+
+[ 2016-08-24T18:00:27+08:00 ] 127.0.0.1 /acp_role/list_admin/submit/search/s/1/total/19/mod_id/0/p/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010343s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000392s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007531s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000557s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.003685s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000227s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000688s ]
+
+[ 2016-08-24T18:00:39+08:00 ] 127.0.0.1 /acp_role/list_admin/submit/search/s/1/total/19/mod_id/0/p/1.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003257s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000282s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007338s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001210s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.007253s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000508s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000503s ]
+
+[ 2016-08-24T18:00:50+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006356s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000404s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007387s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000627s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000258s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000270s ]
+
+[ 2016-08-24T18:01:00+08:00 ] 127.0.0.1 /AcpRole/del_role/group_id/31
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002912s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000416s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005257s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000432s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( group_id = 31 ) LIMIT 1   [ RunTime:0.004288s ]
+
+[ 2016-08-24T18:01:03+08:00 ] 127.0.0.1 /AcpRole/list_role.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003417s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007292s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000789s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000240s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000203s ]
+
+[ 2016-08-24T18:01:06+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006585s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000719s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006581s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000441s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.007211s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000387s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.001121s ]
+
+[ 2016-08-24T18:01:13+08:00 ] 127.0.0.1 /AcpRole/edit_admin/u/BmVVaVEzXDpTYQ==/redirect/WyQAZAUxVXYCWlojAT9UOAA2U3gAYVBsWisHcgYNUGBVYVM7UW9QbVV9AGYAPgdjBgpfMgZvD3UAMlV6ADwEIVtmAGk=
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003069s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000861s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006896s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000979s ]
+SQL: SELECT `user_id`,`username`,`sex`,`realname`,`email`,`tel`,`mobile`,`group_id`,`is_enable` FROM `tp_users` WHERE ( user_id = 39555 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.003364s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.003830s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000253s ]
+
+[ 2016-08-24T18:01:22+08:00 ] 127.0.0.1 /AcpRole/list_admin
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003076s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000587s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006769s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000510s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.002762s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000204s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  AND group_id = 1  ) LIMIT 1   [ RunTime:0.002328s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  AND group_id = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.003297s ]
+
+[ 2016-08-24T18:01:51+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004789s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007517s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000603s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.004252s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000234s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000254s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000534s ]
+
+[ 2016-08-24T18:04:34+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003976s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.011110s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000485s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.007239s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000196s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000302s ]
+
+[ 2016-08-24T18:04:36+08:00 ] 127.0.0.1 /AcpRole/list_role/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007347s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000327s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006783s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000667s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users_group` LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 10   [ RunTime:0.000527s ]
+
+[ 2016-08-24T18:04:40+08:00 ] 127.0.0.1 /AcpRole/list_admin/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003228s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006375s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000389s ]
+SQL: SHOW COLUMNS FROM `tp_users_group` [ RunTime:0.002830s ]
+SQL: SELECT * FROM `tp_users_group` LIMIT 0, 15   [ RunTime:0.000191s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE (  role_type = 1  ) LIMIT 1   [ RunTime:0.000252s ]
+SQL: SELECT * FROM `tp_users` WHERE (  role_type = 1  ) ORDER BY reg_time DESC LIMIT 0, 15   [ RunTime:0.000350s ]
+

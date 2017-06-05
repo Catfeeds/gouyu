@@ -1,0 +1,311 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+	body{
+		background-color: #1A1A1F;
+	}
+
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:2.35rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+		/*	background:#E8E8E8;*/
+		}
+		#pullUp{
+			padding-bottom: 3rem;
+			background-color: #202020;
+			width:100%;
+		}
+		#load_wrapper{
+			top:3.5rem;
+		}
+		.rank_main{
+			display:none;
+		}
+		#rank_tit_bt i{
+			-webkit-transform:rotate(180deg);
+		}
+		.guess_main .team_img{
+			position: absolute;
+		    top: 0px;
+		    left: 0px;
+		    right: 0px;
+		    margin: auto;
+		    width: 3rem;
+		    height: 3rem;
+		    border-radius: 50%;
+		    border: 1px solid #D6AA69;
+		}
+		.guess_main .team_name{
+			    position: relative;
+			    bottom: 0;
+			    padding-top: 3.3rem;
+			    right: 0;
+			    left: 0;
+			    margin: auto;
+			    font-size: .9rem;
+			    color: #D6AA69;
+			    line-height: 1.1rem;
+			    word-break: break-all;
+			    width: 100%;
+		}
+		.guess_main .team_img_box .victory{
+			top: 2rem;
+			background-size: 3.8rem 1.05rem;
+			width: 3.8rem;
+			height: 1.05rem;
+		}
+		.guess_main .team_img_box{
+			width:3.8rem;
+		}
+		.gg_box{
+			width:94%;
+			padding:0 3%;
+			background-color: #c02d14;
+		}
+		.bulletin_box{
+			width: 87%;
+			padding-left: 3%;
+			height: 1.75rem;
+
+			overflow: hidden;
+			white-space: nowrap;
+		}
+		.bulletin_box>p{
+			font-size: 0.7rem;
+			color: #fff;
+			line-height:1.75rem;
+			margin-right: 3%;
+			display: inline;
+		}
+		.gg_icon{
+			background:url(/Public/Images/front/front_img/icon_tz.png)  no-repeat; 
+			display:inline-block;
+			background-size: 0.5rem 0.7rem;
+			width:0.5rem;
+			height:0.7rem;
+			margin-top: .5rem;
+			margin-right: .5rem;
+		}
+		.icon_hot{
+			background:url(/Public/Images/front/front_img/icon_hot.png)  no-repeat; 
+			display:inline-block;
+			background-size: 1.15rem 1.4rem;
+			width:1.15rem;
+			height:1.4rem;
+			position:absolute;
+			top: -0.75rem;
+			right:.3rem;
+		/*	z-index:9999;*/
+		}
+</style>
+{/block}
+{block name="content"}
+	<div class="gg_box clearfix">
+		<i class="gg_icon fl"></i>
+		<div class="bulletin_box fl" id="scroll_box">
+            <p id="scroll_begin">{$content}</p>
+		    <p id="scroll_end"></p>
+		</div>
+	</div>
+	<div class="rank_head clearfix">
+        <p class="fl txt_limit">今日有{if $guess_user_info.people_num}{$guess_user_info.people_num}{else}0{/if}人参与竞猜，共投注{$guess_user_info.total_money|default:"0"}{$system_config.SYSTEM_MONEY_NAME}</p>
+        <a href="{$guess_rule_link}" class="fl">竞猜规则</a>
+	</div>
+<div id="load_wrapper">
+<div id="scroller">
+    {if $roll_info}
+	<h1 class="rank_tit">ROLL项目</h1>
+	<div class="rank_sp clearfix">
+        <img src="{$roll_info.img_path}" class="fl">
+		<div class="rank_sp_box fl">
+            <h1 class="clearfix"><p class="fl txt_limit" style="width:8.4rem">{$roll_info.roll_name}</p><br><span class="fl">{$roll_info.left_time}</span></h1>
+            <h2>奖品：{$roll_info.prize_name}</h2>
+			<h3 class="clearfix"><i class="rolltime icon2 fl"></i>即将揭晓</h3>
+            <a class="rank_sp_bt" href="{$roll_detail_link}{$roll_info.roll_id}">立即免费参加</a>
+		</div>
+	</div>
+    {/if}
+    {if $guess_user_list}
+	<div class="rank_tit clearfix" id="rank_tit_bt"><h1 class="fl">本周竞猜排行榜</h1><i class="fr jcjiantouup icon2"></i>
+	</div>
+	<dl class="rank_main" style="background:#e8e8e8;">
+		<dt class="clearfix">
+			<p class="fl tl">排行</p>
+			<p class="fl tc">昵称</p>
+			<p class="fl tr">获得鱼翅数</p>
+		</dt>
+        {foreach from=$guess_user_list item=item key=key}
+		<dd class="clearfix">
+        <p class="fl tl">{if $key+1 == 1}<i class="icon2 first"></i>{else if $key+1 == 2}<i class="icon2 two"></i>{else if $key+1 == 3}<i class="icon2 three"></i>{else}{$key+1}{/if}</p>
+        <div class="fl tc clearfix"><img src="{$item.headimgurl}" class="fl"><h1 class="fl">{$item.nickname}</h1></div>
+        <p class="fl tr">{$item.total_prize|intval}</p>
+		</dd>
+        {/foreach}
+	</dl>
+    {/if}
+	<h1 class="rank_tit">赛事竞猜</h1>
+	<div id="wrapper_list">
+		<div id="scroller_list">
+			<ul class="mall_list_tab1 clearfix">
+                {foreach from=$guess_type_list  item=item key=key}
+                <li style="float:left;" class="{if $item.guess_type_id == $guess_type_id}active{/if} {if $key == count($guess_type_list)-1}rb{/if}" Onclick="redirect('/FrontGuess/guess_index/guess_type_id/{$item.guess_type_id}.html')"><span>{$item.guess_type_name}</span>
+                {if $item.can_guess}
+				<i class="icon_hot"></i>
+                {/if}
+				<!-- hot猜标志 -->
+                </li>
+                {/foreach}
+			</ul>
+		</div>
+	</div>
+	<ul class="guess_main" id="new_list">	
+        {foreach from=$guess_list item=item}
+		<li class="rel {if $item.over == 3}start{else if $item.over == 2}doing{else}over{/if}">
+            <a href="{$guess_info_link}{$item.guess_id}">
+                <div class="clearfix top_box"><i class="icon2 sstime fl"></i><p class="fl">{if $item.over == 1}已结束{else if $item.over == 2} 进行中{else}未开始{/if}<span>{$item.ajax_start_time}</span></p><h2 class="fl">{$item.guess_name}</h2></div>
+                <img src="/Public/Images/front/front_img/cai.png" class="abs cai"/>
+				<!-- cai 标志是在未开始或进行中才会出现 -->
+				<div class="team_box clearfix">
+					<div class="fl team_img_box">
+                        <img src="{$item.host_img_path}" onerror="this.src='/Public/Images/front/front_img/img_lazy.jpg';" class="team_img lazy"/>
+						<h1 class="team_name">{$item.host_team_name}</h1>
+                        {if $item.is_over && $item.host_score > $item.guest_score}<span class="victory"></span>{/if}
+					</div>
+					<div class="fr team_img_box">
+                        <img src="{$item.guest_img_path}" onerror="this.src='/Public/Images/front/front_img/img_lazy.jpg';" class="team_img lazy"/>
+                        <h1 class="team_name">{$item.guest_team_name}</h1>
+                        {if $item.is_over && $item.host_score < $item.guest_score}<span class="victory"></span>{/if}
+						<!-- span victory 是胜利方出现的标志-->
+					</div>
+					<div class="clearfix">
+						<div class="score_box clearfix">
+                            <p class="fl score_p">{$item.host_score|default:0}</p>
+							<i class="icon2 VS fl"></i>
+                            <p class="fl score_p">{$item.guest_score|default:0}</p>
+						</div>
+                        {if $item.guess_field_num || $item.bo}
+						<div class="ronda_box">
+							<div class="ronda_bg"></div>
+                            <h1 class="ronda_num">BO {if $item.bo}{$item.bo}{else}{$item.guess_field_num}{/if}</h1>
+						</div>
+                        {/if}
+					</div>
+				</div>
+			</a>
+		</li>
+        {/foreach}
+		<!-- doing是进行中比赛 start是未开始比赛 over是已结束比赛 胜利方未做判断 -->
+	</ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+    </div>
+    </div>
+
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script type="text/javascript" src="__JS__/front/iscroll_tab.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/guess_index.js"></script>
+		<script type="text/javascript" src="__JS__/front/fastclick.js"></script>
+
+<!-- 		// <script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		// <script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script> -->
+	<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+var system_money_name = '{$system_config.SYSTEM_MONEY_NAME}';
+var guess_type_id = parseInt('{$guess_type_id}');
+
+{literal}
+	var wSum=0
+	var pSum=0
+	var pd=0
+	var listWidth=0
+	$(".mall_list_tab1").find("li").each(function(i){
+		wSum +=$(this).width();
+		pd=parseInt($(this).css("padding-right"));
+
+		// console.log(pd)
+		// console.log(wSum);
+		pSum=(i+1)*(pd*2+1)
+		console.log(pSum);
+	})
+	listWidth=wSum+pSum+10;
+	console.log(listWidth)
+	$("#scroller_list").width(listWidth);
+	
+
+	$(".refresh").on("click",function(){
+		location.reload()
+	})
+
+	$(".mall_list_tab1").find("li").on("click",function(){
+		$(this).addClass("active").siblings().removeClass("active");
+	})
+var TabScroll = new IScroll('#wrapper_list', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+	$(function() {  
+	    FastClick.attach(document.body);  
+	});  
+
+
+	function scroll()
+			{
+		  	var begin = null;
+		  	
+		 	var scroll_begin = document.getElementById("scroll_begin"); 
+		 	var scroll_end = document.getElementById("scroll_end"); 
+		 	var scroll_div = document.getElementById("scroll_box");
+		 	
+		 	if(scroll_begin.offsetWidth>scroll_div.offsetWidth)
+		 	{
+		 		scroll_end.innerHTML=scroll_begin.innerHTML;
+		 	}
+		 	
+		 	begin = setInterval(function()
+		 	{
+		  		if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+		  		{
+		  			scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+		  		}
+		  		else
+		  		{
+		  			scroll_div.scrollLeft++; 
+		  		}
+		  	},20); 
+		}
+		scroll();
+{/literal}
+	var rank_bt=document.getElementById('rank_tit_bt');
+	rank_bt.addEventListener('touchstart',function(e){
+		if($(".rank_main").css("display")=="none"){
+			$(".rank_main").show(200);
+			$("#rank_tit_bt").find("i").css("transform","rotate(0deg)");
+		}else{
+			$(".rank_main").hide(200);
+			$("#rank_tit_bt").find("i").css("transform","rotate(180deg)");
+		}
+	});
+	// $("#rank_tit_bt").on("click",function(){
+	// 			if($(".rank_main").css("display")=="none"){
+	// 		$(".rank_main").show(200);
+	// 		$("#rank_tit_bt").find("i").css("transform","rotate(0deg)");
+	// 	}else{
+	// 		$(".rank_main").hide(200);
+	// 		$("#rank_tit_bt").find("i").css("transform","rotate(180deg)");
+	// 	}
+	// })
+
+
+
+	</script>
+{/block}

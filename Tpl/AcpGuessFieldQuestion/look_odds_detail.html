@@ -1,0 +1,142 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<div class="t-detail-top">
+	<div class="top-tit">
+        {$info.question_title|truncate:20:"...":true}
+        <label class="fi-name" style="float:right; font-weight:normal;color:red">两队比分：{$guess_info.host_score}:{$guess_info.guest_score}</label>  
+	</div>
+</div>
+<div class="t-detail-goods">
+
+    <div class="t-detail-goods-tit mag">{if $field_type == 2}大于{else}主队{/if}情况：</div>
+    <div class="t-detail-goods-con t-buser">
+    	<table class="wxtables tables-form">  
+            <colgroup>  
+                <col width="10%">  
+                <col width="90%">   
+            </colgroup>  
+            <tbody>  
+                {if $field_type != 2}
+                <tr>  
+                    <td class="tables-form-title">队伍名：</td>  
+                    <td>{if $info.defind_team_name}{$info.defind_host_name}{else}{$guess_info.host_name}{if $field_type == 1 && $info.lose_type == 1}-{$info.lose_score}{/if}{/if}</td>
+                </tr> 
+                {/if}
+                <tr>  
+                    <td class="tables-form-title">赔率：</td>  
+					<td>{$info.host_odds}</td>
+                </tr> 
+                <tr>
+                    <td class="tables-form-title">投注人次：</td>  
+					<td>{$host_info.num}</td>
+                </tr>
+                <tr>  
+					<td class="tables-form-title">投注金额：</td>  
+					<td>{$host_info.total_money|default:0}</td>
+                </tr>  
+                {if !$info.is_over}
+                <tr>  
+					<td class="tables-form-title">设置结果：</td>  
+                    <td> <a href="javascript:;" class="btn" title="主队胜" onclick="set_team({$guess_field_question_id}, 'host')">设为胜队</a>  </td>
+                </tr>  
+                {/if}
+            </tbody>  
+        </table>   
+    </div>
+
+	<div class="t-detail-goods-tit mag">{if $field_type == 2}小于{else}客队{/if}情况：</div>
+    <div class="t-detail-goods-con t-buser">
+    	<table class="wxtables tables-form">  
+            <colgroup>  
+                <col width="10%">  
+                <col width="90%">   
+            </colgroup>  
+            <tbody>  
+                {if $field_type != 2}
+                <tr>  
+                    <td class="tables-form-title">队伍名：</td>  
+                    <td>{if $info.defind_team_name}{$info.defind_guest_name}{else}{$guess_info.guest_name}{if $field_type == 1 && $info.lose_type == 2}-{$info.lose_score}{/if}{/if}</td>
+                </tr> 
+                {/if}
+                <tr>  
+                    <td class="tables-form-title">赔率：</td>  
+					<td>{$info.guest_odds}</td>
+                </tr> 
+                <tr>
+                    <td class="tables-form-title">投注人次：</td>  
+					<td>{$guest_info.num}</td>
+                </tr>
+                <tr>  
+					<td class="tables-form-title">投注金额：</td>  
+					<td>{$guest_info.total_money|default:0}</td>
+                </tr>  
+                {if !$info.is_over}
+                <tr>  
+					<td class="tables-form-title">设置结果：</td>  
+                    <td> <a href="javascript:;" class="btn" title="客队胜" onclick="set_team({$guess_field_question_id}, 'guest')">设为胜队</a>  </td>
+                </tr>  
+                {/if}
+            </tbody>  
+        </table>   
+    </div>
+</div>
+{/block} 
+
+{block name="js"}
+{literal}
+<script>
+function set_team(question_guess_id, type)
+{
+    if (type == 'host') {
+        var name = '主队';
+    } else {
+        var name = '客队';
+    }
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要设置"+name+"为最后结果吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessFieldQuestion/set_team', {"guess_field_question_id":question_guess_id,"type":type}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，设置成功！');
+						location.reload();
+					}
+                    else if (data == 'lose_field')
+                    {
+                        alert('大小分局或让分局请先设置分数');
+                    }
+                    else if (data == 'no_start')
+                    {
+                        alert('此局还未开始哦');
+                    }
+					else
+					{
+						alert('对不起，设置失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+</script>
+<style>
+#jpops .fi-name{width:100px;}
+#jpops .form-controls{margin-left:100px;}
+</style>
+{/literal} 
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpOrder/order_detail.css" type="text/css" />
+{/block} 

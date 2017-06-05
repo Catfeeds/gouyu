@@ -1,0 +1,71 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background:#E8E8E8;
+		}
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:0rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+			background:#E8E8E8;
+		}
+		</style>
+{/block}
+{block name="content"}
+		<div class="swop_list" id="load_wrapper">
+			<div id="scroller">
+				<ul id="new_list">
+                    {foreach from=$order_list item=item}
+					<li class="swop_li">
+                        <a href="{$exchange_detail_link}{$item.order_id}" class="clearfix">
+                            <img data-original="{$item.small_pic}" class="fl lazy"/>
+							<div class="swop_cont_box fl">
+                                <h1 class="txt_limit">{$item.item_name|default:'--'}</h1>
+                                <h2 class="txt_limit">{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</h2>
+							</div>
+							<div class="swop_right_box fr clearfix">
+								<i class="fr icon2 gjjiantouright"></i>
+                                {if $item.order_status == 2}
+								<span class="fr be">已领取</span>
+                                {else}
+								<span class="fr not">未领取</span>
+                                {/if}
+								<!-- be  not  状态分别为已领取 未领取 -->
+							</div>
+						</a>
+					</li>
+                    {/foreach}
+				</ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+	
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/my_exchange.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+    	<script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

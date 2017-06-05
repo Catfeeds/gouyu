@@ -1,0 +1,56 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+body{
+    background:#202020;
+}
+.guess_info_head{
+    position:fixed;
+    top:0;
+    width:94%;
+}
+</style>
+{/block}
+{block name="content"}
+        {if !$user_info.mobile || !$user_info.email}
+        <div class="guess_info_head clearfix" >
+			<h1 class="fl" {if !$user_info.mobile}onclick="redirect('/FrontUser/bind_mobile')"{else}onclick="redirect('/FrontUser/bind_email')"{/if}>点击绑定手机号和邮箱，提升安全等级，防止帐号被盗</h1>
+			<i class="fr icon2 tsclose"></i>
+		</div>
+        {/if}
+		<ul class="set_cont">
+			<li class="clearfix img_box">
+				<p class="fl">头像</p>
+                <img data-original="{$user_info.headimgurl}" class="fr lazy"/>
+			</li>
+			<li class="clearfix">
+				<p class="fl">昵称</p>
+                <h1 class="fr">{$user_info.nickname|default:$user_info.username}</h1>
+			</li>
+		</ul>
+		<div class="set_cont2">
+            <a href="{$bind_mobile_link}" class="clearfix">
+				<p class="fl">手机号</p>
+				<i class="icon2 fr gjjiantouright"></i>
+                <h2 class="fr">{$user_info.mobile|default:"未绑定"}</h2>
+			</a>
+            <a href="{$bind_email_link}" class="clearfix">
+				<p class="fl">邮箱</p>
+				<i class="icon2 fr gjjiantouright"></i>
+                <h2 class="fr">{$user_info.email|default:"未绑定"}</h2>
+			</a>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+    	<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+		<script>
+			$(".guess_info_head .tsclose").on("click",function(){
+				$(this).parent().hide(100);
+			})
+			setTimeout(function () {
+			    $(".guess_info_head").hide(100);
+			}, 3000);
+		</script>
+{/block}

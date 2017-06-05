@@ -1,0 +1,57 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id='base_config' action='' method='POST'>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>暂时关闭充值：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="is_close" value="1" {if $system_config.IS_CLOSE == 1}checked="checked"{/if} />是</label>  
+            <label><input type="radio" name="is_close" value="0" {if $system_config.IS_CLOSE == 0}checked="checked"{/if}/>否</label>   
+        </div>  
+    </div>  
+</div>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>开始时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="close_start_time" value="{$system_config.CLOSE_START_TIME|date_format:'%H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'H:mm:ss'})">
+        <span class="fi-help-text"></span>  
+    </div>  
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>结束时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="close_end_time" value="{$system_config.CLOSE_END_TIME|date_format:'%H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'H:mm:ss'})">
+        <span class="fi-help-text"></span>  
+    </div>  
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>关闭后提示信息：</label>   
+    <div class="form-controls">  
+        <textarea name="close_recharge_alert" >{$system_config.CLOSE_RECHARGE_ALERT}</textarea>  
+        <span class="fi-help-text">一般在50字以内</span>  
+    </div>    
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">
+    	<input type='hidden' name='act' value='save' />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>确定</button>
+        <button type="reset" class="btn"><i class="gicon-repeat"></i>重置</button>
+    </div>  
+</div>
+</form> 
+{/block}
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script src='__ACPJS__/AcpConfig/edit_config.js?version={$version}'></script>
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpConfig/base_config.css" type="text/css" />
+{/block}

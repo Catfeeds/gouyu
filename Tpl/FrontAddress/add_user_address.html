@@ -1,0 +1,115 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			background:#202020;
+		}
+</style>
+{/block}
+{block name="content"}	
+		<form id="form1" action="" method="post">
+		<ul class="add_take">
+			<li class="clearfix">
+				<label for="take_name" class="fl">收件人</label>
+				<input type="text" placeholder="请输入姓名" class="fl" id="take_name" name="realname"/>
+			</li>
+			<li class="clearfix">
+				<label  class="fl" for="take_phone" >手机号码</label>
+				<input type="number" placeholder="输入手机号" class="fl" id="take_phone" name="mobile"/>
+			</li>
+			<li class="clearfix">
+				<label for="take_phone" class="fl">收件地区</label>
+				<select class="fl  add_select" name="province_id" id="province_id">
+					<option value ="0" >省</option>
+                    {foreach from=$province_list item=item}
+                    <option value ="{$item.province_id}">{$item.province_name}</option>
+                    {/foreach}
+				</select>
+				<select class="fl  add_select" name="city_id" id="city_id">
+					<option value ="0">市</option>
+				</select>
+				<select class="fl  add_select" name="area_id" id="area_id">
+					<option value ="0">区</option>
+				</select>
+			</li>
+			<li class="clearfix">
+				<label for="take_site" class="fl">详细地址</label>
+				<input type="text" placeholder="输入详细地址" class="fl" id="site" name="address"/>
+			</li>
+		</ul>
+		<a class="default clearfix  " href="javascript:;">
+			<i class="icon2 wx fl" id="fx"></i>
+			<p class="fl">设为默认地址</p>
+			<input type="hidden" name="is_default" id="is_default" value="0"/>
+		</a>
+		<input class="global_bt" id="take_bt" type="button" value="保存"/>
+        <input type="hidden" name="act" value="add"/>
+		</form>
+{/block}
+{block name="js"}	
+		<script>
+			$(".default").on("click",function(){
+				if($("#fx").hasClass("fwx")){
+					$("#fx").removeClass("fwx");
+					$("#fx").addClass("wx");
+                    $("#is_default").val(0);
+				}else{
+					$("#fx").removeClass("wx");
+					$("#fx").addClass("fwx");
+                    $("#is_default").val(1);
+				}
+			})
+			// 表单验证
+			var telreg = /^1[23456789]\d{9}$/;
+			$("#take_bt").on("click",function(){
+				if($("#take_name").val().length<1){
+					layer.open({
+					content: '请输入收件人姓名',
+					btn: ['确定'],
+					});
+				$("#take_name").focus();
+				return;
+				}
+				if($("#take_phone").val().length<1){
+					layer.open({
+					content: '请输入收件人联系方式',
+					btn: ['确定'],
+					});
+				$("#take_phone").focus();
+				return;
+				}
+				mobile = $("#take_phone").val();
+				//if(!telreg.test(mobile)){
+				//	layer.open({
+				//	content: '请输入正确的联系方式',
+				//	btn: ['确定'],
+				//	});
+				//$("#take_phone").focus();
+				//return;
+				//}
+				$("select").each(function(){
+					if($(this).val()=="0"){
+						layer.open({
+						content: '请填写收件地区',
+						btn: ['确定'],
+						});
+					return;
+					}else{
+
+					}
+				})
+				if($("#site").val().length<1){
+					layer.open({
+					content: '请输入详细地址',
+					btn: ['确定'],
+					});
+				$("#site").focus();
+				return;
+				}
+
+                //提交表单
+                $("#form1").submit();
+				})
+		</script>
+{/block}

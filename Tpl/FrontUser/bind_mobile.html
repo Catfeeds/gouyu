@@ -1,0 +1,155 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+body{
+    background:#202020;
+}
+</style>
+{/block}
+{block name="content"}
+        <form id="form1">
+			<div class="binding_phone">
+				<input type="number" placeholder="输入手机号码" id="phone" name="mobile"/>
+				<div class="binding_phone_box clearfix">
+					<input class="fl"  placeholder="输入验证码" type="number" id="code" name="verify_code"></input>
+					<input class="fr code_btn" onclick="get_yzm(this)" value="获取验证码" type="button" /></input>
+				</div>
+                <input type="hidden" name="action" value="bind"/>
+			</div>
+			<input class="global_bt" id="phone_btn" type="button" value="保存"/>
+		</form>
+		<!-- 保存成功弹窗 -->
+		<div class="keep_win clearfix">
+			<i class="fl icon2 szmr"></i>
+			<p class="fl">保存成功</p>
+		</div>
+{/block}
+{block name="js"}
+		<script>
+			// 验证码
+                  var telreg = /^1[23456789]\d{9}$/;
+                  //var telreg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+				  var countdown=60;
+                  var times=0;
+                  function get_yzm(obj){
+                    mobile = $("#phone").val();
+                      if(mobile.length<1){
+                          layer.open({
+                              content: '请输入手机号',
+                              btn: ['确定'],
+                          });
+                          $("#phone").focus();
+                          return;
+                      }
+                      //if(!telreg.test(mobile)){
+                      //    layer.open({
+                      //        content: '请输入正确的手机号',
+                      //        btn: ['确定'],
+                      //    });
+                      //    $("#phone").focus();
+                      //    return;
+                      //}
+
+                      if (times) return;
+                      times = 1;
+                      $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontUser/send_vcode",
+                          data: "phone=" + mobile,
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                          success: function (msg){
+                              console.log(msg);
+                              if(msg == 'failure') 
+                              {
+                                  alert('网络故障');
+                                  return false;
+                              }
+                              else 
+                              {
+                                  settime(obj);
+                              }
+                          }
+                      });
+
+                  }
+
+                  function settime(obj) {
+                      if (countdown == 0) {
+                          times = 0;
+                          obj.removeAttribute("disabled");
+                          if($(".EN").hasClass("active")){
+                              obj.value="Get Auth Code";
+                          }else{
+                              obj.value="获取验证码";
+                          }
+                          countdown = 60;
+                          obj.style.opacity= "1";
+                          return;
+                      } else {
+                          obj.setAttribute("disabled", true);
+                          obj.value= "已发送("+countdown + ")s";
+                          countdown--;
+                          obj.style.opacity= "1";
+                      }
+                      setTimeout(function() {
+                          settime(obj) }
+                          ,1000)
+                  }
+
+			      // 保存成功方法。
+			      var keepfun = function(){
+			      	$(".keep_win").show();
+			      	setTimeout(function () {
+					        $(".keep_win").hide();
+					        // 跳转页面的
+					}, 2000);
+			      }
+			      // 表单验证
+			      $("#phone_btn").on("click",function(){
+					if($("#phone").val().length<1){
+						layer.open({
+						content: '请输入手机号',
+						btn: ['确定'],
+						});
+					$("#phone").focus();
+					return;
+					}
+					mobile = $("#phone").val();
+					//if(!telreg.test(mobile)){
+					//	layer.open({
+					//	content: '请输入正确的手机号',
+					//	btn: ['确定'],
+					//	});
+					//$("#phone").focus();
+					//return;
+					//}
+					if($("#code").val().length<1){
+						layer.open({
+						content: '请输入验证码',
+						btn: ['确定'],
+						});
+					$("#code").focus();
+					return;
+					}
+                      $.ajax({
+                          type: "POST", //用POST方式传输
+                          url: "/FrontUser/bind_mobile",
+                          data: $("#form1").serialize(),
+                          error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                          success: function (msg){
+                              console.log(msg);
+                              if(msg == 'success') 
+                              {
+                                  keepfun();
+                                  setTimeout('window.location.href="/FrontUser/setup.html"', 1000);
+                              }
+                              else 
+                              {
+                                  alert_message(msg);
+                              }
+                          }
+                      });
+					})
+		</script>
+{/block}

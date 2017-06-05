@@ -1,0 +1,31 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background:#E8E8E8;
+		}
+		</style>
+{/block}
+{block name="content"}
+		<div class="transfer_cont">
+			<div class="transfer_head clearfix">
+				<i class="fl icon2 jcsuccess"></i>
+				<h1 class="fl">转帐成功</h1>
+			</div>
+			<p class="transfer_p">后台人员会在10分钟内帮您充值完成，如有异常，可进入微信公众号咨询客服</p>
+		</div>
+{/block}
+{block name="js"}
+		<script>
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+            setTimeout('window.location.href="/FrontUser/personal_data.html"', 2000);
+
+		</script>
+{/block}

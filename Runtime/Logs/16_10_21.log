@@ -1,0 +1,2192 @@
+[ 2016-10-21T11:01:41+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.015430s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003399s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.008238s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003826s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000388s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006447s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token" ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token_expire_time" ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: UPDATE `tp_config` SET `config_value`='LUGnBk63Kuq48fcHSURFB5LO1BKMWR4NFPve0oH9iP5NKCj7zbnG3lXJxpbsxOzwpbFVvhcdPDIL2BL2nBuTtK-h79QYZL4NtmS0jvpemK2cLGPcNNOm3eacor-LyTwGXZOcAFATVK' WHERE ( config_name="access_token" ) [ RunTime:0.004367s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477025896 WHERE ( config_name="access_token_expire_time" ) [ RunTime:0.000301s ]
+SQL: UPDATE `tp_config` SET `config_value`='sM4AOVdWfPE4DxkXGEs8VMkXF0G0i5AQDiP4pE-z34ETpaAeINwYkI2euAGmhClBv30ArXnuQtDyK_Q7o63Qew' WHERE ( config_name="jsapi_ticket" ) [ RunTime:0.000347s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477025896 WHERE ( config_name="jsapi_ticket_expire_time" ) [ RunTime:0.000204s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.010242s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477018896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003430s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477018896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000627s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.011230s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477018896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.002822s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477018896 ) ORDER BY addtime LIMIT 10   [ RunTime:0.042413s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.003675s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000373s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000285s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000374s ]
+
+[ 2016-10-21T11:02:05+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002987s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003376s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002900s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000207s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000133s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004172s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477018924 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000525s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477018924 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000492s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003611s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477018924 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000961s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477018924 ) ORDER BY addtime LIMIT 10   [ RunTime:0.019403s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002186s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000283s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000195s ]
+
+[ 2016-10-21T11:02:06+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/1010/recharge_type/1/id/39628
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003176s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000309s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "alipay" ) LIMIT 1   [ RunTime:0.007184s ]
+DEBUG: Array
+(
+    [alipay_account] => gouyudota2@163.com
+    [alipay_partner] => 2088421909849990
+    [alipay_key] => jrhckqjfu164j58mppes07zmkjplmuj1
+    [alipay_general_method] => 1
+)
+
+
+[ 2016-10-21T11:02:12+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002983s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000316s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000405s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003220s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000338s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000251s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006541s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477018931 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000664s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477018931 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000544s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004969s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477018931 ) ORDER BY addtime LIMIT 5   [ RunTime:0.002380s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477018931 ) ORDER BY addtime LIMIT 10   [ RunTime:0.033057s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002397s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000333s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000274s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000250s ]
+
+[ 2016-10-21T11:29:57+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/100/recharge_type/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007501s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000383s ]
+
+[ 2016-10-21T11:30:30+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006403s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000545s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003681s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000188s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.005026s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020630 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000620s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020630 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000385s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004462s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020630 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003565s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020630 ) ORDER BY addtime LIMIT 10   [ RunTime:0.023238s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002427s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000259s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000176s ]
+
+[ 2016-10-21T11:30:58+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006789s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000587s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000415s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004732s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000297s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004459s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020658 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000941s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020658 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000506s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006071s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020658 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003693s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020658 ) ORDER BY addtime LIMIT 10   [ RunTime:0.030560s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002442s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000323s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000242s ]
+
+[ 2016-10-21T11:31:23+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003366s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000472s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007015s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000328s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000285s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006318s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020683 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000873s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020683 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000805s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006701s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020683 ) ORDER BY addtime LIMIT 5   [ RunTime:0.002899s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020683 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024637s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002297s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000220s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000159s ]
+
+[ 2016-10-21T11:32:01+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006714s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000676s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006881s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000320s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000221s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006615s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020720 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000608s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020720 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000471s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004385s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020720 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003772s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020720 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024741s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002361s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000310s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000297s ]
+
+[ 2016-10-21T11:32:04+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003954s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000414s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002977s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000322s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000191s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003439s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020724 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000355s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020724 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000320s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004366s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020724 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000321s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020724 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015399s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000221s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000162s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000149s ]
+
+[ 2016-10-21T11:32:15+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003349s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000445s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000249s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003767s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000156s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004643s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477020734 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000533s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477020734 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000315s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004405s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477020734 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000529s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477020734 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014345s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002216s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000219s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000150s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000156s ]
+
+[ 2016-10-21T11:37:07+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004208s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000369s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004228s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000226s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000172s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004145s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021027 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000367s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021027 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000283s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004110s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021027 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000274s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021027 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014643s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002148s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000199s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000160s ]
+
+[ 2016-10-21T11:37:10+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006227s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000486s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006279s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000329s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006363s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021030 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000599s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021030 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000751s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004286s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021030 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000538s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021030 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024002s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000246s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000162s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000154s ]
+
+[ 2016-10-21T11:37:10+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/1010/recharge_type/1/id/39628
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002828s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000306s ]
+
+[ 2016-10-21T11:37:13+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002982s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000328s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000407s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002972s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000140s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006769s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021033 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000644s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021033 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000475s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006698s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021033 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000651s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021033 ) ORDER BY addtime LIMIT 10   [ RunTime:0.022205s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002325s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000284s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000308s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000280s ]
+
+[ 2016-10-21T11:38:02+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.009662s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000472s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000373s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006593s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000367s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000228s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006455s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021082 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000647s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021082 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000753s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006488s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021082 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000430s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021082 ) ORDER BY addtime LIMIT 10   [ RunTime:0.020331s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002332s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000231s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000163s ]
+
+[ 2016-10-21T11:38:03+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003136s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000311s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003195s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000202s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000158s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006362s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021083 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000626s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021083 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000315s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006146s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021083 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000525s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021083 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024955s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000294s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000170s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000162s ]
+
+[ 2016-10-21T11:38:05+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004026s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000487s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000352s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004335s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000312s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000217s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004257s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021085 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000664s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021085 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000477s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006730s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021085 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000488s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021085 ) ORDER BY addtime LIMIT 10   [ RunTime:0.023429s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000313s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000166s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000155s ]
+
+[ 2016-10-21T11:38:05+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/1010/recharge_type/1/id/39628
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004038s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000387s ]
+
+[ 2016-10-21T11:38:07+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004092s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000915s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004006s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000140s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006271s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021087 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000528s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021087 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000735s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004722s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021087 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000329s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021087 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014306s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000258s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000275s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000193s ]
+
+[ 2016-10-21T11:38:19+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006470s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000472s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006951s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000251s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000177s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006823s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021099 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000615s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021099 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000521s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006812s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021099 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000440s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021099 ) ORDER BY addtime LIMIT 10   [ RunTime:0.022137s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002356s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000218s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000152s ]
+
+[ 2016-10-21T11:38:21+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006857s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000333s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003109s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000208s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000154s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.008935s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021101 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000629s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021101 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000477s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006747s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021101 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000427s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021101 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018176s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000150s ]
+
+[ 2016-10-21T11:38:54+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.008334s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000493s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003451s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000423s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000365s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006737s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021134 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000760s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021134 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000589s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004143s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021134 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000423s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021134 ) ORDER BY addtime LIMIT 10   [ RunTime:0.022386s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002368s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000305s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000190s ]
+
+[ 2016-10-21T11:38:55+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004822s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000625s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000375s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003807s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000376s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000453s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006501s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021135 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000502s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021135 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000384s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006309s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021135 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000399s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021135 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017088s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000215s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000143s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000142s ]
+
+[ 2016-10-21T11:38:57+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003952s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000365s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000268s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002852s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000321s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000256s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004002s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021137 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000406s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021137 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000401s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006321s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021137 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000337s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021137 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016019s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000226s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000160s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000154s ]
+
+[ 2016-10-21T11:39:10+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006920s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000481s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006666s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000351s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000257s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006665s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021150 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000598s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021150 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000466s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006668s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021150 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000441s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021150 ) ORDER BY addtime LIMIT 10   [ RunTime:0.019992s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002339s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000243s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000188s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000207s ]
+
+[ 2016-10-21T11:39:12+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003096s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000323s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000242s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006344s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000217s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006514s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021152 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000873s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021152 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000807s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006584s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021152 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000444s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021152 ) ORDER BY addtime LIMIT 10   [ RunTime:0.019922s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000320s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000318s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000301s ]
+
+[ 2016-10-21T11:39:12+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/1010/recharge_type/1/id/39628
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006573s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000437s ]
+
+[ 2016-10-21T11:39:15+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002986s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000356s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000286s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003906s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000327s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000249s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004063s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021155 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000489s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021155 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000306s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004000s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021155 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000519s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021155 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015999s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000226s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000160s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000153s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000156s ]
+
+[ 2016-10-21T11:39:35+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006478s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000567s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000342s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006721s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000311s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000218s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006717s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021174 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000607s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021174 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000474s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006616s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021174 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000436s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021174 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017995s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002241s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000203s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000152s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000156s ]
+
+[ 2016-10-21T11:39:36+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007051s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000437s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003034s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000204s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000135s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.008814s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021176 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000624s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021176 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000469s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004126s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021176 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000444s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021176 ) ORDER BY addtime LIMIT 10   [ RunTime:0.027747s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000244s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000190s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000150s ]
+
+[ 2016-10-21T11:39:43+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006837s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000358s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000267s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006123s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000345s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000243s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006351s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021183 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000562s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021183 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000426s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006103s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021183 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000265s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021183 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014335s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002317s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000301s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000220s ]
+
+[ 2016-10-21T11:39:45+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006593s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000474s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000522s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.001378s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000140s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006301s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021185 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000631s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021185 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000600s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006318s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021185 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000337s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021185 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015376s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000225s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000209s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000171s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000154s ]
+
+[ 2016-10-21T11:39:46+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006551s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000476s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006391s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000263s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000165s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006343s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021186 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000843s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021186 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000481s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006144s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021186 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000337s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021186 ) ORDER BY addtime LIMIT 10   [ RunTime:0.013856s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000181s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000154s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000153s ]
+
+[ 2016-10-21T11:39:48+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006564s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000516s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003131s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000202s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006342s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021188 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000602s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021188 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000470s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006666s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021188 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000437s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021188 ) ORDER BY addtime LIMIT 10   [ RunTime:0.027158s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000267s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000301s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000196s ]
+
+[ 2016-10-21T11:40:44+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003804s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001089s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003365s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000142s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004512s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000535s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000387s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006217s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000415s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021244 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018887s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002254s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000213s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000169s ]
+
+[ 2016-10-21T11:40:44+08:00 ] 127.0.0.1 /FrontUser/pay_page/recharge_money/10/total_money/1010/recharge_type/1/id/39628
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004183s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000357s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "alipay" ) LIMIT 1   [ RunTime:0.003571s ]
+DEBUG: Array
+(
+    [alipay_account] => gouyudota2@163.com
+    [alipay_partner] => 2088421909849990
+    [alipay_key] => jrhckqjfu164j58mppes07zmkjplmuj1
+    [alipay_general_method] => 1
+)
+
+
+[ 2016-10-21T11:40:48+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002717s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000289s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000346s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002941s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000180s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000126s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003374s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021248 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000347s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021248 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000270s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004309s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021248 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000275s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021248 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015309s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000258s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000145s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000135s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000135s ]
+
+[ 2016-10-21T11:41:32+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003830s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000271s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006875s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000126s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006918s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477021292 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000391s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477021292 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000319s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007040s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477021292 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000419s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477021292 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018305s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002236s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000153s ]
+
+[ 2016-10-21T13:38:09+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.021443s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.004028s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.003134s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006667s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000460s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006241s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token" ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token_expire_time" ) LIMIT 1   [ RunTime:0.000158s ]
+SQL: UPDATE `tp_config` SET `config_value`='BhTLPVb3p2FqOTmRH8tmC9uM7SbdObMfOC1297iHDSyehQy6XVs-X440zliXD1dw8Jpv4Bo3oIXxqBC8TEpaGyYsofvMCC-4tYTTQDVK9w8wGm1pGiTbRRM3dkEcFFryXCWfADALQK' WHERE ( config_name="access_token" ) [ RunTime:0.006260s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477035287 WHERE ( config_name="access_token_expire_time" ) [ RunTime:0.000223s ]
+SQL: UPDATE `tp_config` SET `config_value`='sM4AOVdWfPE4DxkXGEs8VMkXF0G0i5AQDiP4pE-z34GyreGhoDT91b6XHMOQJvVrWJHzmOVhrhz7bhB1Y6_VVw' WHERE ( config_name="jsapi_ticket" ) [ RunTime:0.000463s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477035287 WHERE ( config_name="jsapi_ticket_expire_time" ) [ RunTime:0.000217s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.009973s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028287 ) ORDER BY addtime LIMIT 5   [ RunTime:0.004726s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028287 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003385s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006997s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028287 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003116s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028287 ) ORDER BY addtime LIMIT 10   [ RunTime:0.035582s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.003480s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000321s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000276s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000295s ]
+
+[ 2016-10-21T13:38:13+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006583s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000467s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004093s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000212s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000142s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003865s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028291 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000718s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028291 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000388s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003525s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028291 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000332s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028291 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014150s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000230s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000187s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000159s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.002775s ]
+SQL: SELECT `openid` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000327s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000491s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000270s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000401s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000271s ]
+
+[ 2016-10-21T13:38:14+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004379s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.004087s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000338s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004459s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000311s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000215s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004893s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028293 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000614s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028293 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000472s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004262s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028293 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000522s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028293 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018962s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000224s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000160s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000152s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000305s ]
+SQL: SELECT `openid` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000397s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000271s ]
+
+[ 2016-10-21T13:39:05+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.035306s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000394s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003502s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000134s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.008237s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028345 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000850s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028345 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000759s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007326s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028345 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000369s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028345 ) ORDER BY addtime LIMIT 10   [ RunTime:0.019232s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002317s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.001026s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000390s ]
+
+[ 2016-10-21T13:39:09+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006971s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000599s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004173s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000271s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000179s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004103s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028347 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000618s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028347 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000478s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004429s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028347 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000461s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028347 ) ORDER BY addtime LIMIT 10   [ RunTime:0.020664s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000227s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000178s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000167s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000427s ]
+SQL: SELECT `openid` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000268s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000261s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000247s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000650s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000353s ]
+
+[ 2016-10-21T13:39:09+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000303s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004201s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000157s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006379s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028349 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000740s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028349 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000427s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006366s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028349 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000449s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028349 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018317s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SELECT `openid` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000177s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000276s ]
+
+[ 2016-10-21T13:39:15+08:00 ] 127.0.0.1 /FrontUser/ajax_wx_pay_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007106s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000432s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.002860s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000127s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006335s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028355 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000393s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028355 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000286s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.002892s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028355 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000266s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028355 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014919s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000201s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000129s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000272s ]
+SQL: SELECT `openid` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000175s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000249s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000189s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000406s ]
+SQL: SELECT * FROM `tp_payway` WHERE ( pay_tag = "wxpay" ) LIMIT 1   [ RunTime:0.000313s ]
+
+[ 2016-10-21T13:39:56+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003574s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000341s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006799s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000338s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000245s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006516s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477028396 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001052s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477028396 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000725s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004166s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477028396 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000335s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477028396 ) ORDER BY addtime LIMIT 10   [ RunTime:0.013967s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002156s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000275s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000177s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000175s ]
+
+[ 2016-10-21T13:56:30+08:00 ] 127.0.0.1 /AcpGuessField/list_guess_field/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007877s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000330s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007082s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.015363s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.007042s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029390 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000731s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029390 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000406s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007406s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029390 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000302s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029390 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016795s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.003406s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000200s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.005885s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( true ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( true ) ORDER BY is_over, addtime DESC LIMIT 0, 10   [ RunTime:0.004441s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007792s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.003364s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006979s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1298 ) LIMIT 1   [ RunTime:0.000398s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1298 ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1297 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1297 ) LIMIT 1   [ RunTime:0.000230s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1296 ) LIMIT 1   [ RunTime:0.000424s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1296 ) LIMIT 1   [ RunTime:0.000362s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000256s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000176s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000222s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000170s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1295 ) LIMIT 1   [ RunTime:0.000236s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.002050s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.000232s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.000144s ]
+SQL: SELECT `guess_name` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.000138s ]
+SQL: SELECT `is_over` FROM `tp_guess` WHERE ( guess_id = 1294 ) LIMIT 1   [ RunTime:0.000122s ]
+SQL: SHOW COLUMNS FROM `tp_guess_type` [ RunTime:0.009870s ]
+SQL: SELECT * FROM `tp_guess_type` WHERE ( isuse = 1 )  [ RunTime:0.003246s ]
+
+[ 2016-10-21T13:56:32+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/list_guess_field_question/guess_field_id/1951.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006614s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000459s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006949s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000492s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006308s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029392 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000634s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029392 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000387s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003819s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029392 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000273s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029392 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016505s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000341s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000198s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.009565s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field_question` WHERE ( true AND guess_field_id = 1951 AND isuse != 2 ) LIMIT 1   [ RunTime:0.005467s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( true AND guess_field_id = 1951 AND isuse != 2 ) ORDER BY is_over, addtime ASC LIMIT 0, 10   [ RunTime:0.001521s ]
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.005848s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.004841s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.003533s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.004683s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000358s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.011870s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3074 AND team_type = 1 ) LIMIT 1   [ RunTime:0.004671s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3074 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002730s ]
+SQL: SHOW COLUMNS FROM `tp_guess_bat_reback` [ RunTime:0.004872s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.003390s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.000385s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000344s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 3075 ) LIMIT 1   [ RunTime:0.002893s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3075 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002631s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3075 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002461s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 3075 ) LIMIT 1   [ RunTime:0.000310s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.000245s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000184s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 3076 ) LIMIT 1   [ RunTime:0.002559s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3076 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002138s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3076 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002047s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 3076 ) LIMIT 1   [ RunTime:0.000312s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000161s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 3077 ) LIMIT 1   [ RunTime:0.001927s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3077 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002773s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3077 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002332s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 3077 ) LIMIT 1   [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `tp_guess_type` [ RunTime:0.003929s ]
+SQL: SELECT * FROM `tp_guess_type` WHERE ( isuse = 1 )  [ RunTime:0.000277s ]
+
+[ 2016-10-21T13:56:34+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/guess_field_question_detail/guess_field_question_id/3074.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003894s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000574s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006745s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000523s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.008692s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029394 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000750s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029394 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000540s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006392s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029394 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000425s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029394 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015832s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000294s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000196s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.006202s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( is_pay = 1 AND guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.005369s ]
+SQL: SELECT * FROM `tp_guess_user` WHERE ( is_pay = 1 AND guess_field_question_id = 3074 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.002784s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.006610s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.003050s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.004156s ]
+SQL: SELECT `field_type` FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006363s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000338s ]
+
+[ 2016-10-21T13:56:37+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/look_odds_detail/guess_field_question_id/3074.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006274s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000397s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006480s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000413s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006185s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029397 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001084s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029397 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000528s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006387s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029397 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000516s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029397 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015653s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002435s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000323s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.006457s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money FROM `tp_guess_user` WHERE ( guess_field_question_id = 3074 AND team_type = 1 ) LIMIT 1   [ RunTime:0.003133s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money FROM `tp_guess_user` WHERE ( guess_field_question_id = 3074 AND team_type = 2 ) LIMIT 1   [ RunTime:0.003416s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.006423s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006367s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000233s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.012993s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 735 ) LIMIT 1   [ RunTime:0.003756s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 135 ) LIMIT 1   [ RunTime:0.003499s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.007243s ]
+SQL: SELECT `field_type` FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.003306s ]
+
+[ 2016-10-21T13:57:51+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/look_odds_detail/guess_field_question_id/3074.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004506s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000431s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008219s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000658s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006683s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029470 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000822s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029470 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000621s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006799s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029470 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000696s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029470 ) ORDER BY addtime LIMIT 10   [ RunTime:0.027243s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002356s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000238s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.006358s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money FROM `tp_guess_user` WHERE ( guess_field_question_id = 3074 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002831s ]
+SQL: SELECT count(*) AS num,sum(add_money) AS total_money FROM `tp_guess_user` WHERE ( guess_field_question_id = 3074 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002727s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.006901s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( guess_field_question_id = 3074 ) LIMIT 1   [ RunTime:0.000408s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006864s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1299 ) LIMIT 1   [ RunTime:0.000467s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006733s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 735 ) LIMIT 1   [ RunTime:0.003273s ]
+SQL: SELECT `team_name` FROM `tp_team` WHERE ( team_id = 135 ) LIMIT 1   [ RunTime:0.003379s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.007142s ]
+SQL: SELECT `field_type` FROM `tp_guess_field` WHERE ( guess_field_id = 1951 ) LIMIT 1   [ RunTime:0.003686s ]
+
+[ 2016-10-21T14:02:25+08:00 ] 127.0.0.1 /FrontUser/recharge.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007791s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.003905s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.002143s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010913s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000410s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000208s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.011003s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029744 ) ORDER BY addtime LIMIT 5   [ RunTime:0.009097s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029744 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001544s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007507s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029744 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000585s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029744 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024793s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.003532s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000332s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000235s ]
+SQL: SELECT `left_money` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000284s ]
+
+[ 2016-10-21T14:02:25+08:00 ] 127.0.0.1 /FrontUser/personal_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003049s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000289s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006535s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000350s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006351s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029745 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001236s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029745 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000529s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006527s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029745 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000487s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029745 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017969s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000221s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000208s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000163s ]
+SQL: SELECT `nickname`,`realname`,`mobile`,`email`,`headimgurl`,`id`,`left_money`,`frozen_money`,`user_id` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000174s ]
+
+[ 2016-10-21T14:02:43+08:00 ] 127.0.0.1 /FrontUser/personal_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003298s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000372s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000429s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004583s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000331s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000251s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003605s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029763 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000426s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029763 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000354s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004766s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029763 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000401s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029763 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017396s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002324s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000551s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000284s ]
+SQL: SELECT `nickname`,`realname`,`mobile`,`email`,`headimgurl`,`id`,`left_money`,`frozen_money`,`user_id` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000461s ]
+
+[ 2016-10-21T14:02:57+08:00 ] 127.0.0.1 /AcpConfig/set_recharge_back/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007370s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000563s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006317s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.003408s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006325s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029777 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003482s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029777 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001026s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006228s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029777 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000287s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029777 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014623s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002461s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000279s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006438s ]
+
+[ 2016-10-21T14:02:59+08:00 ] 127.0.0.1 /AcpConfig/set_recharge_back/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006391s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000444s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006501s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000371s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006001s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029779 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000485s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029779 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000393s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006208s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029779 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000348s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029779 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014966s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000263s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000188s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006291s ]
+SQL: UPDATE `tp_config` SET `config_value`='1' WHERE ( config_name="is_recharge_back_close" ) [ RunTime:0.006913s ]
+SQL: UPDATE `tp_config` SET `config_value`='推广活动暂时停止，若是开放另行通知。' WHERE ( config_name="close_recharge_back_alert" ) [ RunTime:0.000387s ]
+SQL: INSERT INTO `tp_config` (`config_name`,`config_value`) VALUES ('close_recharge_back_alert','推广活动暂时停止，若是开放另行通知。') [ RunTime:0.004606s ]
+ERR: Duplicate entry 'close_recharge_back_alert' for key 'PRIMARY'
+ [ SQL语句 ] : INSERT INTO `tp_config` (`config_name`,`config_value`) VALUES ('close_recharge_back_alert','推广活动暂时停止，若是开放另行通知。')
+SQL: UPDATE `tp_config` SET `config_value`=2 WHERE ( config_name="recharge_back_pro" ) [ RunTime:0.000507s ]
+SQL: INSERT INTO `tp_config` (`config_name`,`config_value`) VALUES ('recharge_back_pro',2) [ RunTime:0.000341s ]
+ERR: Duplicate entry 'recharge_back_pro' for key 'PRIMARY'
+ [ SQL语句 ] : INSERT INTO `tp_config` (`config_name`,`config_value`) VALUES ('recharge_back_pro',2)
+
+[ 2016-10-21T14:03:01+08:00 ] 127.0.0.1 /AcpConfig/set_recharge_back/mod_id/0
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006521s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000646s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009372s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000492s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006195s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029781 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000454s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029781 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000298s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006100s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029781 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000353s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029781 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016427s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000337s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000308s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006157s ]
+
+[ 2016-10-21T14:03:05+08:00 ] 127.0.0.1 /FrontUser/personal_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006457s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000502s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000253s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006612s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000409s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000223s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006672s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029785 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000722s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029785 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000530s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006926s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029785 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000578s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029785 ) ORDER BY addtime LIMIT 10   [ RunTime:0.025377s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002431s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000234s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+SQL: SELECT `nickname`,`realname`,`mobile`,`email`,`headimgurl`,`id`,`left_money`,`frozen_money`,`user_id` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000180s ]
+
+[ 2016-10-21T14:03:06+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006349s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000519s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000683s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006100s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000317s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000183s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006276s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029786 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000497s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029786 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000343s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006391s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029786 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000476s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029786 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018601s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000278s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000184s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000160s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+
+[ 2016-10-21T14:03:08+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004010s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000436s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006423s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000258s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000177s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006548s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029788 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000876s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029788 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000477s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.001530s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029788 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000469s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029788 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017246s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000231s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000157s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000148s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+
+[ 2016-10-21T14:04:03+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.009685s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000517s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000333s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003379s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000240s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000197s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006666s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029843 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000738s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029843 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001184s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006910s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029843 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000405s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029843 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016905s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002276s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000220s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000142s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000141s ]
+
+[ 2016-10-21T14:04:47+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006972s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000349s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000282s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006498s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000266s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000278s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006565s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029886 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001366s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029886 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000765s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006855s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029886 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000353s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029886 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016029s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002315s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000332s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000210s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000284s ]
+
+[ 2016-10-21T14:05:17+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003913s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000375s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003758s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000278s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000245s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003976s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029916 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000613s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029916 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000338s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007283s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029916 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000391s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029916 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018529s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002082s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000242s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000179s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000131s ]
+
+[ 2016-10-21T14:06:02+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007025s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000380s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000347s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003489s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000150s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006074s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477029962 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000473s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477029962 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000353s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007371s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477029962 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000289s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477029962 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016874s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002136s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000351s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000281s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000270s ]
+
+[ 2016-10-21T14:08:16+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004706s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000297s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004087s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000184s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000124s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.007164s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477030096 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000503s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477030096 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000666s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004120s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477030096 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000344s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477030096 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014246s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002420s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000214s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000151s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000158s ]
+
+[ 2016-10-21T14:08:42+08:00 ] 127.0.0.1 /FrontUser/my_qr_code.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006267s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000460s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.001466s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006761s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000345s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000257s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006225s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477030121 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000971s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477030121 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000501s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006542s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477030121 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000458s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477030121 ) ORDER BY addtime LIMIT 10   [ RunTime:0.016654s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002251s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000368s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000312s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000299s ]
+
+[ 2016-10-21T14:16:07+08:00 ] 127.0.0.1 /FrontUser/personal_data
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.013108s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000376s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000792s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006790s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000407s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000207s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006626s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477030566 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000657s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477030566 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000359s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006751s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477030566 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000480s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477030566 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015041s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002264s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000297s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000239s ]
+SQL: SELECT `nickname`,`realname`,`mobile`,`email`,`headimgurl`,`id`,`left_money`,`frozen_money`,`user_id` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000247s ]
+
+[ 2016-10-21T14:16:17+08:00 ] 127.0.0.1 /FrontUser/my_recharge_back
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004239s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000691s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003892s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000138s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004436s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477030576 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000851s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477030576 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000960s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006446s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477030576 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000395s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477030576 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018853s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002202s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000196s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000142s ]
+SQL: SHOW COLUMNS FROM `tp_recharge_back` [ RunTime:0.016368s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_recharge_back` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.004026s ]
+SQL: SELECT * FROM `tp_recharge_back` WHERE ( user_id = 39628 ) ORDER BY addtime DESC LIMIT 0, 10   [ RunTime:0.000265s ]
+
+[ 2016-10-21T14:16:22+08:00 ] 127.0.0.1 /FrontUser/my_qr_code
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006156s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001155s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 39628 ) LIMIT 1   [ RunTime:0.000447s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003987s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000221s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000153s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003810s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477030582 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000646s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477030582 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000653s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003942s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477030582 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000610s ]
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477030582 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017445s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000242s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000164s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT `mobile`,`role_type` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000402s ]
+SQL: SELECT `nickname`,`headimgurl` FROM `tp_users` WHERE ( user_id = 39628 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000225s ]
+

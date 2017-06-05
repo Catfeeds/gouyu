@@ -1,0 +1,27 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			/*background:#E8E8E8;*/
+		}
+		</style>
+</style>
+{/block}
+{block name="content"}
+		<div class="about">
+            <h1 class="about_head">{if $opt == 'about'}关于我们{else}{$head_title}{/if}</h1>
+            {$content}
+		</div>
+{/block}
+{block name="js"}
+		<script>
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

@@ -1,0 +1,80 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id='base_config' action='' method='POST'>
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>充值返利：</label>  
+    <div class="form-controls">  
+        <div class="radio-group recharge_back">  
+            <label><input type="radio" name="is_recharge_back_close"  value="1" {if $system_config.IS_RECHARGE_BACK_CLOSE== 1}checked="checked"{/if} />开启</label>  
+            <label><input type="radio" name="is_recharge_back_close"  value="0" {if $system_config.IS_RECHARGE_BACK_CLOSE== 0}checked="checked"{/if}/>关闭</label>   
+        </div>  
+    </div>  
+</div>
+<!--<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>开始时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="close_exchange_start_time" value="{$system_config.CLOSE_EXCHANGE_START_TIME|date_format:'%H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'H:mm:ss'})">
+        <span class="fi-help-text"></span>  
+    </div>  
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>结束时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="close_exchange_end_time" value="{$system_config.CLOSE_EXCHANGE_END_TIME|date_format:'%H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'H:mm:ss'})">
+        <span class="fi-help-text"></span>  
+    </div>  
+</div>
+-->
+
+<div class="formitems inline recharge_back_pro" {if $system_config.IS_RECHARGE_BACK_CLOSE == 0}style="display:none"{/if}>  
+    <label class="fi-name"><span class="colorRed">*</span>返利比例：</label>   
+    <div class="form-controls">  
+        <input name="recharge_back_pro" value="{$system_config.RECHARGE_BACK_PRO}" class="mini"/>%  
+        <span class="fi-help-text"></span>  
+    </div>    
+</div>
+<div class="formitems inline close_recharge_back_alert" {if $system_config.IS_RECHARGE_BACK_CLOSE == 1}style="display:none"{/if}>  
+    <label class="fi-name"><span class="colorRed">*</span>关闭后提示信息：</label>   
+    <div class="form-controls">  
+        <textarea name="close_recharge_back_alert" >{$system_config.CLOSE_RECHARGE_BACK_ALERT}</textarea>  
+        <span class="fi-help-text">一般在50字以内</span>  
+    </div>    
+</div>
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">
+    	<input type='hidden' name='act' value='save' />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>确定</button>
+        <button type="reset" class="btn"><i class="gicon-repeat"></i>重置</button>
+    </div>  
+</div>
+</form> 
+{/block}
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script src='__ACPJS__/AcpConfig/edit_config.js?version={$version}'></script>
+<script>
+$(function(){
+    $(".recharge_back label").on("click", function(){
+        var yes = $(this).children('input').val();
+        console.log(yes);
+        if (yes == 1) {
+            $(".recharge_back_pro").show();
+            $(".close_recharge_back_alert").hide();
+        } else {
+            $(".recharge_back_pro").hide();
+            $(".close_recharge_back_alert").show();
+        }
+    });
+});
+</script>
+{/block} 
+
+{block name="css"}
+<link rel="stylesheet" href="/Public/Css/acp/AcpConfig/base_config.css" type="text/css" />
+{/block}

@@ -1,0 +1,292 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+	<style>
+		body{
+			padding-top: 0px;
+		}
+		.welfare-area {
+		    border-top: 1px solid #6f6f6f;
+		    border-bottom: 1px solid #6f6f6f;
+		}
+		.fuli_title{
+			display: inline-block;
+    		width: 20%;
+		}
+		.bulletin_box{
+			width: 70%;
+			height: 1.75rem;
+			overflow: hidden;
+			white-space: nowrap;
+			background-color: transparent;
+			float: right;
+			margin-right: 3%;
+		}
+		.bulletin_box>p{
+			font-size: 0.7rem;
+			color: #fff;
+			line-height:1.75rem;
+			margin-right: 3%;
+			display: inline;
+		}
+	</style>
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--系统公告-->
+    {if $draw_prize_list}
+		<div class="home_horn clearfix">
+			<i class="icon gonggao3x fl"></i>
+			<div class="fl home_horn_box">
+                {foreach from=$draw_prize_list item=item}
+                <p>恭喜<a href="">{$item.nickname}</a>以<a href="">{$item.people_use_times|default:1}</a>人次夺得<a href="">{$item.prize_name}</a></p>
+                {/foreach}
+			</div>
+		</div>
+    {/if}
+    <!--夺宝周榜-->
+    <ul class="treasure-list">
+    	<li class="week-list">夺宝周榜</li>
+    	<li class="week-profit">
+    		<p>盈利人次</p>
+    		<span></span>
+    	</li>
+    	<li class="week-icon"><i class="jcjiantouup icon2" style="transform:rotate(180deg);"></i></li>
+    </ul>
+    <div class="list-cont">
+    	<ul class="red">
+    		<li class="first-li">本周红榜榜首</li>
+    		<li class="mid-li">{$times['max']['name']}</li>
+    		<li class="last-li">
+                <span style="color:#3ecd8d;">{if $times['max'][1] > 0}正{elseif $times['max'][1] < 0}负{else}平{/if}</span>
+                <span style="color:#d5ac64;">{$times['max'][1]|default:0}</span>
+    			<span>人次</span>
+    		</li>
+    	</ul>
+    	<ul>
+    		<li class="first-li">本周黑榜榜首</li>
+    		<li class="mid-li">{$times['min']['name']}</li>
+    		<li class="last-li">
+    			<span style="color:#c5432d;">{if $times['min'][1] > 0}正{elseif $times['min'][1] < 0}负{else}平{/if}</span>
+                <span style="color:#d5ac64;">{$times['min'][1]|default:0}</span>
+    			<span>人次</span>
+    		</li>
+    	</ul>
+    </div>
+    <!--点击盈利人次的弹框-->
+    <div class="info-wrap">
+    	<div class="info-bg"></div>
+    	<div class="info-cont">
+    		<h3>说明</h3>
+    		<p>盈利人次=总夺宝中奖人次-总参与人次</p>
+            <p style="color:#d6aa69;border-bottom:1px solid white;">{$system_config.WEEK_ALERT}</p>
+    		<span class="pro-know">我知道了</span>
+    		<div class="fork"></div>
+    	</div>
+    </div>
+    <!--福利专区-->
+    {*{if count($fuli_list) > 0}*}
+    <div class="welfare-area">
+    	<h2>
+    		<span class="fuli_title">福利专区</span>
+			<div class="bulletin_box fl" id="scroll_box">
+	            <p id="scroll_begin">{$content}</p>
+			    <p id="scroll_end"></p>
+			</div>
+    	</h2>
+    	<ul class="home_main clearfix" style="margin-bottom:0;">
+	        {foreach from=$fuli_list item=item}
+			<li class="welfare-limit">
+	            <a href="{$treasure_detail_link}{$item.treasure_id}">
+	                <!--<img src="{$item.img_path}" />-->
+	                <img data-original="{$item.img_path}" class="lazy" />
+					<div class="props_box clearfix">
+	                    <h3 class="fl">{$item.prize_name}</h3>
+	                    <p class="fr">夺宝进度<span class="home_span_txt">{$item.prop_deg|default:0}</span>%</p>
+					</div>
+					<div class="progress_box" data-perc="{$item.prop_deg|default:0}">
+						<div class="progress_cont"></div>
+					</div>
+					<div class="number_box clearfix">
+	                    <p class="fl">已参与：<span>{$item.people_num|default:0}</span>人次</p>
+	                    <p class="fr">限购<span>{$item.each_person_times|default:10}</span>人次</p>
+					</div>
+					<div class="remaining_box clearfix">
+						<p class="fl margin_right">剩余</p>
+	                    {foreach from=$item.left_arr item=left}
+	                    <span class="fl">{$left}</span>
+	                    {/foreach}
+						<!--<span class="fl">6</span>
+						<span class="fl">9</span>-->
+						<p class="fl margin_left">人次</p>
+					</div>
+				</a>
+				<div class="limit-icon"></div>
+			</li>
+	        {/foreach}
+		</ul>
+    </div>
+    {*{/if}*}
+	<!--夺宝大作战-->
+    {*{if count($treasure_list) > 0}*}
+	<div class="fight-treasure">
+		<h2>夺宝大作战</h2>
+		<ul class="home_main clearfix">
+            {foreach from=$treasure_list item=item}
+			<li>
+                <a href="{$treasure_detail_link}{$item.treasure_id}">
+                    <!--<img src="{$item.img_path}" />-->
+                    <img data-original="{$item.img_path}" class="lazy" />
+					<div class="props_box clearfix">
+                        <h3 class="fl">{$item.prize_name}</h3>
+                        <p class="fr">夺宝进度<span class="home_span_txt">{$item.prop_deg|default:0}</span>%</p>
+					</div>
+					<div class="progress_box" data-perc="{$item.prop_deg|default:0}">
+						<div class="progress_cont"></div>
+					</div>
+					<div class="number_box clearfix">
+                        <p class="fl">已参与：<span>{$item.people_num|default:0}</span>人次</p>
+                        <p class="fr">限购<span>{$item.each_person_times|default:10}</span>人次</p>
+					</div>
+					<div class="remaining_box clearfix">
+						<p class="fl margin_right">剩余</p>
+                        {foreach from=$item.left_arr item=left}
+                        <span class="fl">{$left}</span>
+                        {/foreach}
+						<!--<span class="fl">6</span>
+						<span class="fl">9</span>-->
+						<p class="fl margin_left">人次</p>
+					</div>
+				</a>
+			</li>
+            {/foreach}
+		</ul>
+	</div>
+    {*{/if}*}
+		<div class="home_menu">
+            <a href="{$draw_prize_record_link}" class="home_menu_box clearfix">
+				<i class="icon kaijiangjilu3x fl"></i>
+				<p class="fl">开奖记录</p>
+				<span class="icon right_gold3x fr"></span>
+			</a>
+            <a href="{$treasure_rule_link}" class="home_menu_box clearfix">
+				<i class="icon youxiguize3x fl"></i>
+				<p class="fl">游戏规则</p>
+				<span class="icon right_gold3x fr"></span>
+			</a>	
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/lazyload_img.js"></script>
+		<script>
+			var time;
+			
+{literal}
+			$(function()
+			{
+				$(".home_main>li:even").css("float","left");
+				$(".home_main>li:odd").css("float","right");
+
+				$(".progress_box").each(function(){
+					var t = $(this),
+					dataperc = t.attr("data-perc");
+					t.find(".progress_cont").animate({width:dataperc+"%"});
+				});
+			/*滚动*/
+				time = window.setTimeout("lun()",1000);
+			});
+			
+			function lun()
+			{
+				$(".home_horn_box").animate({top:"-1.85rem"},1000,function()
+				{
+					$(".home_horn_box p:first").appendTo(".home_horn_box");
+					$(".home_horn_box").css("top","0");
+				});
+				time = window.setTimeout("lun()",500);
+			}
+			/*-----夺宝周榜------*/
+			var weekList = document.getElementsByClassName("week-list")[0];
+			var weekIcon = document.getElementsByClassName("week-icon")[0];
+			function touchListShow(obj){
+					obj.addEventListener("touchstart",function(e){
+					if($(".list-cont").css("display")=="none"){
+						$(".list-cont").show(200);
+						$(".week-icon").find("i").css({
+							"transform":"rotate(0deg)",
+							"transition":"0.8s"
+						});
+					}else{
+						$(".list-cont").hide(200);
+						$(".week-icon").find("i").css({
+							"transform":"rotate(180deg)",
+							"transition":"0.8s"
+						});
+					}
+				});
+			}
+			touchListShow(weekList);
+			touchListShow(weekIcon);
+			/*-----盈利人次------*/
+			var weekProfit = document.getElementsByClassName('week-profit')[0];
+			var infoBg = document.getElementsByClassName('info-bg')[0];
+			var infoCont = document.getElementsByClassName('info-cont')[0];
+			var oFork = document.getElementsByClassName('fork')[0];
+			var proKnow = document.getElementsByClassName('pro-know')[0];
+			$(".info-wrap").css({
+				"width":$(window).width(),
+				"height":$(window).height()
+			});
+			weekProfit.addEventListener("touchstart",function(e){
+				$(".info-wrap").css("display","block");
+				$(".info-bg").css("display","block");
+				$(".info-cont").css("display","block");
+			});
+			function infoProShow(obj){
+				obj.addEventListener("touchstart",function(e){
+					$(".info-cont").css("display","none");
+					$(".info-bg").css("display","none");
+					setTimeout(function(){
+						$(".info-wrap").css("display","none");
+					},300);
+				});
+			}
+			infoProShow(infoBg);
+			infoProShow(oFork);
+			infoProShow(proKnow);
+			
+			//滚动文字
+			function scroll()
+			{
+			  	var begin = null;
+			  	
+			 	var scroll_begin = document.getElementById("scroll_begin"); 
+			 	var scroll_end = document.getElementById("scroll_end"); 
+			 	var scroll_div = document.getElementById("scroll_box");
+			 	
+			 	if(scroll_begin.offsetWidth>scroll_div.offsetWidth)
+			 	{
+			 		scroll_end.innerHTML=scroll_begin.innerHTML;
+			 	}
+			 	
+			 	begin = setInterval(function()
+			 	{
+			  		if(scroll_end.offsetWidth-scroll_div.scrollLeft<=0) 
+			  		{
+			  			scroll_div.scrollLeft-=scroll_begin.offsetWidth; 
+			  		}
+			  		else
+			  		{
+			  			scroll_div.scrollLeft++; 
+			  		}
+			  	},20); 
+			}
+			scroll();
+			
+{/literal}
+		</script>
+{/block}

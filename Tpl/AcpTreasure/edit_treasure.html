@@ -1,0 +1,208 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id="J_FormArticle" action="" method="post">
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>奖品：</label>  
+    <div class="form-controls">  
+        <select name="prize_id">
+            <option value="">--请选择奖品--</option>
+            {foreach from=$prize_list item=item}
+            <option value="{$item.prize_id}" {if $treasure_info.prize_id == $item.prize_id}selected{/if}>{$item.prize_name}</option>
+            {/foreach}
+        </select>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<!--<div class="formitems inline" id="pic">
+    <label class="fi-name"><span class="colorRed">*</span>宝贝图片：</label>  
+    <div class="form-controls">
+        <div  id="img_path">
+            <ul class="fi-imgslist" style="float:left;">
+                <li class="preview fi-imgslist-item pic{if !$treasure_info.img_path || !file_exists($img_path_path)} hide{/if}" id="preview" style="">
+                    <div>
+                        <img id="J_Preview" style="height: 65px;" src="{$treasure_info.img_path}"/>
+                    </div>
+                    <input type="hidden" name="img_path" id="J_ImgUrl" data-id="{if $treasure_info.img_path }{/if}" value="{$treasure_info.img_path}" />
+                    <a href="javascript:;" class="del" id="J_Del" title="删除这张图"><i class="gicon-remove" onclick="delImage('img_path');"></i></a>
+                    <img src="__IMAGES__/popup-loading.gif" id="J_AjaxLoading" class="pic-loading" style="width: 32px; height: 32px;" />
+                    <div class="pic-mask" id="J_Mask"></div>
+                </li>
+                <li class="fi-imgslist-item{if $img_path_path && file_exists($img_path_path)} hide{/if}" id="add_li">
+                    <a href="javascript:;" class="add" title="上传一张新的图片" id="img_path_uploader">+</a>
+                </li>
+            </ul>
+        </div>
+        <span class="fi-help-text">最佳尺寸200*100</span>
+    </div>
+</div>
+-->
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>开始时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="start_time" value="{$treasure_info.start_time|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd H:mm:ss'})">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>结束时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="end_time" value="{$treasure_info.end_time|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd H:mm:ss'})">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>总需人次：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="mini" name="total_person_times" value="{$treasure_info.total_person_times}">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>期数：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="mini" name="periods" value="{$treasure_info.periods}">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>每人每天购买限额：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="mini" name="each_person_times" value="{$treasure_info.each_person_times}">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+<div class="formitems inline">  
+    <label class="fi-name">是否福利专区：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="is_fuli" value="1" {if $treasure_info.is_fuli == 1}checked="checked"{/if} onclick="show_limit_fuli(1)"/>是</label>  
+            <label><input type="radio" name="is_fuli" value="0" {if $treasure_info.is_fuli == 0}checked="checked"{/if} onclick="show_limit_fuli(0)"/>否</label>   
+        </div>  
+    </div>  
+</div> 
+<div class="formitems inline fuli_money" {if $treasure_info.is_fuli == 0}style="display:none"{/if}>  
+    <label class="fi-name"><span class="colorRed">*</span>流水要求：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="" name="limit_fuli_money" value="{$treasure_info.limit_fuli_money}">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>排序号：</label>  
+    <div class="form-controls">  
+		<input type="text" placeholder="" class="mini" name="serial" id="serial" value="{$treasure_info.serial}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+
+<div class="formitems inline">  
+    <label class="fi-name">显示：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="isuse" value="1" checked="checked" />是</label>  
+            <label><input type="radio" name="isuse" value="0" />否</label>   
+        </div>  
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">  
+		<input type="hidden" name="act" value="add" />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>添加</button>  
+    </div>  
+</div> 
+</form>
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script type="text/javascript" src="__JS__/jquery/ajaxupload.3.5.js?version={$version}"></script>
+<script>
+{literal}
+   // upload_file('img_path');
+    function upload_file(div_id)
+    {
+        // ajax上传图片
+        new AjaxUpload("#" + div_id + "_uploader", {
+            action: "/AcpArticleAjax/uploadHandler",
+            name: "imgFile",
+            responseType: "json",
+            onSubmit: function(){
+                //alert('正在上传');
+                //preview处的图片改为loading图片
+                $('#' + div_id).find('.preview').removeClass('hide');
+            },
+            onChange: function(file, extension){
+                if (extension && /^(jpg|png|jpeg|gif)$/.test(extension)) {
+                    return true;
+                }
+                else {
+                    alert('暂不支持该图片格式！');
+                    return false;
+                }
+            },
+            onComplete: function(file, response){
+                console.log(response);
+                if (response.status === 0) {
+                    alert(response.msg);
+                }
+                else if (response.status === 1) {
+                    $('#' + div_id).find('#J_Preview').attr('src', response.img_url);
+                    $('#' + div_id).find('.preview').show();
+                    $('#' + div_id).find('#J_ImgUrl').val(response.img_url);
+                    $('#' + div_id).find('#add_li').hide();
+                }
+            }
+        });
+    }
+
+    function delImage(div_id)
+    {
+        var ajaxLoading = $('#' + div_id).find('#J_AjaxLoading');
+        var preview = $('#' + div_id).find('#J_Preview');
+        var param = {};
+        var _id = $('#' + div_id).find('#J_ImgUrl').data('id');
+        var imgUrl = $('#' + div_id).find('#J_ImgUrl').val();
+        
+        if (_id != '') {
+            param.id = _id;
+        }
+        if (imgUrl != '') {
+            param.img_url = imgUrl;
+        }
+        $.ajax({
+            url: '/AcpArticleAjax/delImage',
+            type: 'post',
+            data: param,
+            dataType: 'json',
+            beforeSend: function(){
+                ajaxLoading.show();
+            },
+            success: function(data){
+            //  console.log(data);
+                if (data.status === 1) {
+                    $('#' + div_id).find('#J_ImgUrl').attr('data-id', '').val(null);
+                    $('#' + div_id).find('#J_Del').off('click', delImage);
+                    preview.removeAttr('src').parent().parent().addClass('hide');
+                    $('#' + div_id).find('#' + div_id + '_uploader').parent().removeClass('hide');
+                    $('#' + div_id).find('#add_li').show();
+                }
+                ajaxLoading.fadeOut();
+            }
+        });
+    }
+{/literal}
+</script>
+{/block} 
+
+{block name="css"}
+{/block}

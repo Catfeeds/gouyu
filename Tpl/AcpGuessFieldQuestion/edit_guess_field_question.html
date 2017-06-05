@@ -1,0 +1,230 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<form id="J_FormArticle" action="" method="post">
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed"></span>所在局名称：</label>  
+    <div class="form-controls">  
+        <span>{$guess_field_info.guess_field_name}</span>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+{if $guess_field_info.field_type}
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed"></span>局类型：</label>  
+    <div class="form-controls">  
+        <span>{if $guess_field_info.field_type == 1}让分局{else}大小分局{/if}</span>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+{/if}
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>问题：</label>  
+    <div class="form-controls">  
+        <input type="text"  name="guess_question" value="{$guess_field_question_info.guess_question}" class="large">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+{if $guess_field_info.field_type == 1}
+<div class="formitems inline lose_type">  
+    <label class="fi-name"><span class="colorRed">*</span>让分类型：</label>  
+    <div class="form-controls">  
+        <select name="lose_type" id="lose_type">
+            <option value="">--请选择--</option>
+            <option value="1" {if $guess_field_question_info.lose_type == 1}selected{/if}>{$team_list[0].team_name} 让 {$team_list[1].team_name}</option>
+            <option value="2" {if $guess_field_question_info.lose_type == 2}selected{/if}>{$team_list[1].team_name} 让 {$team_list[0].team_name}</option>
+        </select>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div>  
+{/if}
+{if $guess_field_info.field_type}
+<div class="formitems inline lose_score">  
+    <label class="fi-name"><span class="colorRed">*</span>{if $guess_field_info.field_type == 1}让分{else}大小分{/if}分数：</label>  
+    <div class="form-controls">  
+		<input type="text" placeholder="" class="mini" name="lose_score" id="lose_score" value="{$guess_field_question_info.lose_score}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+{/if}
+<!--<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>问题：</label>  
+    <div class="form-controls">  
+        <select name="guess_question_id">
+            <option value="">--请选择--</option>
+            {foreach from=$guess_question_list item=item}
+            <option value="{$item.guess_question_id}" {if $item.guess_question_id == $guess_field_question_info.guess_question_id}selected{/if}>{$item.desc|truncate:20:"...":true}</option>
+            {/foreach}
+        </select>
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>主队赔率：</label>  
+    <div class="form-controls">  
+        <input type="text"  name="host_odds" value="{$guess_field_question_info.host_odds}" class="mini">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>客队赔率：</label>  
+    <div class="form-controls">  
+        <input type="text"  name="guest_odds" value="{$guess_field_question_info.guest_odds}" class="mini">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+-->
+
+<!--<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>开始时间：</label>  
+    <div class="form-controls">  
+        <input type="text" autocomplete="off" class="Wdate" name="start_time" value="{$guess_info.start_date|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd H:mm:ss'})">
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+-->
+
+<div class="formitems inline">  
+    <label class="fi-name">自定义队伍名：</label>  
+    <div class="form-controls">  
+        <div class="radio-group user_defind">  
+            <label><input type="radio" name="defind_team_name" value="1"  {if $guess_field_question_info.defind_team_name == 1}checked="checked"{/if}/>是</label>  
+            <label><input type="radio" name="defind_team_name" value="0" {if $guess_field_question_info.defind_team_name == 0}checked="checked"{/if}/>否</label>   
+        </div>  
+    </div>  
+</div> 
+
+<div class="formitems inline team_name" {if $guess_field_question_info.defind_team_name == 0}style="display:none"{/if}>  
+    <label class="fi-name"><span class="colorRed">*</span>队伍显示名：</label>  
+    <div class="form-controls">  
+        <input type="text" placeholder="主队显示名" class="" name="defind_host_name" id="serial" value="{$guess_field_question_info.defind_host_name}">  
+		<input type="text" placeholder="客队显示名" class="" name="defind_guest_name" id="serial" value="{$guess_field_question_info.defind_guest_name}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+<div class="formitems inline">  
+    <label class="fi-name"><span class="colorRed">*</span>排序号：</label>  
+    <div class="form-controls">  
+		<input type="text" placeholder="" class="mini" name="serial" id="serial" value="{$guess_field_question_info.serial}">  
+		<span class="fi-help-text hide"></span>
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name">显示：</label>  
+    <div class="form-controls">  
+        <div class="radio-group">  
+            <label><input type="radio" name="isuse" value="1" {if $guess_field_question_info.isuse == 1}checked="checked"{/if} />是</label>  
+            <label><input type="radio" name="isuse" value="0" {if $guess_field_question_info.isuse == 0}checked="checked"{/if}/>否</label>   
+        </div>  
+    </div>  
+</div> 
+
+<div class="formitems inline">  
+    <label class="fi-name"></label>  
+    <div class="form-controls">  
+		<input type="hidden" name="act" value="add" />
+        <input type="hidden" name="guess_field_id" value="{$guess_field_id}" />
+        <button type="submit" class="btn btn-blue"><i class="gicon-check white"></i>修改</button>  
+    </div>  
+</div> 
+</form>
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+<script type="text/javascript" src="__JS__/jquery/ajaxupload.3.5.js?version={$version}"></script>
+<script>
+$(".user_defind input").on('click', function(){
+    var is_defind = $(this).val();
+    if (is_defind == 1) {
+        $(".team_name").show();
+    } else {
+        $(".team_name").hide();
+    }
+});
+{literal}
+    function upload_file(div_id)
+    {
+        // ajax上传图片
+        new AjaxUpload("#" + div_id + "_uploader", {
+            action: "/AcpArticleAjax/uploadHandler",
+            name: "imgFile",
+            responseType: "json",
+            onSubmit: function(){
+                //alert('正在上传');
+                //preview处的图片改为loading图片
+                $('#' + div_id).find('.preview').removeClass('hide');
+            },
+            onChange: function(file, extension){
+                if (extension && /^(jpg|png|jpeg|gif)$/.test(extension)) {
+                    return true;
+                }
+                else {
+                    alert('暂不支持该图片格式！');
+                    return false;
+                }
+            },
+            onComplete: function(file, response){
+                console.log(response);
+                if (response.status === 0) {
+                    alert(response.msg);
+                }
+                else if (response.status === 1) {
+                    $('#' + div_id).find('#J_Preview').attr('src', response.img_url);
+                    $('#' + div_id).find('.preview').show();
+                    $('#' + div_id).find('#J_ImgUrl').val(response.img_url);
+                    $('#' + div_id).find('#add_li').hide();
+                }
+            }
+        });
+    }
+
+    function delImage(div_id)
+    {
+        var ajaxLoading = $('#' + div_id).find('#J_AjaxLoading');
+        var preview = $('#' + div_id).find('#J_Preview');
+        var param = {};
+        var _id = $('#' + div_id).find('#J_ImgUrl').data('id');
+        var imgUrl = $('#' + div_id).find('#J_ImgUrl').val();
+        
+        if (_id != '') {
+            param.id = _id;
+        }
+        if (imgUrl != '') {
+            param.img_url = imgUrl;
+        }
+        $.ajax({
+            url: '/AcpArticleAjax/delImage',
+            type: 'post',
+            data: param,
+            dataType: 'json',
+            beforeSend: function(){
+                ajaxLoading.show();
+            },
+            success: function(data){
+            //  console.log(data);
+                if (data.status === 1) {
+                    $('#' + div_id).find('#J_ImgUrl').attr('data-id', '').val(null);
+                    $('#' + div_id).find('#J_Del').off('click', delImage);
+                    preview.removeAttr('src').parent().parent().addClass('hide');
+                    $('#' + div_id).find('#' + div_id + '_uploader').parent().removeClass('hide');
+                    $('#' + div_id).find('#add_li').show();
+                }
+                ajaxLoading.fadeOut();
+            }
+        });
+    }
+{/literal}
+</script>
+{/block} 
+
+{block name="css"}
+{/block}

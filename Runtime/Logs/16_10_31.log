@@ -1,0 +1,936 @@
+[ 2016-10-31T15:11:32+08:00 ] 127.0.0.1 /FrontGuess/guess_index
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007668s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.002953s ]
+SQL: SELECT `user_id` FROM `tp_users` WHERE ( user_id = 1 ) LIMIT 1   [ RunTime:0.000865s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003856s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket" ) LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "jsapi_ticket_expire_time" ) LIMIT 1   [ RunTime:0.000231s ]
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006522s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token" ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SELECT `config_value` FROM `tp_config` WHERE ( config_name= "access_token_expire_time" ) LIMIT 1   [ RunTime:0.000249s ]
+SQL: UPDATE `tp_config` SET `config_value`='ejRze2rgoxDLwwoK0IVrTjQAZHFZW35HdRTAsRGK6vV1PpIsAHBQTW1eFbtvDSEu3u_nXtVQvJZRokfe9C8jknyNohGHxGVbqDM-08t5zmWOBrji6etWhqwVXQ5e74ZwUQWbAFADZF' WHERE ( config_name="access_token" ) [ RunTime:0.003882s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477904890 WHERE ( config_name="access_token_expire_time" ) [ RunTime:0.000166s ]
+SQL: UPDATE `tp_config` SET `config_value`='sM4AOVdWfPE4DxkXGEs8VMkXF0G0i5AQDiP4pE-z34E-DrAyLP_IVj9KoI26o6J3LHq5r1uLeXsvhXPewmt40A' WHERE ( config_name="jsapi_ticket" ) [ RunTime:0.000335s ]
+SQL: UPDATE `tp_config` SET `config_value`=1477904890 WHERE ( config_name="jsapi_ticket_expire_time" ) [ RunTime:0.000236s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006657s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897890 ) ORDER BY addtime LIMIT 5   [ RunTime:0.004363s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897890 ) ORDER BY addtime LIMIT 5   [ RunTime:0.004230s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006664s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897890 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003130s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.017022s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.009147s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897890 ) ORDER BY addtime LIMIT 10   [ RunTime:0.040260s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.002466s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000287s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.010797s ]
+SQL: SELECT count(*) AS people_num,sum(add_money) AS total_money FROM `tp_guess_user` WHERE ( addtime >= 1477843200 AND addtime <= 1477929600 ) LIMIT 1   [ RunTime:0.015370s ]
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007548s ]
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open = 0 AND start_time <= 1477897890 AND end_time >= 1477897890 ) LIMIT 1   [ RunTime:0.000420s ]
+SQL: SELECT (sum(prize_money) - sum(add_money)) AS total_prize,`user_id` FROM `tp_guess_user` WHERE ( is_pay = 1 AND addtime >= 1477843200 AND addtime <= 1478448000 ) GROUP BY user_id HAVING total_prize > 0 ORDER BY total_prize DESC LIMIT 5   [ RunTime:0.008294s ]
+SQL: SHOW COLUMNS FROM `tp_guess_type` [ RunTime:0.007372s ]
+SQL: SELECT * FROM `tp_guess_type` WHERE ( isuse = 1 ) ORDER BY serial LIMIT 4   [ RunTime:0.003088s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.015366s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( isuse = 1 AND guess_type_id = 14 ) LIMIT 1   [ RunTime:0.003419s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( isuse = 1 AND guess_type_id = 14 AND is_over = 0 ) LIMIT 1   [ RunTime:0.000856s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( isuse = 1 AND start_time <= 1477897890 AND guess_type_id = 14 ) ORDER BY (case when first_field_time <= 1477897890 AND is_over = 0  then 0
+            when first_field_time > "1477897890" AND  is_over = 0 then 1 
+        else 2 end), over_time DESC LIMIT 0, 6   [ RunTime:0.007687s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.007631s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 37 ) LIMIT 1   [ RunTime:0.003384s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 38 ) LIMIT 1   [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.007083s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1293 ) LIMIT 1   [ RunTime:0.004560s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 214 ) LIMIT 1   [ RunTime:0.002478s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 112 ) LIMIT 1   [ RunTime:0.003342s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1282 ) LIMIT 1   [ RunTime:0.001009s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 69 ) LIMIT 1   [ RunTime:0.004784s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 360 ) LIMIT 1   [ RunTime:0.003377s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1294 ) LIMIT 1   [ RunTime:0.001091s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 324 ) LIMIT 1   [ RunTime:0.002508s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 33 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1295 ) LIMIT 1   [ RunTime:0.000774s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 731 ) LIMIT 1   [ RunTime:0.004967s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 732 ) LIMIT 1   [ RunTime:0.000417s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1286 ) LIMIT 1   [ RunTime:0.001520s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 23 ) LIMIT 1   [ RunTime:0.000380s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 77 ) LIMIT 1   [ RunTime:0.000262s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1287 ) LIMIT 1   [ RunTime:0.000690s ]
+SQL: SHOW COLUMNS FROM `tp_notice` [ RunTime:0.007074s ]
+SQL: SELECT `notice_id` FROM `tp_notice` WHERE ( notice_sort_id = 2 AND isuse = 1 ) ORDER BY addtime DESC LIMIT 1   [ RunTime:0.002946s ]
+SQL: SHOW COLUMNS FROM `tp_notice_txt` [ RunTime:0.003993s ]
+SQL: SELECT `contents` FROM `tp_notice_txt` WHERE ( notice_id=5 ) LIMIT 1   [ RunTime:0.003263s ]
+
+[ 2016-10-31T15:11:36+08:00 ] 127.0.0.1 /admin
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006510s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001176s ]
+
+[ 2016-10-31T15:11:36+08:00 ] 127.0.0.1 /acp.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006929s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000484s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007137s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.004493s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006771s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000448s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000828s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007053s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897896 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.003081s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002505s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897896 ) ORDER BY addtime LIMIT 10   [ RunTime:0.023272s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000339s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000201s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007315s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 AND reg_time > 1477843200 ) LIMIT 1   [ RunTime:0.000485s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 4 ) LIMIT 1   [ RunTime:0.027726s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( addtime> 1477843200 ) LIMIT 1   [ RunTime:0.150847s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` LIMIT 1   [ RunTime:0.000302s ]
+SQL: SELECT `username`,`realname`,`nickname` FROM `tp_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.000482s ]
+
+[ 2016-10-31T15:11:37+08:00 ] 127.0.0.1 /admin
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003202s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000415s ]
+
+[ 2016-10-31T15:11:37+08:00 ] 127.0.0.1 /acp.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.005808s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.009608s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001259s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.002830s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897897 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000316s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897897 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000284s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004814s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897897 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000343s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006542s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001920s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897897 ) ORDER BY addtime LIMIT 10   [ RunTime:0.024724s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000686s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000450s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006724s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 AND reg_time > 1477843200 ) LIMIT 1   [ RunTime:0.000396s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 4 ) LIMIT 1   [ RunTime:0.005488s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( addtime> 1477843200 ) LIMIT 1   [ RunTime:0.000482s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` LIMIT 1   [ RunTime:0.000246s ]
+SQL: SELECT `username`,`realname`,`nickname` FROM `tp_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.000337s ]
+
+[ 2016-10-31T15:11:40+08:00 ] 127.0.0.1 /AcpFinance/get_account_log/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003636s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006611s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000409s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006433s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897900 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000488s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897900 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000289s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006081s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897900 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006250s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001621s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897900 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018510s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000280s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000181s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_account` LIMIT 1   [ RunTime:0.000181s ]
+SQL: SELECT `user_id`,`proof`,`addtime`,`change_type`,`amount_in`,`amount_out`,`amount_after_pay`,`remark` FROM `tp_account` ORDER BY addtime desc LIMIT 0, 10   [ RunTime:0.023062s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 39731 ) LIMIT 1   [ RunTime:0.002182s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 39763 ) LIMIT 1   [ RunTime:0.000569s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40085 ) LIMIT 1   [ RunTime:0.000528s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40090 ) LIMIT 1   [ RunTime:0.000371s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40121 ) LIMIT 1   [ RunTime:0.000187s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40139 ) LIMIT 1   [ RunTime:0.000333s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40546 ) LIMIT 1   [ RunTime:0.002482s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40587 ) LIMIT 1   [ RunTime:0.002793s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40614 ) LIMIT 1   [ RunTime:0.000171s ]
+SQL: SELECT `username` FROM `tp_users` WHERE ( user_id = 40672 ) LIMIT 1   [ RunTime:0.003300s ]
+SQL: SELECT SUM(left_money) AS tp_sum FROM `tp_users` WHERE ( is_enable = 1 AND role_type = 3 ) LIMIT 1   [ RunTime:0.010480s ]
+SQL: SELECT SUM(frozen_money) AS tp_sum FROM `tp_users` WHERE ( is_enable = 1 AND role_type = 3 ) LIMIT 1   [ RunTime:0.006031s ]
+
+[ 2016-10-31T15:12:01+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003145s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000623s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008817s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001739s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.007226s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897921 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000365s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897921 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000266s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.002979s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897921 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000328s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.005126s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.004877s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897921 ) ORDER BY addtime LIMIT 10   [ RunTime:0.022060s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000353s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000206s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.008035s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.000513s ]
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.003820s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.003463s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.007935s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.003444s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.015283s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000457s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 370000 ) LIMIT 1   [ RunTime:0.000658s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 370200 ) LIMIT 1   [ RunTime:0.001246s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006017s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000172s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000128s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.007180s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.001463s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.001397s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000244s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.002790s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000168s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 510000 ) LIMIT 1   [ RunTime:0.000128s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 510400 ) LIMIT 1   [ RunTime:0.003109s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.007278s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000415s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000712s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000399s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006994s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000184s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000153s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.002843s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 330000 ) LIMIT 1   [ RunTime:0.000140s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 331000 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006234s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000159s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000130s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000134s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.002908s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000148s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 140000 ) LIMIT 1   [ RunTime:0.000203s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 140100 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006045s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000221s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.008532s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000165s ]
+
+[ 2016-10-31T15:13:09+08:00 ] 127.0.0.1 /AcpUser/recharge_back_most_by_week/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007782s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001321s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007004s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000751s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006703s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897989 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001105s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897989 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000444s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.009028s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897989 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.003898s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002422s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897989 ) ORDER BY addtime LIMIT 10   [ RunTime:0.025658s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000301s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000235s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_recharge_back` [ RunTime:0.030841s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1477843200 AND addtime <= 1478447999 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.001917s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1477238400 AND addtime <= 1477843199 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000365s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1476633600 AND addtime <= 1477238399 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1476028800 AND addtime <= 1476633599 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.003452s ]
+SQL: SELECT `headimgurl`,`nickname`,`id` FROM `tp_users` WHERE ( user_id = 39625 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000618s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1475424000 AND addtime <= 1476028799 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000418s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1474819200 AND addtime <= 1475423999 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000335s ]
+
+[ 2016-10-31T15:13:16+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006312s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000505s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007909s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000614s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006469s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477897995 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000699s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477897995 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000466s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.008133s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477897995 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000293s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006077s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001976s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477897995 ) ORDER BY addtime LIMIT 10   [ RunTime:0.020135s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000409s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000182s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.003492s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.000442s ]
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.004050s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000361s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.003404s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003375s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000145s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 370000 ) LIMIT 1   [ RunTime:0.000191s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 370200 ) LIMIT 1   [ RunTime:0.000214s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004385s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000251s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000153s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003840s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000201s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000164s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004450s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000173s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 510000 ) LIMIT 1   [ RunTime:0.000131s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 510400 ) LIMIT 1   [ RunTime:0.003441s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004723s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000164s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000124s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000133s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004675s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000225s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000607s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000466s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004229s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000178s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 330000 ) LIMIT 1   [ RunTime:0.000163s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 331000 ) LIMIT 1   [ RunTime:0.000237s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003863s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000179s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000141s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.002959s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000177s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 140000 ) LIMIT 1   [ RunTime:0.000151s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 140100 ) LIMIT 1   [ RunTime:0.000139s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.007099s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000367s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003147s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000191s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.003570s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000178s ]
+
+[ 2016-10-31T15:13:35+08:00 ] 127.0.0.1 /AcpFinance/edit_account/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004032s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000642s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006544s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.002855s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006569s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898015 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000489s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898015 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000593s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006251s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898015 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000272s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006870s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002340s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898015 ) ORDER BY addtime LIMIT 10   [ RunTime:0.023153s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000293s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000183s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.008164s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY user_id desc LIMIT 0, 10   [ RunTime:0.002285s ]
+
+[ 2016-10-31T15:17:07+08:00 ] 127.0.0.1 /AcpFinance/edit_account/mod_id/7
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010269s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001103s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.010365s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.001698s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.005847s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898227 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001389s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898227 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001667s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007313s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898227 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006342s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.005626s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898227 ) ORDER BY addtime LIMIT 10   [ RunTime:0.034653s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000283s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000200s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.004326s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 0, 10   [ RunTime:0.006273s ]
+
+[ 2016-10-31T15:17:20+08:00 ] 127.0.0.1 /acp_finance/edit_account/mod_id/7/p/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003449s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.001838s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.006828s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000741s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.009389s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898239 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000362s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898239 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000484s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006149s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898239 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000631s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.007510s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001827s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898239 ) ORDER BY addtime LIMIT 10   [ RunTime:0.022647s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000468s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000431s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.004748s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 10, 10   [ RunTime:0.004924s ]
+
+[ 2016-10-31T15:17:21+08:00 ] 127.0.0.1 /acp_finance/edit_account/mod_id/7/p/3.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006652s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000391s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008100s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000522s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006183s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898241 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000347s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898241 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000380s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006806s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898241 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000354s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006545s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001954s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898241 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017916s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000373s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000286s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.004016s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 20, 10   [ RunTime:0.006282s ]
+
+[ 2016-10-31T15:17:24+08:00 ] 127.0.0.1 /acp_finance/edit_account/mod_id/7/p/2.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.004589s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000580s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007974s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000525s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004125s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000491s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000340s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006285s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898244 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000465s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006401s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001532s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898244 ) ORDER BY addtime LIMIT 10   [ RunTime:0.019418s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000297s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000154s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.004138s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 10, 10   [ RunTime:0.005799s ]
+
+[ 2016-10-31T15:17:26+08:00 ] 127.0.0.1 /acp_finance/edit_account/mod_id/7/p/1.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006128s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000335s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007513s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000435s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004128s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477898246 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000374s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477898246 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000508s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003005s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477898246 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000252s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.005703s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002609s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477898246 ) ORDER BY addtime LIMIT 10   [ RunTime:0.017790s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000308s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000190s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) LIMIT 1   [ RunTime:0.003766s ]
+SQL: SELECT `id`,`nickname`,`realname`,`left_money`,`user_id` FROM `tp_users` WHERE ( `role_type` = 3 ) AND ( `is_enable` = 1 ) ORDER BY left_money DESC, user_id desc LIMIT 0, 10   [ RunTime:0.007118s ]
+
+[ 2016-10-31T17:01:40+08:00 ] 127.0.0.1 /admin
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.011149s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.004645s ]
+
+[ 2016-10-31T17:01:40+08:00 ] 127.0.0.1 /acp.html
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.007002s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000456s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.005685s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.004871s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004690s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477904500 ) ORDER BY addtime LIMIT 5   [ RunTime:0.004674s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477904500 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003999s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.004183s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477904500 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003625s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.029086s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.008588s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477904500 ) ORDER BY addtime LIMIT 10   [ RunTime:0.035710s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000579s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000186s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007764s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 AND reg_time > 1477843200 ) LIMIT 1   [ RunTime:0.003841s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 4 ) LIMIT 1   [ RunTime:0.016257s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` WHERE ( addtime> 1477843200 ) LIMIT 1   [ RunTime:0.002941s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_order` LIMIT 1   [ RunTime:0.000169s ]
+SQL: SELECT `username`,`realname`,`nickname` FROM `tp_users` WHERE ( user_id=1 ) LIMIT 1   [ RunTime:0.000211s ]
+
+[ 2016-10-31T17:01:44+08:00 ] 127.0.0.1 /AcpGuess/list_guess/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003002s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.008260s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000351s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.003822s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477904504 ) ORDER BY addtime LIMIT 5   [ RunTime:0.001714s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477904504 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000489s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.006319s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477904504 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000477s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.006248s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.001397s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477904504 ) ORDER BY addtime LIMIT 10   [ RunTime:0.018665s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000295s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000239s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.007137s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess` WHERE ( true ) LIMIT 1   [ RunTime:0.000171s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( true ) ORDER BY is_over, addtime DESC LIMIT 0, 10   [ RunTime:0.004285s ]
+SQL: SHOW COLUMNS FROM `tp_team` [ RunTime:0.006969s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 735 ) LIMIT 1   [ RunTime:0.003418s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 135 ) LIMIT 1   [ RunTime:0.003294s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.007280s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1299 ) LIMIT 1   [ RunTime:0.004806s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 352 ) LIMIT 1   [ RunTime:0.003429s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 734 ) LIMIT 1   [ RunTime:0.000701s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1298 ) LIMIT 1   [ RunTime:0.000982s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 254 ) LIMIT 1   [ RunTime:0.002062s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 211 ) LIMIT 1   [ RunTime:0.003565s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1297 ) LIMIT 1   [ RunTime:0.001669s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 154 ) LIMIT 1   [ RunTime:0.002106s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 85 ) LIMIT 1   [ RunTime:0.003593s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1296 ) LIMIT 1   [ RunTime:0.000642s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 324 ) LIMIT 1   [ RunTime:0.002665s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 33 ) LIMIT 1   [ RunTime:0.003311s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1295 ) LIMIT 1   [ RunTime:0.000638s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 69 ) LIMIT 1   [ RunTime:0.000150s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 360 ) LIMIT 1   [ RunTime:0.000168s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1294 ) LIMIT 1   [ RunTime:0.000587s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 37 ) LIMIT 1   [ RunTime:0.000161s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 38 ) LIMIT 1   [ RunTime:0.000133s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1293 ) LIMIT 1   [ RunTime:0.001441s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 325 ) LIMIT 1   [ RunTime:0.000363s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 80 ) LIMIT 1   [ RunTime:0.000290s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1292 ) LIMIT 1   [ RunTime:0.000807s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 67 ) LIMIT 1   [ RunTime:0.000205s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 102 ) LIMIT 1   [ RunTime:0.000123s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1291 ) LIMIT 1   [ RunTime:0.000591s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 733 ) LIMIT 1   [ RunTime:0.000126s ]
+SQL: SELECT * FROM `tp_team` WHERE ( team_id = 188 ) LIMIT 1   [ RunTime:0.000138s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field` WHERE ( isuse = 1 AND guess_id = 1290 ) LIMIT 1   [ RunTime:0.000708s ]
+SQL: SHOW COLUMNS FROM `tp_guess_type` [ RunTime:0.006473s ]
+SQL: SELECT * FROM `tp_guess_type` WHERE ( isuse = 1 )  [ RunTime:0.002831s ]
+
+[ 2016-10-31T17:01:47+08:00 ] 127.0.0.1 /AcpGuessFieldQuestion/list_guess_field_question/mod_id/2
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.003164s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000308s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007103s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000541s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.004196s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477904507 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000450s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477904507 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000293s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003288s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477904507 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000426s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.004874s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002650s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477904507 ) ORDER BY addtime LIMIT 10   [ RunTime:0.014532s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000213s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000310s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_guess_field_question` [ RunTime:0.014227s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_field_question` WHERE ( true AND isuse != 2 ) LIMIT 1   [ RunTime:0.005606s ]
+SQL: SELECT * FROM `tp_guess_field_question` WHERE ( true AND isuse != 2 ) ORDER BY is_over, addtime ASC LIMIT 0, 10   [ RunTime:0.001608s ]
+SQL: SHOW COLUMNS FROM `tp_guess_user` [ RunTime:0.007398s ]
+SQL: SHOW COLUMNS FROM `tp_guess_field` [ RunTime:0.008130s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1541 ) LIMIT 1   [ RunTime:0.003016s ]
+SQL: SHOW COLUMNS FROM `tp_guess` [ RunTime:0.006905s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1068 ) LIMIT 1   [ RunTime:0.003436s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 2400 ) LIMIT 1   [ RunTime:0.012890s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 2400 AND team_type = 1 ) LIMIT 1   [ RunTime:0.004978s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 2400 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002440s ]
+SQL: SHOW COLUMNS FROM `tp_guess_bat_reback` [ RunTime:0.009936s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 2400 ) LIMIT 1   [ RunTime:0.003066s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1 ) LIMIT 1   [ RunTime:0.000300s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1 ) LIMIT 1   [ RunTime:0.000463s ]
+SQL: SHOW COLUMNS FROM `tp_guess_question` [ RunTime:0.010892s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 2 ) LIMIT 1   [ RunTime:0.000358s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 1 ) LIMIT 1   [ RunTime:0.002262s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 1 AND team_type = 1 ) LIMIT 1   [ RunTime:0.005164s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 1 AND team_type = 2 ) LIMIT 1   [ RunTime:0.008663s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 1 ) LIMIT 1   [ RunTime:0.000514s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 7 ) LIMIT 1   [ RunTime:0.000464s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 7 ) LIMIT 1   [ RunTime:0.000486s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 1 ) LIMIT 1   [ RunTime:0.000234s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 2 ) LIMIT 1   [ RunTime:0.002548s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 2 AND team_type = 1 ) LIMIT 1   [ RunTime:0.003254s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 2 AND team_type = 2 ) LIMIT 1   [ RunTime:0.003024s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 2 ) LIMIT 1   [ RunTime:0.000610s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 9 ) LIMIT 1   [ RunTime:0.000677s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 9 ) LIMIT 1   [ RunTime:0.000601s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 3 ) LIMIT 1   [ RunTime:0.002511s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 3 ) LIMIT 1   [ RunTime:0.002354s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002329s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 3 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002117s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 3 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 1 ) LIMIT 1   [ RunTime:0.000165s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 1 ) LIMIT 1   [ RunTime:0.000161s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 4 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 4 ) LIMIT 1   [ RunTime:0.002589s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 4 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002511s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 4 AND team_type = 2 ) LIMIT 1   [ RunTime:0.009351s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 4 ) LIMIT 1   [ RunTime:0.000422s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 4 ) LIMIT 1   [ RunTime:0.000238s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 3 ) LIMIT 1   [ RunTime:0.000149s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 3 ) LIMIT 1   [ RunTime:0.000148s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 6 ) LIMIT 1   [ RunTime:0.001757s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 6 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002537s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 6 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002742s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 6 ) LIMIT 1   [ RunTime:0.000257s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 4 ) LIMIT 1   [ RunTime:0.000177s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 3 ) LIMIT 1   [ RunTime:0.000279s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 5 ) LIMIT 1   [ RunTime:0.000167s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 7 ) LIMIT 1   [ RunTime:0.003334s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 7 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002071s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 7 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002234s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 7 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 17 ) LIMIT 1   [ RunTime:0.000170s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 3 ) LIMIT 1   [ RunTime:0.000159s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 3 ) LIMIT 1   [ RunTime:0.000200s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 8 ) LIMIT 1   [ RunTime:0.002476s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 8 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002482s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 8 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002058s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 8 ) LIMIT 1   [ RunTime:0.000216s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 17 ) LIMIT 1   [ RunTime:0.000215s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 3 ) LIMIT 1   [ RunTime:0.000253s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 5 ) LIMIT 1   [ RunTime:0.000196s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 9 ) LIMIT 1   [ RunTime:0.002366s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 9 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002583s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 9 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002067s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 9 ) LIMIT 1   [ RunTime:0.000229s ]
+SQL: SELECT * FROM `tp_guess_field` WHERE ( guess_field_id = 17 ) LIMIT 1   [ RunTime:0.000277s ]
+SQL: SELECT * FROM `tp_guess` WHERE ( guess_id = 3 ) LIMIT 1   [ RunTime:0.000193s ]
+SQL: SELECT `desc` FROM `tp_guess_question` WHERE ( guess_question_id = 3 ) LIMIT 1   [ RunTime:0.000153s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_user` WHERE ( guess_field_question_id = 10 ) LIMIT 1   [ RunTime:0.001714s ]
+SQL: SELECT sum(add_money) AS host_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 10 AND team_type = 1 ) LIMIT 1   [ RunTime:0.002102s ]
+SQL: SELECT sum(add_money) AS guest_bat_money FROM `tp_guess_user` WHERE ( user_id = 1 AND guess_field_question_id = 10 AND team_type = 2 ) LIMIT 1   [ RunTime:0.002161s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_guess_bat_reback` WHERE ( user_id = 1 AND guess_field_question_id = 10 ) LIMIT 1   [ RunTime:0.000228s ]
+SQL: SHOW COLUMNS FROM `tp_guess_type` [ RunTime:0.005837s ]
+SQL: SELECT * FROM `tp_guess_type` WHERE ( isuse = 1 )  [ RunTime:0.000279s ]
+
+[ 2016-10-31T18:01:27+08:00 ] 127.0.0.1 /AcpUser/get_all_user_list/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.010836s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.002882s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.007605s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.002861s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.006966s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477908086 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000964s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477908086 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000594s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.007042s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477908086 ) ORDER BY addtime LIMIT 5   [ RunTime:0.003172s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.007097s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.009067s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477908086 ) ORDER BY addtime LIMIT 10   [ RunTime:0.033292s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000367s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000296s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SELECT COUNT(*) AS tp_count FROM `tp_users` WHERE ( role_type = 3 ) LIMIT 1   [ RunTime:0.005142s ]
+SQL: SELECT * FROM `tp_users` WHERE ( role_type = 3 ) ORDER BY  reg_time DESC LIMIT 0, 10   [ RunTime:0.002871s ]
+SQL: SHOW COLUMNS FROM `tp_address_province` [ RunTime:0.006198s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.003237s ]
+SQL: SHOW COLUMNS FROM `tp_address_city` [ RunTime:0.004239s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.001363s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004132s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000273s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 370000 ) LIMIT 1   [ RunTime:0.000316s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 370200 ) LIMIT 1   [ RunTime:0.000197s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004278s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000194s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000149s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000176s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003387s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000195s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000155s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000133s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.004866s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 510000 ) LIMIT 1   [ RunTime:0.000133s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 510400 ) LIMIT 1   [ RunTime:0.003695s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003689s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000248s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000174s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000158s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006557s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000258s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000407s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000303s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006813s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000211s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 330000 ) LIMIT 1   [ RunTime:0.000182s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 331000 ) LIMIT 1   [ RunTime:0.000146s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006324s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000368s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 110000 ) LIMIT 1   [ RunTime:0.000700s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 110000 ) LIMIT 1   [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003319s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000156s ]
+SQL: SELECT `province_name` FROM `tp_address_province` WHERE ( province_id = 140000 ) LIMIT 1   [ RunTime:0.000157s ]
+SQL: SELECT `city_name` FROM `tp_address_city` WHERE ( city_id = 140100 ) LIMIT 1   [ RunTime:0.000125s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.003085s ]
+SQL: SELECT `rank_name` FROM `tp_user_rank` WHERE ( user_rank_id = 1 ) LIMIT 1   [ RunTime:0.000224s ]
+SQL: SHOW COLUMNS FROM `tp_user_rank` [ RunTime:0.006584s ]
+SQL: SELECT * FROM `tp_user_rank`  [ RunTime:0.000174s ]
+SQL: SHOW COLUMNS FROM `tp_big_area` [ RunTime:0.003512s ]
+SQL: SELECT `big_area_id`,`area_name` FROM `tp_big_area`  [ RunTime:0.000160s ]
+
+[ 2016-10-31T18:01:28+08:00 ] 127.0.0.1 /AcpUser/recharge_back_most_by_week/mod_id/1
+SQL: SHOW COLUMNS FROM `tp_config` [ RunTime:0.006331s ]
+SQL: SELECT * FROM `tp_config`  [ RunTime:0.000771s ]
+SQL: SHOW COLUMNS FROM `tp_users` [ RunTime:0.004909s ]
+SQL: SELECT * FROM `tp_users` LEFT JOIN  tp_users_group on tp_users.group_id = tp_users_group.group_id WHERE ( tp_users.user_id = 1 )  [ RunTime:0.000518s ]
+DEBUG: -----------------auto_start--------------------
+SQL: SHOW COLUMNS FROM `tp_treasure` [ RunTime:0.005969s ]
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time > 0 AND open_time <=1477908088 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000422s ]
+DEBUG: -----------------auto_end--------------------
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SELECT * FROM `tp_treasure` WHERE ( isuse = 1 AND is_open = 0 AND open_time = 0 AND end_time < 1477908088 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000817s ]
+DEBUG: ---------------------auto_treasure_end_time-------------
+SQL: SHOW COLUMNS FROM `tp_roll` [ RunTime:0.003062s ]
+DEBUG: -------------------open_roll start-----------------
+SQL: SELECT * FROM `tp_roll` WHERE ( isuse = 1 AND is_open != 1 AND end_time < 1477908088 ) ORDER BY addtime LIMIT 5   [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `tp_roll_user` [ RunTime:0.003535s ]
+SQL: SELECT MAX(id) AS tp_max FROM `tp_roll_user` WHERE ( roll_id = 26 ) LIMIT 1   [ RunTime:0.002343s ]
+DEBUG: 
+DEBUG: -------------------open_roll end-----------------
+DEBUG: -----------frozen_money --start-- left_money ------------
+SQL: SELECT * FROM `tp_account` WHERE ( need_opt = 1 AND opt_time > 0 AND opt_time <= 1477908088 ) ORDER BY addtime LIMIT 10   [ RunTime:0.015221s ]
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000412s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-155500
+DEBUG: user_id:39627
+SQL: SELECT `left_money`,`frozen_money` FROM `tp_users` WHERE ( user_id = 39627 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000248s ]
+DEBUG: frozen_money:72500.00
+DEBUG: after_frozen_money:-172000
+DEBUG: -----------frozen_money --end-- left_money ------------
+SQL: SHOW COLUMNS FROM `tp_recharge_back` [ RunTime:0.005492s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1477843200 AND addtime <= 1478447999 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.009399s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1477238400 AND addtime <= 1477843199 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000309s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1476633600 AND addtime <= 1477238399 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000651s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1476028800 AND addtime <= 1476633599 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.002266s ]
+SQL: SELECT `headimgurl`,`nickname`,`id` FROM `tp_users` WHERE ( user_id = 39625 AND is_enable = 1 ) LIMIT 1   [ RunTime:0.000241s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1475424000 AND addtime <= 1476028799 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000259s ]
+SQL: SELECT sum(gain_money) AS user_gain,`user_id` FROM `tp_recharge_back` WHERE ( addtime >= 1474819200 AND addtime <= 1475423999 ) GROUP BY user_id ORDER BY user_gain DESC LIMIT 1   [ RunTime:0.000218s ]
+

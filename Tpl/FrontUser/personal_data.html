@@ -1,0 +1,145 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+.guess_info_head{
+    position: fixed;
+    width:94%;
+}
+body{
+    background:#202020;
+}
+</style>
+{/block}
+{block name="content"}
+	<div class="use_cent_head">
+        {if !$user_info.mobile || !$user_info.email}
+		<div class="guess_info_head clearfix" >
+			<h1 class="fl" {if !$user_info.mobile}onclick="redirect('/FrontUser/bind_mobile')"{else}onclick="redirect('/FrontUser/bind_email')"{/if}> 点击绑定手机号和邮箱，提升安全等级，防止帐号被盗</h1>
+			<i class="fr icon2 tsclose"></i>
+		</div>
+        {/if}
+		<div class="use_head_box">
+            <img data-original="{$user_info.headimgurl}" class="use_tx lazy"/>
+            <h1>{$user_info.nickname|default:$user_info.username}</h1>
+            <h2>ID号:{$user_info.id}</h2>
+            <h3>鱼翅余额：<span>{$user_info.left_money}</span></h3>
+			<input class="use_pay" type="button" value="鱼翅充值"  id="check_close"/>
+		</div>
+	</div>
+	<div class="use_cont">
+        <a class="cont_box clearfix" href="{$account_list_link}">
+			<i class="icon2 fl money"></i>
+			<h1 class="fl">鱼翅明细</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix mb_10" href="{if $is_open_back}{$my_qr_code_link}{else}javascript:alert_message('{$close_recharge_back_alert}');{/if}">
+			<i class="fl icon_ercode"></i>
+			<h1 class="fl">我的推广二维码</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$my_exchange_link}">
+			<i class="icon2 fl orderform"></i>
+			<h1 class="fl">鱼翅兑换记录</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$my_guess_link}">
+			<i class="icon2 fl his"></i>
+			<h1 class="fl">竞猜历史记录</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        {if !$close_treasure_info}
+		 <a class="cont_box clearfix" href="{$my_treasure_link}">
+			<i class="fl icon_dbjl"></i>
+			<h1 class="fl">夺宝记录</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        {/if}
+        <a class="cont_box clearfix" href="{$my_roll_link}">
+			<i class="icon2 fl rollhis"></i>
+			<h1 class="fl">roll记录</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$my_recharge_back_link}">
+			<i class="fl icon_tghl"></i>
+			<h1 class="fl">推广收益</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+		<a class="cont_box clearfix" href="javascript:alert_message('正在开发中');">
+			<i class="fl icon_bag"></i>
+			<h1 class="fl">物品背包</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$user_game_list_link}">
+			<i class="icon2 fl game"></i>
+			<h1 class="fl">游戏信息管理</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix mb_10" href="{$user_address_list_link}">
+			<i class="icon2 fl address"></i>
+			<h1 class="fl">收货地址</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$help_center_link}">
+			<i class="icon2 fl help"></i>
+			<h1 class="fl">帮助中心</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$about_us_link}">
+			<i class="icon2 fl me"></i>
+			<h1 class="fl">关于我们</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+        <a class="cont_box clearfix" href="{$setup_link}">
+			<i class="icon2 fl set"></i>
+			<h1 class="fl">设置</h1>
+			<i class="fr grjiantouleft icon2"></i>
+		</a>
+	</div>
+    {/block}
+    {block name="js"}
+    <script type="text/javascript" src="__JS__/front/front_js/jquery.lazyload.js"></script>
+	<script type="text/javascript" src="__JS__/front/front_js/lazyload_tx.js"></script>
+    <script>
+$(".guess_info_head .tsclose").on("click",function(){
+    $(this).parent().hide(100);
+})
+
+var mobile = '{$user_info.mobile}';
+var email = '{$user_info.email}';
+if (!mobile || !email) {
+    if (!mobile) {
+        var url = '/FrontUser/bind_mobile';
+    } else {
+        var url = '/FrontUser/bind_email';
+    }
+    layer.open({
+        content:'请绑定手机号和邮箱，防止账号被盗!',
+        btn:['去绑定', '我知道了'],
+        yes:function(index){
+            window.location.href=url;
+        },
+        no:function(index){
+            return;
+        }
+    });
+}
+
+var is_open = parseInt('{$is_open}');
+var close_message = '{$system_config.CLOSE_RECHARGE_ALERT}';
+$("#check_close").on('click', function(){
+    if (is_open) {
+        redirect('/FrontUser/recharge/');  
+    } else {
+        alert_message(close_message);
+        return;
+    }
+})
+		$(".guess_info_head .tsclose").on("click",function(){
+		$(this).parent().hide(100);
+		})
+		setTimeout(function () {
+		$(".guess_info_head").hide(100);
+		}, 3000);
+		</script>
+    {/block}

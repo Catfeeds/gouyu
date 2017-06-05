@@ -1,0 +1,30 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			background:#202020;
+		}
+</style>
+{/block}
+{block name="content"}
+		<h1 class="help_center">常见问题</h1>
+		<div class="help_cont">
+            {foreach from=$article_list item=item}
+            <a href="{$article_detail_link}{$item.article_id}">{$item.title|truncate:20:"...":true}</a>
+            {foreachelse}
+            <a href="javascript:;">暂无数据</a>
+            {/foreach}
+		</div>
+{/block}
+{block name="js"}
+		<script>
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

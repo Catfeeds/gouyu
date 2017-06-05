@@ -1,0 +1,63 @@
+<!--底部导航-->
+<div class="footer clearfix" style="z-index:1000">
+    <div class="footer_box 
+        {if $smarty.const.ACTION_NAME eq 'guess_index'
+        || $smarty.const.ACTION_NAME eq 'guess_info'
+        || $smarty.const.ACTION_NAME eq 'guess_champion_info'
+        || $smarty.const.ACTION_NAME eq 'guess_rule'
+        }footer_active{/if}" onclick="redirect('/FrontGuess/guess_index')">
+        <span class="icon jingcia_white3x jingcai_gold3x"></span>
+        <p>竞猜</p>
+    </div>
+    {if !$close_treasure_info}
+    <div class="footer_box 
+        {if $smarty.const.ACTION_NAME eq 'roll_detail'
+        || $smarty.const.ACTION_NAME eq 'treasure_index'
+        || $smarty.const.ACTION_NAME eq 'treasure_detail'
+        || $smarty.const.ACTION_NAME eq 'draw_prize_record'
+        || $smarty.const.ACTION_NAME eq 'award_record_by_prize'
+        || $smarty.const.ACTION_NAME eq 'draw_prize_detail'
+        || $smarty.const.ACTION_NAME eq 'treasure_rule'
+        }footer_active{/if}" onclick="redirect('/FrontTreasure/treasure_index.html')">
+        <span class="icon duobao_white3x duobao_gold3x"></span>
+        <p>夺宝</p>
+    </div>
+    {/if}
+    <div class="footer_box 
+        {if $smarty.const.ACTION_NAME eq 'mall'
+        || $smarty.const.ACTION_NAME eq 'exchange_rule'
+        || $smarty.const.ACTION_NAME eq 'class_mall'
+        || $smarty.const.ACTION_NAME eq 'item_detail'
+        }footer_active{/if}" onclick="redirect('/FrontMall/mall.html')">
+        <span class="icon shangcheng_white3x shangcheng_gold3x" style="margin-top: 0.1rem;"></span>
+        <p>商城</p>
+    </div>
+    <div class="footer_box  
+        {if $smarty.const.ACTION_NAME eq 'personal_data'
+        || $smarty.const.ACTION_NAME eq 'user_game_list'
+        || $smarty.const.ACTION_NAME eq 'add_user_game'
+        || $smarty.const.ACTION_NAME eq 'setup'
+        || $smarty.const.ACTION_NAME eq 'bind_email'
+        || $smarty.const.ACTION_NAME eq 'bind_mobile'
+        || $smarty.const.ACTION_NAME eq 'user_address_list'
+        || $smarty.const.ACTION_NAME eq 'add_user_address'
+        || $smarty.const.ACTION_NAME eq 'my_roll'
+        || $smarty.const.ACTION_NAME eq 'my_exchange'
+        || $smarty.const.ACTION_NAME eq 'exchange_detail'
+        || $smarty.const.ACTION_NAME eq 'my_guess'
+        || $smarty.const.ACTION_NAME eq 'my_guess_champion'
+        || $smarty.const.ACTION_NAME eq 'my_treasure'
+        || $smarty.const.ACTION_NAME eq 'account_list'
+        || $smarty.const.ACTION_NAME eq 'help_center'
+        || $smarty.const.ACTION_NAME eq 'article_detail'
+        || $smarty.const.ACTION_NAME eq 'about_us'
+        || $smarty.const.ACTION_NAME eq 'recharge'
+        || $smarty.const.ACTION_NAME eq 'pay_page'
+        || $smarty.const.ACTION_NAME eq 'recharge_success'
+        || $smarty.const.ACTION_NAME eq 'my_qr_code'
+        || $smarty.const.ACTION_NAME eq 'my_recharge_back'
+        }footer_active{/if}" onclick="redirect('/FrontUser/personal_data')">
+        <span class="icon geren_white3x geren_gold3x"></span>
+        <p>个人</p>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+	<style>
+		body{
+			padding-top: 0px;
+		}
+	</style>
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--土豪专区-->
+		<div class="mall_list_tuhao clearfix">
+			<i class="icon tuhao_white3x fl"></i>
+            <span class="fl">{$class_name|default:'土豪专区'}</span>
+            <a href="{$exchange_rule_link}">兑换规则</a>
+		</div>
+	<!--分类名称-->
+		<div id="wrapper_list">
+			<div id="scroller_list">
+				<ul class="clearfix mall_list_tab">
+                    {foreach from=$sort_list item=item}
+                    <li class="fl {if $item.sort_id == $sort_id}sort_tab_active{/if}">
+                        <a href="{$class_mall_link}{$class_id}/sort_id/{$item.sort_id}">{$item.sort_name}</a>
+					</li>
+                    {/foreach}
+				</ul>
+			</div>
+		</div>
+	<!--商品排序导航-->
+		<div class="mall_sort_tab clearfix">
+            <div class="mall_sort_box clearfix fl {if $type == 1 || !$type}sort_tab_active {if $up}sort_tab_active1{/if}{/if}" id="1">
+				<p class="fl">默认</p>
+				<div class="sort_icon_box">
+                    <i class="icon xiangshang3x {if !$up}xiangshang{/if}"></i>
+					<span class="icon xiala3x xiangxia3x"></span>
+				</div>
+			</div>
+			<div class="mall_sort_box clearfix fl {if $type == 2}sort_tab_active {if $up}sort_tab_active1{/if}{/if}" id="2">
+				<p class="fl">最新</p>
+				<div class="sort_icon_box">
+					<i class="icon xiangshang3x {if !$up}xiangshang{/if}"></i>
+					<span class="icon xiala3x xiangxia3x"></span>
+				</div>
+			</div>
+			<div class="mall_sort_box clearfix fl {if $type == 3}sort_tab_active {if $up}sort_tab_active1{/if}{/if}" id="3">
+				<p class="fl">销量</p>
+				<div class="sort_icon_box">
+					<i class="icon xiangshang3x {if !$up}xiangshang{/if}"></i>
+					<span class="icon xiala3x xiangxia3x"></span>
+				</div>
+			</div>
+			<div class="mall_sort_box clearfix fl {if $type == 4}sort_tab_active {if $up}sort_tab_active1{/if}{/if}" id="4">
+				<p class="fl">价格</p>
+				<div class="sort_icon_box">
+					<i class="icon xiangshang3x {if !$up}xiangshang{/if}"></i>
+					<span class="icon xiala3x xiangxia3x"></span>
+				</div>
+			</div>
+		</div>
+	<!--内容-->
+		<ul class="mall_main clearfix"style="padding-bottom: 3rem;">
+            {foreach from=$item_list item=item}
+			<li class="clearfix">
+                <a href="{$item_detail_link}{$item.item_id}">
+                    <img src="{$item.base_pic}" />
+                    <h1>{$item.item_name}</h1>
+                    <p class="fl">{$item.mall_price|default:10000}{$system_config.SYSTEM_MONEY_NAME}</p>
+					<span class="fr">
+                        已兑换<i>{$item.sales_num|default:0}</i>件
+					</span>
+				</a>
+			</li>
+            {/foreach}
+		</ul>
+		
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll_tab.js" ></script>
+		<script>
+			var myScroll;
+            var redirect_url = '{$redirect_url}';
+			
+{literal}
+			$(function()
+			{
+			/*对齐方式*/
+				$(".mall_main>li:even").css("float","left");
+				$(".mall_main>li:odd").css("float","right");
+			/*滑动导航*/
+				myScroll = new IScroll('#wrapper_list', { eventPassthrough: true, scrollX: true, scrollY: false, preventDefault: false });
+				
+				$(".mall_list_tab>li").on("click",function()
+				{
+					$(this).addClass("sort_tab_active").siblings().removeClass("sort_tab_active");
+				});
+			/*点击排序导航*/
+				$(".mall_sort_box").on("click",function()
+				{
+                    var type = $(this).attr("id");
+
+					//$(this).addClass("sort_tab_active").siblings().removeClass("sort_tab_active");
+                    if (!$(this).hasClass("sort_tab_active1")) {
+                        window.location.href=redirect_url+'/type/'+type+'/up/1.html';
+                    } else {
+                        window.location.href=redirect_url+'/type/'+type+'/up/0.html';
+                    }
+					//$(this).toggleClass("sort_tab_active1");
+					//$(this).find("i").toggleClass("xiangshang");
+				});
+			});
+{/literal}
+		</script>
+{/block}

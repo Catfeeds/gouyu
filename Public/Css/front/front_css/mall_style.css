@@ -1,0 +1,2466 @@
+/*****上拉刷新*******/
+#pullUp{
+	text-align: center;
+	line-height: 1.7rem;
+/*	background: #E8E8E8;*/
+	padding-bottom: 3rem;
+}
+.pullUpLabel{
+	font-size: 0.7rem;
+	color: #909090;
+}
+/*上拉加载loading*/
+#load_wrapper {
+  position:absolute; 
+  z-index:1;
+  top:0.1rem;
+  bottom: 0;
+  width:100%;
+  overflow:auto;  
+}
+
+#scroller {
+  position:relative;
+/*  -webkit-touch-callout:none;*/
+  -webkit-tap-highlight-color:rgba(0,0,0,0);
+  float:left;
+  width:100%;
+  padding:0;
+}
+
+#scroller a{
+  -webkit-transform:translate3d(0,0,0); 
+}
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	/*padding-top: 80px;*/
+	background-color: #202020;
+	font-family: "微软雅黑" !important;
+}
+input,button{
+	font-family: "微软雅黑" !important;
+}
+@media only screen and (min-width: 320px){
+    html {
+        font-size: 17px !important;
+    }
+}
+@media only screen and (min-width: 375px){
+    html {
+        font-size: 20px !important;
+    }
+}
+@media only screen and (min-width: 414px){
+    html {
+        font-size: 22px !important;
+    }
+}
+@media only screen and (min-width: 768px){
+    html {
+        font-size: 41px !important;
+    }
+}
+.body_scroll{
+	overflow: hidden; 
+}
+.gouyu_layer{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100;
+}
+.layer{
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+/*头部标题栏*/
+.header{
+	width: 100%;
+	line-height: 2.2rem;
+	background-color: #1b1b20;
+	position: relative;
+	font-size: 0.9rem;
+	color: #fff;
+	text-align:center;
+}
+.header_left{
+	width: 20%;
+	height: 2.2rem;
+	position: absolute;
+}
+.header_left>i{
+	width: 0.65rem;
+	height: 1.05rem;
+	background-color: #FFF;
+	display: block;
+	margin: 0.575rem 8% 0 10%;
+}
+.header_left>p{
+	line-height: 2.2rem;
+	font-size: 0.9rem;
+	color: #FFF;
+}
+/*底部导航*/
+.footer{
+	width: 100%;
+	height: 2.45rem;
+	background-color: #181818;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 99;
+  display: -moz-box; 
+  display: -webkit-box; 
+  display: box;
+}
+.footer_box{
+	/*width: 25%;*/
+	height: 2.35rem;
+  padding-top: 0.1rem;
+  -moz-box-flex: 1; 
+  -webkit-box-flex: 1; 
+  box-flex: 1;
+}
+.footer_box>span{
+	margin: 0 auto;
+	margin-top: 0.2rem;
+	margin-bottom: 0.2rem;
+}
+.footer_box>p{
+	width: 100%;
+	text-align: center;
+	font-size: 0.6rem;
+	color:#e8e8e8;
+	line-height: 0.6rem;
+}
+.footer_active>p{
+	color: #d6aa69;
+}
+/************************************************\
+                首页
+\************************************************/
+.home_horn{
+	width: 100%;
+	height: 1.85rem;
+	background-color: #202020;
+	overflow: hidden;
+	position: relative;
+}
+.home_horn>i{
+	margin: 0.55rem 2% 0 3%;
+}
+.home_horn_box{
+	width: 90%;
+	position: absolute;
+	top: 0;
+}
+.home_horn_box>p{
+	width: 100%;
+	font-size: 0.7rem;
+	color: #E8E8E8;
+	line-height: 1.85rem;
+	overflow: hidden;
+  	text-overflow:ellipsis;
+  	-ms-text-overflow:ellipsis;
+  	white-space: nowrap;
+}
+.home_horn_box>p>a{
+	font-size: 0.7rem;
+	color: #806946;
+	line-height: 1.85rem;
+	margin: 0 1%;
+}
+/*.scroll_div{
+	width: 90%;
+	line-height: 1.85rem;
+	margin:0 auto;
+	white-space: nowrap;
+	overflow:hidden;
+}
+.scroll_begin{
+	font-size: 0.7rem;
+	color: #E8E8E8;
+	line-height: 1.85rem;
+}
+.scroll_begin>a{
+	font-size: 0.7rem;
+	color: #806946;
+	line-height: 1.85rem;
+	margin: 0 1%;
+}*/
+/*主要内容*/
+.home_main{
+	width: 100%;
+	background-color: #FFF;
+	margin-bottom: 0.5rem;
+}
+.home_main>li{
+	width: 47.8%;
+	background-color: #E8E8E8;
+	padding: 0 1%;
+	margin-bottom: 1px;
+}
+.home_main>li>a{
+	width: 100%;
+	display: block;
+}
+.home_main>li>a>img{
+	width: 8.85rem;
+	height: 6rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+.props_box{
+	width: 100%;
+	margin-bottom: 0.4rem;
+}
+.props_box>h3{
+	width:46%;
+	font-size: 14px;
+	color: #323232;
+	text-align: left;
+	line-height: 14px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.props_box>p{
+	font-size: 0.55rem;
+	color: #666;
+	text-align: right;
+	line-height: 0.55rem;
+	width: 54%;
+}
+.props_box>p>span{
+	font-size: 0.55rem;
+	color: #c02d14;
+	line-height: 0.55rem;
+}
+.progress_box{
+	width: 100%;
+	height: 0.35rem;
+	background-color: #FFF;
+	border-radius: 0.6rem;
+	margin-bottom: 0.3rem;
+	position: relative;
+}
+.progress_cont{
+	height: 0.35rem;
+	background-color: #d5b66b;
+	border-radius: 0.6rem;
+	position: absolute;
+}
+.number_box{
+	margin-bottom: 0.55rem;
+}
+.number_box>p{
+	font-size: 0.55rem;
+	color: #666;
+	line-height: 0.55rem;
+	text-align: left;
+}
+.number_box>p>span{
+	font-size: 0.55rem;
+	color: #d6aa6a;
+	line-height: 0.55rem;
+	text-align: left;
+}
+.remaining_box{
+	display: table;
+	margin: 0 auto;
+	margin-bottom: 0.5rem;
+}
+.remaining_box>p{
+	font-size: 0.55rem;
+	color: #666;
+	line-height: 1.2rem;
+}
+.remaining_box>span{
+	background: #fff;
+	border-radius: 0.1rem;
+	width: 1rem;
+	line-height: 1.2rem;
+	text-align: center;
+	font-size: 0.8rem;
+	color: #d6aa69;
+	display: block;
+}
+.remaining_box>span+span{
+	margin-left: 0.25rem;
+}
+.margin_right{
+	margin-right: 0.3rem;
+}
+.margin_left{
+	margin-left: 0.3rem;
+}
+/*.home_line{
+	width: 100%;
+	height: 0.5rem;
+	background-color: #202020;
+	border-bottom: 1px solid #434343;
+}*/
+.home_menu{
+	background-color: #202020;
+	padding-bottom: 4.2rem;
+	border-top: 1px solid #434343;
+}
+.home_menu_box{
+	border-bottom: 1px solid #434343;
+	display: block;
+}
+.home_menu_box>i{
+	margin: 0.7rem 3%;
+}
+.home_menu_box>p{
+	line-height: 2.3rem;
+	font-size: 0.7rem;
+	color: #e8e8e8;
+}
+.home_menu_box>span{
+	margin: 0.8rem 3%;
+}
+.rules_cont{
+	clear: both;
+	font-size: 0.6rem;
+	color: #F6F6F6;
+	margin: 0 3% 0.5rem 3%;
+	display: none;
+}
+/************************************************************\
+                 		夺宝详情
+\************************************************************/
+/*大图*/
+.indiana_img{
+	width: 100%;
+	vertical-align: bottom
+}
+/*--福利专区夺宝详情增加说明-*/
+.account-require{
+	width:100%;
+	height:1.75rem;
+	opacity:0.6;
+	background: #C02D14;
+	font-size:0.65rem;
+	font-family:PingFangSC-Regular;
+	line-height:1.75rem;
+	color:white;
+	text-align:center;
+	position:absolute;
+	top:0;
+	left:0;
+}
+.account-require span{
+	color:#D6AA69;
+}
+/*夺宝进度*/
+.indiana_main{
+	width: 94%;
+	background-color: #E8E8E8;
+	padding: 0.7rem 3% 0.5rem 3%;
+}
+.indiana_main>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	margin-bottom: 0.85rem;
+}
+.indiana_props{
+	margin-bottom: 0.35rem;
+}
+.indiana_props>p{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.65rem;
+}
+.indiana_props .home_span_txt{
+	color: #c02d14;
+}
+.indiana_color{
+	width: 100%;
+	height: 0.5rem;
+	background-color: #FFF;
+	border-radius: 1rem;
+	margin-bottom: 0.35rem;
+}
+.indiana_color_cont{
+	width: 0;
+	height: 0.5rem;
+	background-color: #d5b66b;
+	border-radius: 1rem;
+}
+.indiana_number{
+	margin-bottom: 0.4rem;
+}
+.indiana_number>p{
+	font-size: 0.7rem;
+	color: #666;
+}
+.indiana_number>p>span{
+	color: #d6aa6a;
+}
+.indiana_remaining{
+	display: table;
+	margin: 0 auto;
+	margin-bottom: 0.6rem;
+}
+.indiana_remaining>p{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 1.6rem;
+}
+.indiana_remaining>span+span{
+	margin-left: 0.4rem;
+}
+.indiana_remaining>span{
+	width: 1.4rem;
+	line-height: 1.6rem;
+	background-color: #FFF;
+	border-radius: 2px;
+	font-size: 1rem;
+	color: #d6aa69;
+	text-align: center;
+}
+.indiana_remaining_right{
+	margin-right: 0.3rem;
+}
+.indiana_remaining_left{
+	margin-left: 0.3rem;
+}
+.indiana_time{
+	width: 100%;
+	background-color: #f6f6f6;
+	padding: 0.65rem 0;
+}
+.indiana_time>p+p{
+	margin-top: 0.5rem
+}
+.indiana_time>p{
+	font-size: 0.5rem;
+	color: #666;
+	line-height: 0.5rem;
+	text-align: center;
+}
+.indiana_time>p>i{
+	color: #c02d14;
+	font-style: normal;
+}
+.indiana_time>p>span{
+	color: #c02d14;
+}
+/*选项菜单*/
+.indiana_menu{
+	width: 100%;
+	padding: 0.6rem 0;
+	background-color: #202020;
+}
+.indiana_menu>ul{
+	border-bottom: 1px solid #434343;
+}
+.indiana_menu>ul>li{
+	border-top: 1px solid #434343;
+}
+.indiana_menu>ul>li>h1{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 2.2rem;
+	margin-left: 3%;
+}
+.indiana_menu>ul>li>span{
+	margin: 0.9rem 3% 0.9rem 0;
+}
+.indiana_menu>ul>li>p{
+	clear: both;
+	font-size: 0.6rem;
+	color: #f6f6f6;
+	margin: 0 3% 0.6rem 3%;
+	display: none;
+}
+/*开奖记录*/
+.lottery_box{
+	width: 100%;
+	background-color: #E8E8E8;
+	padding-bottom: 7rem;
+}
+.lottery_title{
+	width: 100%;
+	display: block;
+	border-bottom: 1px solid #efefef;
+	margin-bottom: 0.8rem;
+}
+.lottery_title>p{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 2.25rem;
+	margin-left: 3%;
+}
+.lottery_title>span{
+	margin: 0.8rem 3% 0.8rem 0;
+}
+.lottery_title_this{
+	margin-bottom: 0.6rem;
+}
+.lottery_title_this>h4{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	margin-left: 3%;
+}
+.lottery_title_this>p{
+	font-size: 0.6rem;
+	color: #909090;
+	margin-right: 3%;
+}
+.lottery_user{
+	margin-bottom: 0.5rem;
+}
+.lottery_user>img{
+	width: 1.75rem;
+	height: 1.75rem;
+	margin: 0 3%;
+	border-radius: 50%;
+}
+.lottery_user>ul{
+	width: 83%;
+	margin-top: 0.15rem;
+}
+.lottery_user_name{
+	width: 100%;
+	margin-bottom: 0.2rem;
+}
+.lottery_user_name>p{
+	display: block;
+	width: 100%;
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 0.7rem;
+}
+.lottery_user_time{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.lottery_user_time>span{
+	color: #c02d14;
+}
+.lottery_btn{
+	width: 100%;
+/*	border-top: 1px solid #EFEFEF;*/
+	padding: 0.5rem 0;
+	position:fixed;
+	bottom:3rem;
+}
+.lottery_btn>input{
+	display: block;
+	width: 80%;
+	height: 2.1rem;
+	background-color: #D6AA69;
+	margin: 0 auto;
+	border: none;
+	border-radius: 2rem;
+	font-size: 0.8rem;
+	color: #FFF;
+}
+/*参与人数弹层*/
+.number_layer{
+	width: 100%;
+	background-color: #E8E8E8;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding-bottom: 6rem;
+}
+.number_layer>span{
+	position: absolute;
+	right: 3%;
+	top: 0.6rem;
+}
+.number_layer>h1{
+	width: 100%;
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	text-align: center;
+	margin: 0.8rem 0 1rem 0;
+}
+.number_box1{
+	width: 81%;
+	margin: 0 auto;
+	margin-bottom: 0.6rem;
+}
+.number_box1>span{
+	width: 15%;
+	height: 2.1rem;
+	border: 1px solid #b4b4b4;
+	background-color: #FFF;
+	font-size: 1.5rem;
+	color: #d6aa69;
+	text-align: center;
+}
+.number_box_left{
+	border-bottom-left-radius: 0.2rem;
+	border-top-left-radius: 0.2rem;
+}
+.number_box_right{
+	border-bottom-right-radius: 0.2rem;
+	border-top-right-radius: 0.2rem;
+}
+.number_box1>input{
+	width: 68%;
+	height: 2.1rem;
+	background-color: #FFF;
+	border: 1px solid #B4B4B4;
+	border-left: none;
+	border-right: none;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #d6aa69;
+}
+.number_specific{
+	width: 81%;
+	margin: 0 auto;
+	margin-bottom: 0.65rem;
+}
+.number_specific>input+input{
+	margin-left: 3%;
+}
+.number_specific>input{
+	width: 31%;
+	height: 1.5rem;
+	border: 1px solid #B4B4B4;
+	background-color: #FFF;
+	border-radius: 0.2rem;
+	font-size: 0.9rem;
+	color: #d6aa69;
+}
+.number_warn{
+	width: 100%;
+	text-align: center;
+	line-height: 0.7rem;
+	padding-bottom: 0.7rem;
+	border-bottom: 1px solid #EFEFEF;
+	margin-bottom: 0.65rem;
+}
+.number_warn>span{
+	display: inline-block;
+	font-size: 0.7rem;
+	color: #c02d14;
+	line-height: 0.7rem;
+}
+.number_warn>p{
+	font-size: 0.7rem;
+	color: #323232;
+	display: inline-block;
+	line-height: 0.7rem;
+}
+.number_balance{
+	width: 100%;
+	padding-bottom: 0.65rem;
+	border-bottom: 1px solid #efefef;
+}
+.number_balance>p{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+	margin-bottom: 0.65rem;
+	text-align: center;
+}
+.number_balance>p>i{
+	font-size: 0.7rem;
+	color: #c02d14;
+	line-height: 0.7rem;
+	font-style: normal;
+}
+.number_balance>span{
+	display: block;
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	text-align: center;
+}
+/*选择游戏账号弹层*/
+.game_account{
+	width: 66%;
+	max-height: 20rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background-color: #E8E8E8;
+	border-radius: 0.2rem;
+	padding: 0 3%;
+	margin: 0 auto;
+	position: relative;
+}
+.game_account>span{
+	position: absolute;
+	right: 3%;
+	top: 0.5rem;
+}
+.game_account>h1{
+	width: 100%;
+	font-size: 0.8rem;
+	color: #030303;
+	text-align:center;
+	line-height: 0.8rem;
+	margin: 0.8rem 0;
+}
+.id_account{
+	width: 100%;
+	border-top: 1px solid #EFEFEF;
+	margin-bottom: 0.5rem;
+}
+.id_account>li{
+	border-bottom: 1px solid #EFEFEF;
+	padding: 0 2%;
+}
+.id_account_cont{
+	width: 90%;
+}
+.id_account .id_account_cont p{
+	font-size: 0.7rem;
+	color: #030303;
+	line-height: 0.7rem;
+	margin: 0.5rem 0 0.4rem 0;
+}
+.id_account .id_account_cont span{
+	display: block;
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.9rem;
+	margin-bottom: 0.5rem;
+}
+.game_account .id_account>li>i{
+	width: 0.85rem;
+	height: 0.85rem;
+	margin: 0.95rem 0;
+}
+.game_box{
+	margin-bottom: 0.5rem;
+}
+.game_box>select{
+	width: 100%;
+	padding-left: 2%;
+	height: 1.5rem;
+	border-radius: 0.2rem;
+	margin-bottom: 0.5rem;
+}
+.game_box>input{
+	width: 98%;
+	height: 1.5rem;
+	border-radius: 0.2rem;
+	border: 1px solid #B4B4B4;
+	padding-left: 2%;
+	margin-bottom: 0.35rem;
+}
+.game_box>i{
+	margin: 0.1rem 1% 0 4%;
+}
+.game_box>p{
+	font-size: 0.6rem;
+	color: #909090;
+	line-height: 0.6rem;
+}
+.game_btn{
+	width: 100%;
+	border-top: 1px solid #EFEFEF;
+	padding: 0.5rem 0;
+}
+.game_btn>input{
+	width: 56%;
+	height: 1.5rem;
+	background-color: #D6AA69;
+	border-radius: 2rem;
+	border: none;
+	display: block;
+	margin: 0 auto;
+	font-size: 0.7rem;
+	color: #fff;
+}
+/*添加游戏账号*/
+.add_account{
+	padding: 0 2%;
+	margin-bottom: 0.5rem;
+}
+.add_account>p{
+	font-size: 0.7rem;
+	color: #030303;
+	line-height: 0.7rem;
+}
+/************************************************************\
+                 		夺宝详情(没人参与)
+\************************************************************/
+.lottery_line{
+	width: 100%;
+	height: 0.6rem;
+	background-color: #202020;
+}
+/************************************************************\
+                 		总开奖记录
+\************************************************************/
+.lottery_line_grey{
+	width: 100%;
+	height: 1px;
+	background-color: #696969;
+}
+.lottery_line_black{
+	width: 100%;
+	height: 1px;
+	background-color: #202020;
+}
+.lottery_main{
+	width: 100%;
+	height: 100%;
+	background-color: #202020;
+}
+.lottery_box_cont{
+	width: 100%;
+	background-color: #E8E8E8;
+}
+.lottery_left_box{
+	width: 23%;
+}
+.lottery_left_box>img{
+	width: 3rem;
+	height: 3rem;
+	border-radius: 50%;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.65rem;
+	margin-bottom: 0.4rem;
+}
+.lottery_left_box>p{
+	width: 100%;
+	font-size: 0.6rem;
+	color: #d6aa69;
+	line-height: 0.8rem;
+	text-align: center;
+	margin-bottom: 0.1rem;
+	overflow: hidden;
+  	/*text-overflow:ellipsis;
+  	-ms-text-overflow:ellipsis;
+  	white-space: nowrap;*/
+}
+.lottery_left_box>span{
+	width: 100%;
+	display: block;
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+	text-align: center;
+	margin-bottom: 0.3rem;
+}
+.lottery_cont_box{
+	width: 0.2rem;
+	height: 6.75rem;
+	background-color: #F6F6F6;
+	position: relative;
+}
+.lottery_round_outer{
+	width: 0.6rem;
+	height: 0.6rem;
+	border-radius: 50%;
+	background-color: #F6F6F6;
+	position: absolute;
+	left: 50%;
+	top: 2rem;
+	margin-left: -0.3rem;
+}
+.lottery_round_inside{
+	width: 0.3rem;
+	height: 0.3rem;
+	border-radius: 50%;
+	margin: 0 auto;
+	margin-top: 0.15rem;
+	background-color: #c89b59;
+}
+.lottery_right_box{
+	width: 70%;
+	margin-right: 3%;
+	border-bottom: 1px solid #EFEFEF;
+}
+.lottery_right_top{
+	font-size: 0.65rem;
+	color: #323232;
+	line-height: 0.65rem;
+	margin: 0.7rem 0 0.6rem 0;
+}
+.lottery_right_bottom>img{
+	width: 6rem;
+	height: 4rem;
+	margin-right: 4%;
+	margin-bottom: 0.6rem;
+}
+.lottery_right_bottom>ul{
+	width: 46%;
+}
+.lottery_right_bottom>ul>li{
+	width: 100%;
+	font-size: 0.5rem;
+	color: #909090;
+	line-height: 0.5rem;
+}
+.lottery_right_bottom>ul>li+li{
+	margin-top: 0.35rem;
+}
+.lottery_right_bottom>ul>li>p{
+	display: inline-block;
+	font-size: 0.5rem;
+	color: #c02d14;
+	line-height: 0.5rem;
+}
+.lottery_right_bottom>i{
+	margin-top: 1.2rem;
+}
+.lottery_main .lottery_box_active{
+	background-color: #D6AA69;
+}
+.lottery_main .lottery_box_active .lottery_left_box p{
+	color: #FFF;
+}
+.lottery_main .lottery_box_active .lottery_left_box span{
+	color: #000;
+}
+.lottery_main .lottery_box_active .lottery_cont_box{
+	background-color: #c89b59;
+}
+.lottery_main .lottery_box_active .lottery_round_outer{
+	background-color: #c89b59;
+}
+.lottery_main .lottery_box_active .lottery_round_inside{
+	background-color: #FFF;
+}
+.lottery_main .lottery_box_active .lottery_right_box{
+	border-color: #D6AA69;
+}
+.lottery_main .lottery_box_active .lottery_right_bottom li{
+	color: #FFF;
+}
+/************************************************************\
+                 		开奖记录
+\************************************************************/
+.lottery_cont_box1{
+	height: 6.4rem;
+}
+.lottery_right_box1{
+	padding-bottom: 0.65rem;
+}
+.lottery_right_box1>.lottery_right_bottom>ul>li+li{
+	margin-top: 0.5rem;
+}
+/************************************************************\
+                 		开奖详情
+\************************************************************/
+.lottery_cont_main{
+	width: 100%;
+	height: 100%;
+	background-color: #202020;
+}
+.lottery_cont_line{
+	width: 100%;
+	height: 1px;
+	background-color: #696969;
+}
+/*计算公式*/
+.count_box{
+	width: 94%;
+	margin: 0.5rem auto;
+	background-color: #D6AA69;
+	border-radius: 0.2rem;
+	padding: 0.75rem 0;
+}
+.count_box>p{
+	font-size: 0.9rem;
+	color: #fff;
+	line-height: 0.9rem;
+	margin: 0 0 0.6rem 3%;
+}
+.count_box>span{
+	font-size: 0.7rem;
+	color: #fff;
+	line-height: 0.7rem;
+	margin-left: 3%;
+}
+/*数值*/
+.numerical_box{
+	width: 100%;
+	background-color: #E8E8E8;
+	margin-bottom: 0.5rem;
+}
+.numerical_a{
+	width: 94%;
+	padding: 0.7rem 3% 0.75rem 3%;
+	border-bottom: 1px solid #F6F6F6;
+}
+.numerical_a>h1,.numerical_b>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	margin-bottom: 0.35rem;
+}
+.numerical_a>p,.numerical_b>p{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	margin-bottom: 0.4rem;
+}
+.numerical_a>span,.numerical_b>span{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+}
+.numerical_a>span>i,.numerical_b>span>i{
+	font-size: 0.7rem;
+	color: #D6AA69;
+	line-height: 0.7rem;
+	font-style: normal;
+}
+.numerical_a>a{
+	font-size: 0.6rem;
+	color: #217cec;
+	line-height: 0.6rem;
+	margin-top: 0.2rem;
+}
+.numerical_b{
+	width: 94%;
+	padding: 0.7rem 3% 0.75rem 3%;
+}
+/*计算结果*/
+.results_box{
+	width: 94%;
+	padding: 0.75rem 3%;
+	background-color: #E8E8E8;
+}
+.results_box>h1{
+	font-size: 0.9rem;
+	color: #323232;
+	line-height: 0.9rem;
+	margin-bottom: 1rem;
+}
+.results_box>p{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+	margin-top: 0.2rem;
+	margin-bottom: 1rem;
+}
+.results_box>span{
+	clear: both;
+	display: block;
+	width: 88%;
+	margin: 0 auto;
+	background-color: #F6F6F6;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #323232;
+	padding: 0.7rem 0;
+}
+.results_box>span>i{
+	font-size: 0.9rem;
+	color: #D6AA69;
+	font-style: normal;
+}
+/************************************************************\
+                 		商城首页
+\************************************************************/
+/*****轮播图******/
+.swiper-container .swiper-pagination-bullet{
+	background: #d5e8e3;
+	opacity: 0.5;
+}
+.swiper-container .swiper-pagination-bullet-active{
+	background: #D6AA69;
+}
+.home_banner img{
+	width: 100%;
+	vertical-align: bottom;
+}
+/*商城公告*/
+.bulletin_box{
+	width: 97%;
+	padding-left: 3%;
+	height: 2.2rem;
+	background-color: #D6AA69;
+	/*position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 99;*/
+	overflow: hidden;
+	white-space: nowrap;
+}
+.bulletin_box>p{
+	font-size: 0.7rem;
+	color: #fff;
+	line-height: 2.2rem;
+	margin-right: 3%;
+	display: inline;
+}
+/*土豪专区*/
+.mall_tab{
+	width: 100%;
+	background-color: #202020;
+	border-bottom: 1px solid #434343;
+}
+.mall_tab>a{
+	display: block;
+	width: 25%;
+	float: left;
+}
+.mall_tab>a>span{
+	margin: 0.5rem auto 0.4rem auto;
+}
+.mall_tab>a>p{
+	width: 100%;
+	margin-bottom: 1.2rem;
+	text-align: center;
+	font-size: 0.7rem;
+	color: #d6aa69;
+}
+/*更多*/
+.mall_more{
+	display: block;
+	width: 94%;
+	padding: 0 3%;
+	background-color: #202020;
+}
+.mall_more>i{
+	margin: 0.7rem 0;
+}
+.mall_more>p{
+	font-size: 0.7rem;
+	color: #e8e8e8;
+	line-height: 2.35rem;
+	margin-left: 2%;
+}
+.mall_more>span{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 2.35rem;
+	margin-right: 2%;
+}
+.mall_more .right_gold3x{
+	margin: 0.85rem 0;
+}
+/*内容*/
+.mall_main{
+	width: 100%;
+	background-color: #EFEFEF;
+	/*padding-bottom: 3rem;*/
+}
+.mall_main>li{
+	width: 47.8%;
+	background-color: #E8E8E8;
+	padding: 0 1%;
+	margin-bottom: 1px;
+}
+.mall_main>li>a{
+	display: block;
+	width: 100%;
+}
+.mall_main>li>a>img{
+	width: 8.75rem;
+	height: 6rem;
+	display: block;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+}
+/*.mall_cont_img{
+	width: 8.75rem;
+	height: 6rem;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+	margin-bottom: 0.5rem;
+	position: relative;
+	overflow: hidden;
+}*/
+/*.mall_cont_img>img{
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+}*/
+.mall_main>li>a>h1{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	margin-bottom: 0.8rem;
+	width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mall_main>li>a>p{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 0.7rem;
+	margin-bottom: 0.75rem;
+}
+.mall_main>li>a>span{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.mall_main>li>a>span>i{
+	font-size: 0.6rem;
+	color: #C02D14;
+	line-height: 0.6rem;
+	font-style: normal;
+}
+/*兑换规则*/
+.exchange_box{
+	display: block;
+	width: 94%;
+	padding: 0 3%;
+	border-top: 1px solid #666;
+	border-bottom: 1px solid #666;
+	margin-top: 0.5rem;
+}
+.exchange_box>span{
+	margin: 0.75rem 2% 0.75rem 0;
+}
+.exchange_box>h1{
+	font-size: 0.7rem;
+	color: #e8e8e8;
+	line-height: 2.25rem;
+}
+.exchange_box i{
+	margin: 0.9rem 0;
+}
+/************************************************************\
+                 		商城列表
+\************************************************************/
+.mall_list_tuhao{
+	width: 100%;
+	background-color: #D6AA69;
+	position: relative;
+}
+.mall_list_tuhao>i{
+	margin: 0.65rem 2% 0.6rem 40%;
+	display: inline-block;
+}
+.mall_list_tuhao>span{
+	font-size: 0.7rem;
+	color: #fff;
+	line-height: 2.2rem;
+}
+.mall_list_tuhao>a{
+	display: block;
+	width: 16%;
+	line-height: 1.1rem;
+	text-align: center;
+	border: 1px solid #FFF;
+	border-radius: 0.2rem;
+	font-size: 0.6rem;
+	color: #FFF;
+	position: absolute;
+	top: 0.5rem;
+	right: 3%;
+}
+/*分类名称*/
+#wrapper_list {
+	position: relative;
+	z-index: 1;
+	height: 2.2rem;
+	width: 100%;
+	background: #E8E8E8;
+	overflow: hidden;
+	-ms-touch-action: none;
+	margin-bottom: 0.5rem;
+}
+#scroller_list {
+	position: absolute;
+	z-index: 1;
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	width: 22rem;
+	height: 2.2rem;
+}
+.mall_list_tab{
+	width: 100%;
+}
+.mall_list_tab>li{
+	width: 4.4rem;
+	line-height: 2.2rem;
+	background-color: #E8E8E8;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0.7rem;
+	color: #323232;
+}
+.mall_list_tab>li>a{
+	width: 5.1rem;
+	line-height: 2.2rem;
+	background-color: #E8E8E8;
+	overflow: hidden;
+	text-align: center;
+	font-size: 0.7rem;
+	color: #323232;
+}
+.mall_list_tab .sort_tab_active a{
+	color: #C02D14;
+}
+/*商品排序导航*/
+.mall_sort_tab{
+	width: 100%;
+	height: 2.15rem;
+	background-color: #E8E8E8;
+	border-bottom: 1px solid #EFEFEF;
+}
+.mall_sort_box{
+	width: 25%;
+	height: 2.15rem;
+}
+.mall_sort_box>p{
+	width: auto;
+	line-height: 2.15rem;
+	font-size: 0.7rem;
+	color: #000;
+	margin: 0 2% 0 28%;
+}
+.sort_icon_box{
+	margin-top: 0.75rem;
+	display: none;
+	float: left;
+}
+.sort_icon_box>i{
+	margin-bottom: 0.1rem;
+}
+.sort_tab_active p{
+	color:#c02d14;
+}
+.sort_tab_active .sort_icon_box{
+	display: block;
+}
+/************************************************************\
+                 		饰品详情
+\************************************************************/
+.adornment_box{
+	width: 94%;
+	background-color: #E8E8E8;
+	margin-bottom: 0.5rem;
+	padding: 0.7rem 3%;
+}
+.adornment_top_box{
+	width: 100%;
+	border-bottom: 1px solid #EFEFEF;
+	padding-bottom: 0.7rem;
+}
+.adornment_top_box>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	margin-bottom: 0.6rem;
+}
+.adornment_top_box>p{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 0.7rem;
+}
+.adornment_top_box>span{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.adornment_top_box>span>i{
+	font-size: 0.6rem;
+	color: #C02D14;
+	line-height: 0.6rem;
+	font-style: normal;
+}
+.adornment_bottom_box{
+	width: 100%;
+	padding-top: 0.7rem;
+}
+.adornment_bottom_box>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	margin-bottom: 0.6rem;
+}
+.adornment_bottom_box>p{
+	font-size: 0.7rem;
+	color: #666;
+}
+/*兑换规则*/
+.adornment_exchange{
+	width: 94%;
+	padding: 0 3%;
+	border-top: 1px solid #434343;
+	border-bottom: 1px solid #434343;
+	margin-bottom: 0.75rem;
+}
+.adornment_exchange>h1{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 2.2rem;
+}
+.adornment_exchange>span{
+	margin: 0.9rem 0;
+}
+.adornment_exchange>p{
+	clear: both;
+	font-size: 0.6rem;
+	color: #f6f6f6;
+	margin: 0.6rem 0;
+	display: none;
+}
+/*底部按钮*/
+.adornment_btn{
+	width: 100%;
+	padding-bottom: 3rem;
+}
+.adornment_btn>input{
+	width: 81%;
+	height: 2rem;
+	background-color: #D6AA69;
+	border: none;
+	border-radius: 3rem;
+	font-size: 0.8rem;
+	color: #fff;
+	display: block;
+	margin: 0 auto;
+}
+/*兑换成功弹层*/
+.exchange_success{
+	width: 87%;
+	margin: 0 auto;
+}
+.exchange_success>span{
+	position: absolute;
+	right: 3%;
+	top: 0.5rem;
+}
+.exchange_success>i{
+	margin: 0.85rem 4% 0.75rem 33%;
+}
+.exchange_success>p{
+	font-size: 0.9rem;
+	color: #fff;
+	line-height: 1.5rem;
+	margin-top: 0.85rem;
+}
+.duihuan_box{
+	clear: both;
+	width: 100%;
+	text-align: center;
+	margin-bottom: 1.2rem;
+}
+.duihuan_box>p{
+	width: 100%;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #fff;
+	line-height: 1.4rem;
+}
+.duihuan_box>p>span{
+	font-size: 0.9rem;
+	color: #D6AA69;
+	line-height: 0.9rem;
+	margin: 0 1%;
+}
+.exchange_success>input{
+	display: block;
+	width: 54%;
+	height: 2rem;
+	margin: 0 auto;
+	background-color: #D6AA69;
+	border-radius: 2rem;
+	border: none;
+	font-size: 0.8rem;
+	color: #fff;
+	margin-bottom: 0.75rem;
+}
+.exchange_success>a{
+	font-size: 0.8rem;
+	color: #d6aa69;
+	line-height: 0.8rem;
+	display: block;
+	text-align: center;
+	text-decoration: underline;
+}
+ /*不能兑换提示*/
+.no_exchange{
+	width: 87%;
+	margin: 0 auto;
+}
+.no_exchange>span{
+	position: absolute;
+	right: 3%;
+	top: 0.5rem;
+}
+.no_exchange>i{
+	display: table;
+	margin: 0.85rem auto 0.75rem auto;
+}
+.no_exchange>p{
+	width: 100%;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #fff;
+	line-height: 1.4rem;
+}
+/*选择收货地址*/
+.address_box{
+	width: 66%;
+	background-color: #E8E8E8;
+	border-radius: 0.2rem;
+	padding: 0 3%;
+	max-height: 20rem;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	margin: 0 auto;
+	position: relative;
+}
+.address_box>span{
+	position: absolute;
+	top: 0.5rem;
+	right: 4%;
+}
+.address_box>h1{
+	width: 100%;
+	font-size: 0.8rem;
+	color: #030303;
+	line-height: 2.35rem;
+	text-align: center;
+	border-bottom: 1px solid #EFEFEF;
+}
+.address_box_cont{
+	width: 96%;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 0.5rem 2%;
+}
+.address_box_cont>h2{
+	font-size: 0.7rem;
+	color: #030303;
+	line-height: 0.7rem;
+	margin-right: 3%;
+}
+.address_box_cont>span{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+	display: block;
+}
+.address_box_cont>p{
+	width: 86%;
+	clear: both;
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.9rem;
+	overflow: hidden;
+  	text-overflow:ellipsis;
+  	-ms-text-overflow:ellipsis;
+  	white-space: nowrap;
+}
+.address_box .address_box_cont>i{
+	width: 0.85rem;
+	height: 0.85rem;
+	display: block;
+	margin-top: 0.4rem;
+}
+.add_address{
+	width: 96%;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 0.5rem 2%;
+}
+.add_address>p{
+	font-size: 0.7rem;
+	color: #030303;
+	line-height: 0.7rem;
+}
+.address_box>input{
+	width: 56%;
+	height: 1.5rem;
+	background-color: #D6AA69;
+	display: block;
+	margin: 0.5rem auto;
+	border: none;
+	font-size: 0.7rem;
+	color: #fff;
+	border-radius: 2rem;
+}
+.fill_address{
+	width: 100%;
+	border-bottom: 1px solid #EFEFEF;
+	padding: 0.5rem 0;
+	display: none;
+}
+.fill_address>input{
+	width: 98%;
+	height: 1.4rem;
+	border: 1px solid #B4B4B4;
+	padding-left: 2%;
+	border-radius: 0.2rem;
+	margin-bottom: 0.5rem;
+}
+.fill_address>select+select{
+	margin-left: 5%;
+}
+.fill_address>select{
+	margin-bottom: 0.5rem;
+	width: 30%;
+	height: 1.5rem;
+	border-radius: 0.2rem;
+	border: 1px solid #B4B4B4;
+}
+.fill_address>textarea{
+	width: 94%;
+	height: 2.1rem;
+	padding: 0.4rem 3%;
+	border-radius: 0.2rem;
+	resize: none;
+	margin-bottom: 0.3rem;
+}
+.fill_address>i{
+	margin:0.1rem 1% 0 3%;
+}
+.fill_address>span{
+	font-size: 0.6rem;
+	color: #909090;
+	line-height: 0.6rem;
+}
+/*购买数量*/
+.number_layer_i{
+	margin: 0.5rem 3% 0.6rem 0;
+}
+.number_box2{
+	clear: both;
+	margin-bottom: 0.75rem;
+}
+.number_box2>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 2.15rem;
+	margin-left: 3%;
+}
+.number_box_cont{
+	margin-right: 7%;
+}
+.number_box_cont>span{
+	width: 20%;
+	height: 2.2rem;
+	background-color: #FFF;
+	font-size: 1.5rem;
+	color: #d6aa69;
+	text-align: center;
+	border: 1px solid #B4B4B4;
+	box-sizing: border-box;
+}
+.number_box_cont>input{
+	width: 60%;
+	height: 2.1rem;
+	background-color: #FFF;
+	border: none;
+	text-align: center;
+	font-size: 0.9rem;
+	color: #d6aa69;
+	border: 1px solid #B4B4B4;
+	border-left: none;
+	border-right: none;
+}
+/************************************************************\
+                 	兑换详情(实体)
+\************************************************************/
+.entity_main{
+	width: 100%;
+	background-color: #E8E8E8;
+}
+.entity_top{
+	width: 100%;
+}
+.entity_top>img{
+	width: 6.1rem;
+	height: 4.1rem;
+	margin: 0.5rem 3%;
+}
+.entity_top>ul{
+	width: 60%;
+	margin-top: 1rem;
+}
+.entity_top>ul>li+li{
+	margin-top: 0.4rem;
+}
+.entity_top>ul>li{
+	width: 100%;
+}
+.entity_top>ul>li>p{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+	margin-right: 2%;
+}
+.entity_top>ul>li>span{
+	font-size: 0.7rem;
+	color: #D6AA69;
+	line-height: 0.7rem;
+	margin-right: 2%;
+}
+.entity_top>ul>li>i{
+	font-size: 0.7rem;
+	color: #484848;
+	line-height: 0.7rem;
+	font-style: normal;
+}
+.entity_main>ul{
+	width: 100%;
+}
+.entity_main>ul>li{
+	width: 97%;
+	border-top: 1px solid #EFEFEF;
+	padding: 0 0 0 3%;
+}
+.entity_main>ul>li>p{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 2.1rem;
+	margin-right: 2%;
+}
+.entity_main>ul>li>span{
+	width: 80%;
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 2.1rem;
+	overflow: hidden;
+  	text-overflow:ellipsis;
+  	-ms-text-overflow:ellipsis;
+  	white-space: nowrap;
+}
+.entity_main>ul>li>i{
+	width: 80%;
+	font-size: 0.7rem;
+	color: #D6AA69;
+	line-height: 2.1rem;
+	font-style: normal;
+}
+.entity_weixin{
+	width: 100%;
+	margin-top: 2.25rem;
+}
+.entity_weixin>p{
+	width: 72%;
+	margin: 0 auto;
+	font-size: 0.9rem;
+	color: #e8e8e8;
+	line-height: 1.5rem;
+	text-align: center;
+}
+.entity_weixin>p>span{
+	font-size: 0.9rem;
+	color: #D6AA69;
+}
+/************************************************************\
+                 	roll详情(开奖)
+\************************************************************/
+.roll_main{
+	width: 100%;
+	padding-bottom: 7rem;
+}
+.roll_img{
+	width: 100%;
+	height: 12.6rem;
+	vertical-align : bottom
+}
+.enroll_box{
+	width: 94%;
+	padding: 0.7rem 3% 0.5rem 3%;
+	background-color: #E8E8E8;
+	margin-bottom: 0.5rem;
+}
+.enroll_box>h1{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	margin-bottom: 0.5rem;
+}
+.enroll_box>p{
+	font-size: 0.7rem;
+	color: #C02D14;
+	line-height: 0.7rem;
+	margin-bottom: 0.75rem;
+}
+.enroll_box>i{
+	margin-right: 2%;
+}
+.enroll_box>span{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+	margin-bottom: 0.6rem;
+}
+.lottery_box1{
+	clear: both;
+	width: 100%;
+	background-color: #C89B59;
+	margin-bottom: 0.5rem;
+}
+.lottery_box1>img{
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 50%;
+	margin: 0.5rem 2% 0.5rem 20%;
+}
+.lottery_box1>ul{
+	width: 68%;
+	margin-top: 0.5rem;
+}
+.lottery_box1>ul>li+li{
+	margin-top: 0.3rem;
+}
+.lottery_box1>ul>li{
+	width: 100%;
+}
+.lottery_box1>ul>li>p{
+	font-size: 0.7rem;
+	color: #fff;
+	line-height: 0.7rem;
+}
+.lottery_box1>ul>li>span{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	margin-left: 3%;
+}
+.enroll_min_box{
+	width: 100%;
+	clear: both;
+	background-color: #F6F6F6;
+	padding: 0.8rem 0;
+}
+.enroll_min_box>p{
+	font-size: 0.7rem;
+	color: #c89b59;
+	line-height: 0.7rem;
+	margin: 0 2% 0 22%;
+}
+.enroll_min_box>span{
+	font-size: 0.7rem;
+	color: #8d8d8d;
+	line-height: 0.7rem;
+}
+/*已报名用户*/
+.roll_user_box{
+	width: 100%;
+	background-color: #E8E8E8;
+}
+.roll_user_title{
+	width: 98%;
+	padding-left: 2%;
+	border-bottom: 1px solid #EFEFEF;
+}
+.roll_user_title>p{
+	font-size: 0.6rem;
+	color: #323232;
+	line-height: 2.4rem;
+	margin-right: 1%;
+}
+.roll_user_title>p>i{
+	font-size: 0.6rem;
+	color: #D6AA69;
+	line-height: 0.6rem;
+	font-style: normal;
+}
+.roll_user_title>span{
+	font-size: 0.5rem;
+	color: #909090;
+	line-height: 2.4rem;
+}
+.roll_user_box>ul{
+	width: 100%;
+	padding-bottom: 0.4rem;
+}
+.roll_user_box>ul>li{
+	width: 97%;
+	padding-left: 3%;
+	margin-top: 0.5rem;
+}
+.roll_user_box>ul>li>img{
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 50%;
+	margin-right: 2%;
+}
+.roll_user_box>ul>li>p{
+	width: 86%;
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 0.7rem;
+	margin-bottom: 0.3rem;
+}
+.roll_user_box>ul>li>span{
+	width: 86%;
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+/************************************************************\
+                 	roll详情(已报名)
+\************************************************************/
+.enroll_box .will_txt{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 0.7rem;
+	margin-right: 2%;
+}
+.enroll_box .countdown_txt{
+	font-size: 1rem;
+	color: #d6aa69;
+	line-height: 1rem;
+	margin-top: -0.2rem;
+}
+.user_title_span{
+	margin-right: 3%;
+}
+.roll_user_btn{
+	width: 100%;
+/*	border-top: 1px solid #EFEFEF;*/
+	padding: 0.65rem 0 0.5rem 0;
+	position:fixed;
+	bottom: 3.5rem;
+}
+.roll_user_btn>input{
+	width: 81%;
+	height: 2rem;
+	background-color: #909090;
+	border: none;
+	border-radius: 2rem;
+	display: block;
+	margin: 0 auto;
+	font-size: 0.8rem;
+	color: #fff;
+}
+/************************************************************\
+                 	roll详情(正在进行)
+\************************************************************/
+.enroll_min_box>h3{
+	width: 100%;
+	text-align: center;
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 0.7rem;
+}
+.for_btn>input{
+	background-color: #D6AA69;
+}
+/*报名成功弹层*/
+.enroll_success{
+	width: 87%;
+	margin: 0 auto;
+	position: relative;
+}
+.enroll_success>span{
+	position: absolute;
+	right: 3%;
+	top: 0.5rem;
+}
+.enroll_success>i{
+	margin: 1.3rem 3% 0.3rem 32%;
+}
+.enroll_success>p{
+	font-size: 0.9rem;
+	color: #fff;
+	line-height: 1.5rem;
+	margin-top: 1.3rem;
+}
+.enroll_success .duihuan_box{
+	width: 100%;
+}
+.enroll_success .duihuan_box>p{
+	width: 75%;
+	text-align: center;
+	margin: 0 auto;
+	font-size: 0.9rem;
+	color: #fff;
+}
+.enroll_success .duihuan_box>span{
+	margin: 0 1%;
+}
+/************************************************************\
+                 		我roll的
+\************************************************************/
+.my_roll{
+	width: 100%;
+	background-color: #E8E8E8;
+}
+.my_roll_box{
+	width: 97%;
+	display: block;
+	padding: 0.5rem 0 0.5rem 3%;
+	border-bottom: 1px solid #EFEFEF;
+}
+.my_roll_box>img{
+	width: 8.85rem;
+	height: 6rem;
+	margin-right: 3%;
+}
+.my_roll_cont{
+	width: 48%;
+}
+.my_roll_top{
+	margin-bottom: 0.7rem;
+}
+.my_roll_top>h1{
+	font-size: 0.7rem;
+	color: #323232;
+	line-height: 0.7rem;
+	margin: 0.35rem 0;
+}
+.my_roll_top>p{
+	font-size: 0.7rem;
+	color: #c02d14;
+	line-height: 0.7rem;
+}
+.my_roll_top>span{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.my_roll_bottom>i{
+	margin: 0 1% 0.2rem 0;
+}
+.my_roll_bottom>h3{
+	font-size: 0.6rem;
+	color: #d6aa69;
+	line-height: 0.6rem;
+	margin: 0 0 0.2rem 0;
+}
+.my_roll_bottom>h2{
+	clear: both;
+	font-size: 1.2rem;
+	color: #d6aa69;
+	line-height: 1.2rem;
+}
+.my_roll_cont .my_h3_grey{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.my_roll_cont .my_h2_grey{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+	margin-bottom: 0.2rem;
+}
+.my_roll_bottom>h4{
+	font-size: 0.6rem;
+	color: #666;
+	line-height: 0.6rem;
+}
+.my_roll_cont .my_h3_color{
+	clear: both;
+}
+/************************************************************\
+                 	roll详情(我中奖)	
+\************************************************************/
+.me_lottery{
+	margin-bottom: 0;
+	position: relative;
+}
+.me_lottery>i{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+/************************************************************\
+                 	推广获益
+\************************************************************/
+.popu_main{
+	width: 100%;
+	background-color: #E8E8E8;
+}
+.popu_main>li+li{
+	border-top: 1px solid #f6f6f6;
+}
+.popu_main>li{
+	padding: 0 4%;
+}
+.popu_main>li>p{
+	font-size: 0.7rem;
+	color: #909090;
+	line-height: 2.2rem;
+}
+.popu_main>li>span{
+	font-size: 0.7rem;
+	color: #666;
+	line-height: 2.2rem;
+	margin-left: 2%;
+}
+.popu_main>li>i{
+	font-size: 0.7rem;
+	color: #d6aa69;
+	line-height: 2.2rem;
+	font-style: normal;
+}
+/************************************************************\
+                 	推广二维码	
+\************************************************************/
+.code_main{
+	width: 100%;
+	/*height: 100%;*/
+	background: url(/Public/Images/front/front_img/bg3x.png) no-repeat;
+	/*background-size: 100%;*/
+	padding-top: 1.45rem;
+	/*box-sizing: border-box;*/
+	/*padding-bottom: 3rem;*/
+}
+.code_txt{
+	width: 8.8rem;
+	height: 1.4rem;
+	display: block;
+	margin: 0 auto 0.75rem auto;
+}
+.code_title{
+	width: 100%;
+	height: 1.5rem;
+	background: url(/Public/Images/front/front_img/title3x.png) no-repeat;
+	background-size: 11.2rem 1.5rem;
+	background-position-x: center;
+	margin-bottom: 1.4rem;
+}
+.code_title>p{
+	font-size: 0.9rem;
+	color: #ffffff;
+	line-height: 1.5rem;
+	text-align: center;
+}
+.code_cont{
+	width: 76%;
+	margin: 0 auto;
+}
+.cont_top{
+	background-color: #FFF;
+	border-radius: 0.2rem 0.2rem 0 0;
+}
+.cont_top>img{
+	width: 2.45rem;
+	height: 2.45rem;
+	border-radius: 50%;
+	border:1px solid #d6aa69;
+	margin: 0.5rem 3% 0.5rem 4%;
+}
+.cont_top>p{
+	line-height: 3.55rem;
+	font-size: 0.8rem;
+	color: #d6aa69;
+}
+.cont_bottom{
+	background-color: #d8d8d8;
+	border-radius: 0 0 0.2rem 0.2rem;
+	padding-top: 1.2rem;
+	padding-bottom: 1rem;
+	margin-bottom: 1.15rem;
+}
+.cont_bottom #qrcode{
+	/*width: 12.8rem;
+	height: 12.8rem;*/
+	display: table;
+	margin: 0 auto;
+	margin-bottom: 0.7rem;
+}
+#qrcode>canvas{
+	width: 12.8rem;
+	height: 12.8rem;
+	margin: 0 auto;
+}
+/*@media only screen and (min-width: 768px){
+	#qrcode>canvas{
+		width: auto;
+		height: auto;
+		display: table;
+		margin: 0 auto;
+	}
+	.code_main{
+		margin-bottom: 2.5rem;
+	}
+}*/
+.cont_bottom>p{
+	font-size: 0.8rem;
+	color: #323232;
+	line-height: 0.8rem;
+	text-align: center;
+}
+.code_footer{
+	width: 100%;
+	padding-bottom: 3rem;
+}
+.code_footer>img{
+	width: 14.65rem;
+	height: 0.45rem;
+	display: block;
+	margin: 0 auto;
+}
+.code_footer>p{
+	text-align: center;
+	font-size: 1.1rem;
+	color: #d6aa69;
+	line-height: 1.1rem;
+	margin: 0.5rem 0;
+}
+
+
+/***状态添加***/
+.lottery_get{
+	background:url(/Public/Images/front/front_img/lottery_get.png) no-repeat 100% 0%;
+	background-color: #E8E8E8;
+	background-size: 2.6rem 2.6rem;
+}
+.lottery_win{
+	background:url(/Public/Images/front/front_img/lottery_win.png) no-repeat 100% 0%;
+	background-color: #E8E8E8;
+	background-size: 2.6rem 2.6rem;
+}
+.refresh{
+	position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 999;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.refresh img{
+	width: 100%;
+    height: 100%;
+}
+
+
+.url_hint{
+	font-size: .5rem;
+    color: #909090;
+    margin: .35rem 0;
+    line-height: .8rem;
+}
+
+/*--------夺宝周榜---------*/
+.treasure-list{
+	height:1.9rem;
+	background:#202020;
+	color:white;
+	font-family:PingFangSC-Regular;
+	font-size:0.8rem;
+	border-top:1px solid #666;
+}
+.treasure-list li{
+	float:left;
+	line-height:1.9rem;
+}
+.treasure-list .week-list{
+	margin:0 8rem 0 0.45rem;
+}
+.treasure-list .week-profit p{
+	float:left;
+}
+.treasure-list .week-profit span{
+	float:left;
+	width:0.8rem;
+	height:0.8rem;
+	background:url(/Public/Images/front/front_img/icon_shuoming.png) center no-repeat;
+	background-size:100% 100%;
+	margin:0.55rem 0 0 0.45rem;
+}
+.treasure-list .week-icon{
+	float:right;
+	margin-right:0.6rem;
+}
+/*---榜单内容----*/
+.list-cont{
+	background:#e8e8e8;
+	display:none;
+	font-family: PingFangSC-Regular;
+}
+.list-cont ul{
+	height:2rem;
+	line-height:2rem;
+	color: #202020;
+	font-size:0.8rem;
+}
+.list-cont ul.red{
+	border-bottom:1px solid #dbdcdf;
+}
+.list-cont ul li{
+	float:left;
+}
+.list-cont ul li.first-li{
+	margin:0 1rem 0 0.4rem;
+	/*width: 9.4rem;*/
+}
+.list-cont ul li.mid-li {
+    width: 5rem;
+    margin-right: 0.4rem;
+    overflow: hidden;
+}
+/*--盈利人次的弹框---*/
+.info-wrap{
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+	z-index:10000;
+}
+.info-wrap .info-bg{
+	background:#7f7f7f;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10000;
+	opacity:0.3;
+}
+.info-wrap .info-cont{
+	background:#e8e8e8;
+	width:13.5rem;
+	height:8.5rem;
+	font-family:STHeitiSC-Light;
+	font-size:0.8rem;
+	position:absolute;
+	margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:10001;
+	border-radius:0.2rem;
+	color: #030303;
+}
+.info-wrap .info-cont h3{
+	text-align:center;
+	letter-spacing: -0.1px;
+	line-height:2rem;
+}
+.info-wrap .info-cont p{
+	text-align:center;
+	font-size:0.7rem;
+	line-height:2rem;
+}
+.info-wrap .info-cont span{
+	font-size:0.8rem;
+	margin:0.5rem auto 0;
+	display:block;
+	width:7.5rem;
+	height:1.5rem;
+	background:#d6aa69;
+	color:white;
+	text-align:center;
+	line-height:1.5rem;
+	border-radius:0.75rem;
+}
+.info-wrap .info-cont .fork{
+	width:0.6rem;
+	height:0.6rem;
+	background:url(/Public/Images/front/front_img/cancel_copy@3x.png) no-repeat;
+	background-size:100% 100%;
+	position:absolute;
+	top:0.5rem;
+	right:0.5rem;
+}
+/*------福利专区夺宝详情提示弹框----------*/
+.welfare-popup-wrap{
+	width:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	display:block;
+	z-index:10000;
+}
+.welfare-popup-bg{
+	background:#7f7f7f;
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	z-index:10000;
+	opacity:0.3;
+}
+.welfare-popup-cont{
+	font-family: STHeitiSC-Light;
+	background:#e8e8e8;
+	width:13.5rem;
+	height:7.75rem;
+	position:absolute;
+	margin:auto;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	z-index:10001;
+	border-radius:4px;
+	color:#313131;
+}
+.welfare-popup-cont h3{
+	text-align:center;
+	font-size:0.8rem;
+	line-height:2rem;
+}
+.welfare-popup-cont p{
+	padding:0 0.5rem;
+	font-size:0.8rem;
+	line-height:1.5rem;
+	font-size:0.7rem;
+	border-bottom: 1px solid white;
+}
+.welfare-popup-cont span{
+	font-size:0.8rem;
+	margin:0.5rem auto 0;
+	display:block;
+	width:7.5rem;
+	height:1.5rem;
+	background:#d6aa69;
+	color:white;
+	text-align:center;
+	line-height:1.5rem;
+	border-radius:0.75rem;
+}
+.welfare-popup-fork{
+	width:0.5rem;
+	height:0.5rem;
+	background:url(/Public/Images/front/front_img/cancel_copy@3x.png) no-repeat;
+	background-size:100% 100%;
+	position:absolute;
+	top:0.5rem;
+	right:1rem;
+}
+/*-----福利专区------*/
+.welfare-area h2{
+	height:2rem;
+	background:#202020;
+	font-size:0.8rem;
+	font-family:PingFangSC-Regular;
+	line-height:2rem;
+	color:#D6AA69;
+	/*border-top:1px solid #6f6f6f; */
+	line-height:2rem;
+	text-indent:0.45rem;
+}
+.welfare-limit{
+	position:relative;
+}
+.welfare-limit .limit-icon{
+	width:1rem;
+	height:1.25rem;
+	background:url(/Public/Images/front/front_img/xian@3x.png) center no-repeat;
+	background-size:100% 100%;
+	position:absolute;
+	right:0;
+	top:0.5rem;
+}
+/*--夺宝大作战----*/
+.fight-treasure h2{
+	height:2rem;
+	background:#202020;
+	font-size:0.8rem;
+	line-height:2rem;
+	color:white;
+	font-family:PingFangSC-Regular;
+	text-indent:0.45rem;
+}

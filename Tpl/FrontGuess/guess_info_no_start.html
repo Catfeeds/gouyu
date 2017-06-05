@@ -1,0 +1,59 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background-color:#202020;
+		}
+		</style>
+{/block}
+{block name="content"}
+		<div class="guess_info_head clearfix">
+			<h1 class="fl">该比赛无赛中竞猜，将会在比赛前一小时关闭！</h1>
+			<i class="fr icon2 tsclose"></i>
+		</div>
+		<div class="guess_doing_cont ">
+			<img src="/Public/Images/front/front_img/1.jpg" class="bg_img"/>
+			<!-- bg_img 背景图 -->
+			<h1 class="guess_doing_tit">
+                {$guess_info.alert_message}
+			</h1>
+			<!-- 补充文字 删除不改变布局-->
+			<div class="team_box clearfix">
+				<div class="fl team_img_box">
+                    <img src="{$host_team_info.team_logo}" class="team_img"/>
+                    <h1 class="team_name">{$host_team_info.team_name}</h1>
+                    {if $guess_info.is_over && $guess_info.host_score > $guess_info.guest_score}<span class="victory"></span>{/if}
+				</div>
+				<div class="fr team_img_box">
+                    <img src="{$guest_team_info.team_logo}" class="team_img"/>
+                    <h1 class="team_name">{$guest_team_info.team_name}</h1>
+                    {if $guess_info.is_over && $guess_info.host_score < $guess_info.guest_score}<span class="victory"></span>{/if}
+					<!--  span victory 是胜利方出现的标志 -->
+				</div>
+				<div class="clearfix">
+					<div class="score_box clearfix">
+                        <p class="fl score_p">{$guess_info.host_score|default:0}</p>
+						<i class="icon2 VS fl"></i>
+                        <p class="fl score_p">{$guess_info.guest_score|default:0}</p>
+					</div>
+					<div class="ronda_box">
+						<div class="ronda_bg clearfix"><div class="ronda_bg_left fl"></div><div class="ronda_bg_right fr"></div></div>
+                        <h1 class="ronda_num">BO {if $guess_info.bo}{$guess_info.bo}{else}{$guess_field_num}{/if}</h1>
+					</div>
+                    {if $guess_field_num}
+                    {/if}
+				</div>
+			</div>
+		</div>
+		<div class="guess_stop_main">
+			<p>本场比赛暂未开放竞猜</p>
+		</div>
+{/block}
+{block name="js"}
+		<script>
+			$(".guess_info_head .tsclose").on("click",function(){
+				$(this).parent().hide(100);
+			})
+		</script>
+{/block}

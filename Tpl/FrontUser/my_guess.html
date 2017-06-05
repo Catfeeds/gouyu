@@ -1,0 +1,120 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+		<style type="text/css">
+		body{
+			background:#202020;
+		}
+		#load_wrapper {
+		  position:absolute; 
+		  z-index:1;
+		  top:5.35rem;
+		  bottom: 0;
+		  width:100%;
+		  overflow:auto;  
+
+		}
+		#scroller{
+			background:#202020;
+		}
+		</style>
+{/block}
+{block name="content"}
+		<div class="record_head clearfix">
+            <a class="active br" href="{$my_guess_link}">比赛竞猜</a>
+            <a class="" href="{$my_guess_champion_link}">冠军猜</a>
+		</div>
+		<div class="record_top">
+			<div class="week_box">
+                <div class="box_list">本周竞猜次数:{$wek_total_num|default:0}</div>
+                <div class="box_list">竞猜胜率:{$wek_prize_rate|default:0}％</div>
+                <div class="box_list">竞猜盈利:{$gain_money_wek|default:0}</div>
+			</div>
+			<div class="month_box">
+                <div class="box_list">本月竞猜次数:{$mon_total_num|default:0}</div>
+                <div class="box_list">竞猜胜率:{$mon_prize_rate|default:0}％</div>
+                <div class="box_list">竞猜盈利:{$gain_money_mon|default:0}</div>
+			</div>
+		</div>
+		<div class="record_list" id="load_wrapper">
+			<div id="scroller">
+				<ul id="new_list">
+                    {foreach from=$guess_user_list item=item}
+					<li class="record_li">
+                        <a class="clearfix" href="/FrontGuess/guess_info/guess_id/{$item.guess_id}">
+							<div class="top clearfix">
+                                <h1 class="fl">{$item.ajax_addtime}</h1>
+                                <h2 class="fr"><span>{$item.host_team_name|default:'--'}</span>&nbsp;VS&nbsp;<span>{$item.guest_team_name|default:'--'}</span></h2>
+							</div>
+							<div class="cont">
+                                <h1>{$item.guess_question|truncate:23:"...":true}</h1>
+                                <h2>竞猜：
+                                    {if $item.team_type == 1}
+                                        {if $item.defind_team_name}{$item.defind_host_name}
+                                        {else if $item.field_type == 1}{$item.host_team_name}
+                                            {if $item.lose_type == 1} -{$item.lose_score} {/if}
+                                        {else if $item.field_type == 2} 大于
+                                        {else}{$item.host_team_name|default:'--'}
+                                        {/if}
+                                        ({$item.host_odds|default:1.00})
+                                    {else}
+                                        {if $item.defind_team_name}{$item.defind_guest_name}
+                                        {else if $item.field_type == 1}{$item.guest_team_name}
+                                            {if $item.lose_type == 2} -{$item.lose_score} {/if}
+                                        {else if $item.field_type == 2} 小于
+                                        {else}{$item.guest_team_name|default:'--'}
+                                        {/if}
+                                        ({$item.guest_odds|default:1.00})
+                                    {/if}</h2>
+                                <h2>结果：
+                                    {if $item.result == 1}
+                                        {if $item.defind_team_name}{$item.defind_host_name}
+                                        {else if $item.field_type == 1}{$item.host_team_name}
+                                            {if $item.lose_type == 1} -{$item.lose_score} {/if}
+                                        {else if $item.field_type == 2} 大于
+                                        {else}{$item.host_team_name|default:'--'}
+                                        {/if}
+                                        ({$item.host_odds|default:1.00})
+                                    {else if $item.result == 2}
+                                        {if $item.defind_team_name}{$item.defind_guest_name}
+                                        {else if $item.field_type == 1}{$item.guest_team_name}
+                                            {if $item.lose_type == 2} -{$item.lose_score} {/if}
+                                        {else if $item.field_type == 2} 小于
+                                        {else}{$item.guest_team_name|default:'--'}
+                                        {/if}
+                                        ({$item.guest_odds|default:1.00})
+                                    {else if $item.result == -1}
+                                        已退款
+                                    {else}
+                                        暂无
+                                    {/if}</h2>
+                                <h3>投注：{$item.add_money|default:"100"}{$system_config.SYSTEM_MONEY_NAME}{if $item.team_type == $item.result}<span>赢取：{$item.prize_money}{$system_config.SYSTEM_MONEY_NAME}</span>{/if}{if $item.result == -1}<span>退回：{$item.prize_money}{$system_config.SYSTEM_MONEY_NAME}</span>{/if}</h3>
+								<!-- 如果没有赢取鱼翅。去除span -->
+							</div>
+						</a>
+					</li>
+                    {/foreach}
+				</ul>
+				<div id="pullUp">
+					<span class="pullUpIcon"></span><span class="pullUpLabel">上拉加载...</span>
+				</div>
+			</div>
+		</div>
+{/block}
+{block name="js"}
+		<script type="text/javascript" src="__JS__/front/front_js/iscroll.js"></script>
+		<script type="text/javascript" src="__JS__/front/front_js/my_guess.js"></script>
+		<script>
+var total = parseInt('{$total_num}');
+var firstRow = parseInt('{$firstRow}');
+var page_num = parseInt('{$page_num}');
+var system_money_name = '{$system_config.SYSTEM_MONEY_NAME}';
+			$(function()
+			{
+				$(".footer_box").on("click",function()
+				{
+					$(this).addClass("footer_active").siblings().removeClass("footer_active");
+				});
+			});
+		</script>
+{/block}

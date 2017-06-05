@@ -1,0 +1,351 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+ <div class="tables-searchbox"> 
+     <a href="/AcpGuessField/add_guess_field" class="btn btn-blue"><i class="gicon-plus white"></i>添加局数</a>  
+</div>
+<div class="tablesWrap">  
+    <div class="tables-searchbox">
+        <form method="post" action="">
+            <span class="tbs-txt">局名称：</span>
+            <input type="text" name="guess_field_name" value="{$guess_field_name}">
+
+            <span class="tbs-txt">所属竞猜：</span>
+            <input type="text" name="guess_name" value="{$guess_name}">
+            
+            <select name="guess_type_id">
+                <option value="0" selected="">-竞猜类型-</option>
+                {foreach from=$guess_type_list item=row}
+                <option value="{$row.guess_type_id}" {if $guess_type_id  EQ $row.guess_type_id}selected{/if}>{$row.guess_type_name}</option>
+                {/foreach}
+            </select>
+
+            <div class="mgt10">
+                <span class="tbs-txt">开盘时间：</span>
+                <input type="text" autocomplete="off" class="Wdate" name="start_date" value="{$start_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <span class="tbs-txt">至</span>
+                <input type="text" autocomplete="off" class="Wdate" name="end_date" value="{$end_date|date_format:'%Y-%m-%d'}"  onclick="WdatePicker()">
+                <button type="submit" class="btn"><i class="gicon-search"></i>搜索</button>
+            </div>
+
+        </form>
+    </div>
+<!-- end tables-searchbox -->  
+<table class="wxtables">  
+    <colgroup>  
+    <col width="3%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="5%">
+    <col width="3%">
+    <col width="3%">
+    <col width="7%">
+    </colgroup>
+    <thead>
+        <tr>  
+            <td>选择</td>  
+            <td>局名称</td>
+            <td>所属竞猜</td>
+            <td>开盘时间</td>
+            <td>排序号</td>
+            <td>是否有效</td>
+            <td>是否第一局</td>
+            <td>操作</td>
+        </tr>  
+    </thead>  
+	{foreach from=$guess_field_list item=question_class}
+    <tbody class="combo-tbody">  
+        <tr>
+			<td><input type="checkbox" class="checkbox" name="a[]" value="{$question_class.guess_field_id}"></td>
+			<td>{$question_class.guess_field_name}</td>  
+			<td>{$question_class.guess_name}</td>  
+			<td>{$question_class.start_time|date_format:"%Y-%m-%d %H:%M:%S"}</td>  
+			<td>{$question_class.serial}</td>  
+			<td>{if $question_class.isuse == 1}是{else}否{/if}</td>  
+			<td>{if $question_class.is_first == 1}是{else}否{/if}</td>  
+            <td>  
+				<a href="/AcpGuessField/edit_guess_field/guess_field_id/{$question_class.guess_field_id}.html" class="btn" title="修改">修改</a>  
+                <a href="javascript:;" class="btn" title="删除" onclick="delete_question_class({$question_class.guess_field_id})">删除</a>  
+                <a href="javascript:;" class="btn" title="全额退款" onclick="refund_question_class({$question_class.guess_field_id})">全额退款</a>  
+                {if !$question_class.is_over}
+                    {if $question_class.is_start == 1}
+                    <a href="javascript:;" class="btn" title="设置开关盘" onclick="set_start_guess_field({$question_class.guess_field_id}, 2)">关盘</a>  
+                    {else if $question_class.is_start == 2}
+                    <a href="javascript:;" class="btn" title="设置开关盘" onclick="set_start_guess_field({$question_class.guess_field_id}, 1)">开盘</a>  
+                    {else}
+                    <a href="javascript:;" class="btn" title="设置开关盘" onclick="set_start_guess_field({$question_class.guess_field_id}, 1)">开盘</a>  
+                    <a href="javascript:;" class="btn" title="设置开关盘" onclick="set_start_guess_field({$question_class.guess_field_id}, 2)">关盘</a>  
+                    {/if}
+                    <a href="javascript:;" class="btn" title="设置结束" onclick="set_over({$question_class.guess_field_id})">设置结束</a>  
+                    <a href="javascript:;" class="btn" title="设为第一局" onclick="set_first_field({$question_class.guess_field_id})">设为第一局</a>  
+                {/if}
+				<a href="/AcpGuessFieldQuestion/list_guess_field_question/guess_field_id/{$question_class.guess_field_id}.html" class="btn" title="每局问题列表">每局问题列表</a>  
+            </td>  
+        </tr>
+    </tbody>
+	{foreachelse}   
+    <tbody>    
+		<tr>
+			<td colspan="7">
+				没有符合条件的记录
+			</td>
+		<tr>
+    </tbody>  
+	{/foreach}
+</table>  
+<!-- end wxtables -->  
+<div class="tables-btmctrl clearfix">  
+    <div class="fl">  
+        <a href="javascript:;" class="btn btn-blue" onclick="Select()">全选</a>  
+        <a href="javascript:;" class="btn btn-blue" onclick="Cancel()">取消</a>  
+        <a href="javascript:;" onclick="batch_delete()" class="btn btn-blue">删除</a>
+    </div>  
+    <div class="fr">  
+        <div class="paginate">
+			{$page_str} 
+        </div>  
+        <!-- end paginate -->  
+    </div>  
+</div>  
+<!-- end tables-btmctrl -->  
+</div>  
+<!-- end tablesWrap -->   
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+{literal}
+<script>
+	//全选
+	function Select(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=true;
+		}
+	}
+	//取消全选
+	function Cancel(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=false;
+		}
+	}
+
+function delete_question_class(question_guess_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这条数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessField/del_guess_field', {"guess_field_id":question_guess_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+function batch_delete()
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这些数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 var question_guess_ids = '';
+				 var count = 0;
+				 $('input[name="a[]"]:checked').each(function(){
+					 count ++;
+					 question_guess_ids += $(this).val() + ',';
+				 });
+
+				 if (!count)
+				 {
+					 alert('对不起，请选择至少一项进行删除！');
+					 return;
+				 }
+
+				 question_guess_ids = question_guess_ids.substr(0, question_guess_ids.length - 1);
+                 console.log(question_guess_ids);
+
+				 $.post('/AcpGuessField/batch_del_guess_field', {"question_guess_field_ids":question_guess_ids}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });
+}
+
+//设置开关盘
+function set_start_guess_field(question_guess_field_id, type)
+{
+    if (type == 1) {
+        var name = '开盘';
+    } else {
+        var name = '关盘';
+    }
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要执行"+name+"操作吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessField/set_start_guess_field', {"guess_field_id":question_guess_field_id, "type":type}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，操作成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+
+//设置结束
+function set_over(question_guess_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要结束这一局吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessField/set_over', {"guess_field_id":question_guess_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，设置成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，设置失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+//设置为第一局
+function set_first_field(question_guess_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要设置这一局为第一局吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessField/set_first_field', {"guess_field_id":question_guess_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，设置成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，设置失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+function refund_question_class(guess_field_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要全额退款给用户吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpGuessField/refund_guess_field', {"guess_field_id":guess_field_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，退款成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，退款失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+</script>
+{/literal}
+{/block} 
+
+{block name="css"}
+<link type="text/css" rel="stylesheet" href="__ACPCSS__/tip.css" />
+{literal}
+<style>
+.PageNext{page-break-after: always; height:1px;}
+</style>
+{/literal}
+{/block} 

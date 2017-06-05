@@ -1,0 +1,82 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/mall_style.css?version={$version}" />
+<link rel="stylesheet" type="text/css" href="__CSS__/front/front_css/layer.css?version={$version}" />
+{/block}
+{block name="content"}
+	<!--顶部细线-->
+		<div class="lottery_line_grey"></div>
+		<div class="lottery_line_black"></div>
+	<!--内容-->
+		<div class="roll_main">
+			<img src="__IMAGES__/front/front_img/1.jpg" class="roll_img" />
+			<div class="enroll_box clearfix">
+                <h1>{$roll_info.roll_name}</h1>
+                <p>奖品:{$roll_info.prize_name}</p>
+				<i class="icon time_gray3x fl"></i>
+                <span class="fl">已开奖&nbsp;{$roll_info.open_time|date_format:"%Y-%m-%d %H:%M:%S"}</span>
+                {if $award_user_info.user_id == $roll_user_info.user_id}
+                <div class="lottery_box1 me_lottery clearfix">
+					<i class="win3x"></i>
+                {else}
+				<div class="lottery_box1 clearfix">
+                {/if}
+                    <img src="{$award_user_info.headimgurl}" class="fl" />
+					<ul class="fl">
+						<li class="clearfix">
+							<p class="fl">中奖者:</p>
+                            <span class="fl">{$award_user_info.nickname}</span>
+						</li>
+						<li>
+                            <p>报名时间:&nbsp;{$award_user_info.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</p>
+						</li>
+					</ul>
+				</div>
+                {if $roll_user_info && $award_user_info.user_id != $roll_user_info.user_id}
+				<div class="enroll_min_box clearfix">
+					<p class="fl">我已报名</p>
+                    <span class="fl">{$roll_user_info.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</span>
+				</div>
+                {/if}
+			</div>
+		<!--roll规则-->
+			<div class="adornment_exchange clearfix">
+				<h1 class="fl">roll规则</h1>
+				<span class="icon down3x fr"></span>
+                <p>{$content}</p>
+			</div>
+		<!--已报名用户-->
+			<div class="roll_user_box">
+				<div class="roll_user_title clearfix">
+                    <p class="fl">已报名用户(<i>{$roll_user_num|default:0}</i>人)</p>
+                    <span class="fl">自{$roll_info.start_time|date_format:"%Y-%m-%d %H:%M:%S"}至{$roll_info.end_time|date_format:"%Y-%m-%d %H:%M:%S"}</span>
+				</div>
+                {if $roll_user_list}
+				<ul>
+                    {foreach from=$roll_user_list item=item}
+					<li class="clearfix">
+                        <img src="{$item.headimgurl}" class="fl" />
+                        <p class="fl">{$item.nickname}</p>
+                        <span class="fl">{$item.addtime|date_format:"%Y-%m-%d %H:%M:%S"}</span>
+					</li>
+                    {/foreach}
+				</ul>
+                {/if}
+			</div>
+		</div>
+		
+{/block}
+{block name="js"}
+		<script>
+			$(function()
+			{
+			/*兑换规则*/
+				$(".adornment_exchange").on("click",function()
+				{
+					$(this).find("p").toggle();
+					$(this).find("span").toggleClass("up3x");
+				});
+			});
+		</script>
+{/block}

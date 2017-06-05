@@ -1,0 +1,85 @@
+{extends file="../home.html"}
+{block name="title"}{$head_title}{/block}
+{block name="css"}
+<style type="text/css">
+		body{
+			background:#202020;
+		}
+		.guess_shade{
+			opacity:0.5;
+		}
+</style>
+{/block}
+{block name="content"}		
+		<ul class="take_list">
+            {foreach from=$user_address_list item=item}
+			<li class="take_list_li {if $item.user_address_id == $user_default_addr['user_address_id']}take_active{/if}">
+				<div class="top_box clearfix">
+                    <h1 class="fl">{$item.realname}</h1>
+					<a class="fr icon2 dzjiantouup" href="javascript:;"></a>
+                    <h2 class="fr">{$item.mobile}</h2>
+                    <input type="hidden" value="{$item.user_address_id}" id="user_address_id"/>
+					<ul>
+						<li class="clearfix mr"><i class="icon2 fl szmr"></i><p>设置默认</p></li>
+						<li class="clearfix del"><i class="icon2 fl lbdelete"></i><p>删除</p></li>
+					</ul>
+				</div>
+                <h3><span>［默认］</span>{$item.area_string}</h3>
+			</li>
+            {/foreach}
+		</ul>
+		<!-- span 请勿删除 take_active为默认地址高亮 -->
+        <a class="global_bt" id="take_bt" href="{$add_user_address_link}">添加新地址</a>
+        <div class="bottom_3rem"></div>
+		<!-- 弹窗 -->
+		<div class="guess_shade"></div>
+		<div class="take_del">
+			<i class="icon2 sctishi"></i>
+			<p>确定删除此列地址?</p>
+			<div class="take_del_box clearfix">
+				<h1 class="fl yes">确定</h1>
+				<h1 class="fl no">取消</h1>
+			</div>
+		</div>
+{/block}
+{block name="js"}		
+		<script>
+			$(".dzjiantouup").on("click",function(){
+				$(".guess_shade").show();
+				$(this).parent().parent().find("ul").show();
+			})
+			// 默认地址
+			$(".top_box .mr").on("click",function(){
+                var user_address_id = $(this).parent().siblings("#user_address_id").val();
+                if (!user_address_id) return;
+                ajax_submit('/FrontAddress/set_default_address', 'user_address_id='+user_address_id);
+				$(this).parent().parent().parent().addClass("take_active").siblings().removeClass("take_active");
+				$(".guess_shade").hide();
+				$(".top_box").find("ul").hide();
+			})
+			// 删除
+            var this_del;
+            var user_address_id;
+			$(".top_box .del").on("click",function(){
+				$(".take_del").show();
+				$(".top_box").find("ul").hide();
+				this_del =$(this).parent().parent().parent();
+                user_address_id = $(this).parent().siblings("#user_address_id").val();
+			})
+            $(".take_del .yes").on("click",function(){
+                if (!user_address_id) return;
+                ajax_submit('/FrontAddress/delete_address', 'user_address_id='+user_address_id);
+                this_del.remove();
+                $(".take_del").hide();
+                $(".guess_shade").hide();
+            })
+            $(".take_del .no").on("click",function(){
+                $(".take_del").hide();
+                $(".guess_shade").hide();
+            })
+			$(".guess_shade").on("click",function(){
+				$(this).hide();
+				$(".top_box").find("ul").hide();
+			})
+		</script>
+{/block}

@@ -1,0 +1,321 @@
+{extends file="../acp.html"}
+
+{block name="title"}{$head_title}{/block}
+{block name="content"}
+<div class="tablesWrap">  
+<!-- end tables-searchbox -->  
+    <div class="tables-searchbox">
+        <form method="post" action="">
+            <span class="tbs-txt">宝贝名称：</span>
+            <input type="text" name="prize_name" value="{$prize_name}">
+
+
+            <select name="is_open">
+                <option value="0" selected="">-是否开奖-</option>
+                <option value="1" {if $is_open EQ 1}selected{/if}>已开奖</option>
+                <option value="2" {if $is_open EQ 2}selected{/if}>未开奖</option>
+                <option value="3" {if $is_open EQ 3}selected{/if}>已退款</option>
+            </select>
+            <select name="is_fuli">
+                <option value="0" selected="">-是否福利-</option>
+                <option value="1" {if $is_fuli EQ 1}selected{/if}>福利专区</option>
+                <option value="2" {if $is_fuli EQ 2}selected{/if}>非福利专区</option>
+            </select>
+
+                <span class="tbs-txt">开始时间：</span>
+                <input type="text" autocomplete="off" class="Wdate" name="start_date" value="{$start_date|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                <span class="tbs-txt">至</span>
+                <input type="text" autocomplete="off" class="Wdate" name="end_date" value="{$end_date|date_format:'%Y-%m-%d %H:%M:%S'}"  onclick="WdatePicker({ dateFmt:'yyyy-MM-dd HH:mm:ss'})">
+                <button type="submit" class="btn"><i class="gicon-search"></i>搜索</button>
+
+        </form>
+    </div>
+<table class="wxtables">  
+    <colgroup>  
+    <col width="2%">
+    <col width="3%">
+    <col width="4%">
+    <col width="4%">
+    <col width="4%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="3%">
+    <col width="8%">
+    </colgroup>
+    <thead>
+        <tr>  
+            <td>选择</td>  
+            <td>图片</td>
+            <td>宝贝名称</td>
+            <td>开始时间</td>
+            <td>结束时间</td>
+            <td>总需人次</td>
+            <td>期数</td>
+            <td>每人限额</td>
+            <td>时时彩号</td>
+            <td>中奖号</td>
+            <td>排序号</td>
+            <td>是否有效</td>
+            <td>已参与人次</td>
+            <td>是否福利</td>
+            <td>操作</td>
+        </tr>  
+    </thead>  
+	{foreach from=$treasure_list item=question_class}
+    <tbody class="combo-tbody">  
+        <tr>
+			<td><input type="checkbox" class="checkbox" name="a[]" value="{$question_class.treasure_id}"></td>
+            <td><img src="{$question_class.img_path}" style="width:50px;height:50px"></td>  
+			<td>{$question_class.prize_name}</td>  
+			<td>{$question_class.start_time|date_format:"%Y-%m-%d %H:%M:%S"}</td>  
+			<td>{$question_class.end_time|date_format:"%Y-%m-%d %H:%M:%S"}</td>  
+			<td>{$question_class.total_person_times}</td>  
+			<td>{$question_class.periods}</td>  
+			<td>{$question_class.each_person_times}</td>  
+            <td>{if $question_class.draw_lottery == 0}未设置{else}{$question_class.draw_lottery}{/if}</td>  
+            <td>{if $question_class.lottery== 0}未设置{else}{$question_class.lottery}{/if}</td>  
+			<td>{$question_class.serial}</td>  
+			<td>{if $question_class.isuse == 1}是{else}否{/if}</td>  
+			<td>{$question_class.people_num}</td>  
+			<td>{if $question_class.is_fuli == 1}是{else}否{/if}</td>  
+            <td>  
+                <a href="javascript:;" class="btn" title="删除" onclick="delete_question_class({$question_class.treasure_id})">删除</a>  
+                <a href="javascript:;" class="btn j_form" title="设置结果" data-id="{$question_class.treasure_id}" >设置结果</a>
+				<a href="/AcpTreasureUser/list_treasure_user/treasure_id/{$question_class.treasure_id}.html" class="btn" title="夺宝用户">夺宝用户列表</a>  
+                {if $question_class.is_open}
+                {if $question_class.lottery}
+				<a href="/AcpDrawPrize/list_draw_prize/treasure_id/{$question_class.treasure_id}.html" class="btn" title="">查看中奖结果</a>  
+                {/if}
+                {else}
+				<a href="/AcpTreasure/edit_treasure/treasure_id/{$question_class.treasure_id}.html" class="btn" title="修改">修改</a>  
+                {/if}
+            </td>  
+        </tr>
+    </tbody>
+	{foreachelse}   
+    <tbody>    
+		<tr>
+			<td colspan="7">
+				没有符合条件的记录
+			</td>
+		<tr>
+    </tbody>  
+	{/foreach}
+</table>  
+<!-- end wxtables -->  
+<div class="tables-btmctrl clearfix">  
+    <div class="fl">  
+        <a href="javascript:;" class="btn btn-blue" onclick="Select()">全选</a>  
+        <a href="javascript:;" class="btn btn-blue" onclick="Cancel()">取消</a>  
+        <a href="javascript:;" onclick="batch_delete()" class="btn btn-blue">删除</a>
+    </div>  
+    <div class="fr">  
+        <div class="paginate">
+			{$page_str} 
+        </div>  
+        <!-- end paginate -->  
+    </div>  
+</div>  
+<!-- end tables-btmctrl -->  
+</div>  
+<!-- end tablesWrap -->   
+{/block} 
+
+{block name="js"}
+<script src="/Public/Plugins/My97DatePicker/WdatePicker.js?version={$version}"></script>
+{literal}
+<script>
+	//全选
+	function Select(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=true;
+		}
+	}
+	//取消全选
+	function Cancel(){
+		var sel=document.getElementsByName("a[]");
+		for(var i=0;i<sel.length;i++){
+			sel[i].checked=false;
+		}
+	}
+
+function delete_question_class(question_class_id)
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这条数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 $.post('/AcpTreasure/del_treasure', {"treasure_id":question_class_id}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+                    else if (data == 'have')
+                    {
+						alert('夺宝已有人参加，不能删除！');
+                    }
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });  	
+}
+
+function batch_delete()
+{
+	$.jPops.confirm(
+	{  
+		 title:"提示",  
+		 content:"您确定要删除这些数据吗？",  
+		 okBtnTxt:"确定",  
+		 cancelBtnTxt:"取消",  
+		 callback:function(r)
+		 {  
+			 if(r)
+			 {
+				 var question_class_ids = '';
+				 var count = 0;
+				 $('input[name="a[]"]:checked').each(function(){
+					 count ++;
+					 question_class_ids += $(this).val() + ',';
+				 });
+
+				 if (!count)
+				 {
+					 alert('对不起，请选择至少一项进行删除！');
+					 return;
+				 }
+
+				 question_class_ids = question_class_ids.substr(0, question_class_ids.length - 1);
+
+				 $.post('/AcpTreasure/batch_del_treasure', {"question_class_ids":question_class_ids}, function(data, textStatus) 
+				 {
+					if (data == 'success')
+					{
+						alert('恭喜您，删除成功！');
+						location.reload();
+					}
+					else
+					{
+						alert('对不起，删除失败！');
+					}
+				});
+			 }  
+			 return true;  
+		 }
+	 });
+}
+
+$(function() {
+	var html='<form id="pop_demo">                                                                '+
+            '<div class="formitems inline">                                                       '+
+			'	<label class="fi-name"><span class="colorRed">*</span>老时时彩期数：</label>          '+
+			'	<div class="form-controls">                                                       '+
+                '       <input type="text" autocomplete="off" class="" name="lottery_periods" id="lottery_periods">'+
+			'		<span class="fi-help-text" id=""></span>       '+
+			'	</div>                                                                            '+
+			'</div> '+
+            '<div class="formitems inline">                                                       '+
+			'	<label class="fi-name"><span class="colorRed">*</span>老时时彩开奖结果：</label>          '+
+			'	<div class="form-controls">                                                       '+
+                '       <input type="text" autocomplete="off" class="mini" name="lottery" id="lottery">'+
+			'		<span class="fi-help-text" id=""></span>       '+
+			'	</div>                                                                            '+
+			'</div> '+
+			'</form>                                                                              ';
+
+	$(".j_form").click(function(){
+		var treasure_id = $(this).data('id');
+		$.jPops.custom({
+			title:"设置结果",
+			content:html,
+			callback:function(r){
+				acp.popFormStatus=false;//弹窗表单验证状态
+				if(r){
+					$.validator.setDefaults({
+						submitHandler: function() {
+							acp.popFormStatus=true;//设置弹窗表单验证状态为通过
+							var lottery =$("#jpops #lottery").val();
+							var lottery_periods =$("#jpops #lottery_periods").val();
+							$.ajax({
+								url : '/AcpTreasure/set_result', 
+								type : 'POST', 
+								dataType : 'JSON',
+								timeout : 1000,
+								data : {treasure_id: treasure_id, lottery:lottery, lottery_periods:lottery_periods},
+								error : function() {
+									$.jPops.message({title:"操作提示",content: "操作失败请重试",timing:3000});
+								},
+								success : function(result) {
+									if(result.code == 200)
+									{
+										$.jPops.message({title:"操作提示",content: result.msg,timing:3000});
+										//刷新页面
+										setTimeout(function(){window.location.reload() },2000);
+									}
+									else
+									{
+										$.jPops.message({title:"操作提示",content: result.msg,timing:3000});
+									}
+								}
+							});
+							
+						}
+					});
+
+					//表单验证规则
+					$("#pop_demo").validate({
+						rules: {
+							lottery: {required: true},
+						},
+						messages: {
+                            lottery: {required: "请填写老时时彩开奖号码"},
+                        },
+						errorPlacement: acp.form_ShowError,//显示出错信息(这段代码必须加)
+						success:acp.form_HideError//验证成功隐藏错误信息(这段代码必须加)
+					});
+
+					//模拟提交表单
+					$("#pop_demo").submit();
+
+					return acp.popFormStatus;//通过表单验证状态确定是否关闭窗口
+				}
+				else{//点击取消按钮执行的事件
+					return true;
+				}
+			}
+			
+		});
+	})
+});
+</script>
+{/literal}
+{/block} 
+
+{block name="css"}
+<link type="text/css" rel="stylesheet" href="__ACPCSS__/tip.css" />
+{literal}
+<style>
+.PageNext{page-break-after: always; height:1px;}
+</style>
+{/literal}
+{/block} 
